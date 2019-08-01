@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [ 
+   <!ENTITY biol "http://sweet.jpl.nasa.gov/2.1/matrBiomass.owl">    
+   <!ENTITY chem "http://sweet.jpl.nasa.gov/2.1/matr.owl">    
+   <!ENTITY elem "http://sweet.jpl.nasa.gov/2.1/matrElement.owl">    
+   <!ENTITY ecol "http://sweet.jpl.nasa.gov/2.1/phenEcology.owl">    
+   <!ENTITY plan "http://sweet.jpl.nasa.gov/2.1/phen.owl">    
+   <!ENTITY phen "http://sweet.jpl.nasa.gov/2.1/phen.owl">    
+   <!ENTITY impa "http://sweet.jpl.nasa.gov/2.1/stateRoleImpact.owl">    
+   <!ENTITY graph "http://sweet.jpl.nasa.gov/2.1/reprMathGraph.owl">    
+   <!ENTITY comp "http://sweet.jpl.nasa.gov/2.1/reprSciComponent.owl">    
+   <!ENTITY owl "http://www.w3.org/2002/07/owl#">    
+   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
+   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">    
+   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#"> 
+]>
+
+<rdf:RDF 
+   xml:base = "&ecol;"
+   xmlns:biol = "&biol;"
+   xmlns:phen = "&phen;"
+   xmlns:graph = "&graph;"
+   xmlns:comp = "&comp;"
+   xmlns:elem = "&elem;"
+   xmlns:chem = "&chem;"
+   xmlns:impa = "&impa;"
+   xmlns:plan = "&plan;"
+   xmlns:owl = "&owl;"
+   xmlns:rdf = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:xsd = "&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="" 
+owl:versionInfo="2.1">
+     <owl:imports rdf:resource="&biol;"/>
+     <owl:imports rdf:resource="&phen;"/>
+     <owl:imports rdf:resource="&comp;"/>
+     <owl:imports rdf:resource="&graph;"/>
+     <owl:imports rdf:resource="&chem;"/>
+     <owl:imports rdf:resource="&elem;"/>
+     <owl:imports rdf:resource="&impa;"/>
+     <owl:imports rdf:resource="&plan;"/>
+  </owl:Ontology>
+
+<!-- Phenomena -->
+  <owl:Class rdf:about="#Adaptation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Autotroph">
+    <rdfs:subClassOf rdf:resource="&biol;#Organism"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#BiogeochemicalCycle">
+    <rdfs:subClassOf rdf:resource="&graph;#Cycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:allValuesFrom rdf:resource="#EcologicalPhenomena"/>
+         <owl:onProperty rdf:resource="&phen;#hasPhenomena"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CarbonCycle">
+    <rdfs:subClassOf rdf:resource="#BiogeochemicalCycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:hasValue rdf:resource="&elem;#Carbon"/>
+         <owl:onProperty rdf:resource="&chem;#hasSubstance"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#NitrogenCycle">
+    <rdfs:subClassOf rdf:resource="#BiogeochemicalCycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:hasValue rdf:resource="&elem;#Nitrogen"/>
+         <owl:onProperty rdf:resource="&chem;#hasSubstance"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#OxygenCycle">
+    <rdfs:subClassOf rdf:resource="#BiogeochemicalCycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:hasValue rdf:resource="&elem;#Oxygen"/>
+         <owl:onProperty rdf:resource="&chem;#hasSubstance"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#PhosphorusCycle">
+    <rdfs:subClassOf rdf:resource="#BiogeochemicalCycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:hasValue rdf:resource="&elem;#Phosphorus"/>
+         <owl:onProperty rdf:resource="&chem;#hasSubstance"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SulfurCycle">
+    <rdfs:subClassOf rdf:resource="#BiogeochemicalCycle"/>
+     <rdfs:subClassOf>
+       <owl:Restriction>
+         <owl:hasValue rdf:resource="&elem;#Sulfur"/>
+         <owl:onProperty rdf:resource="&chem;#hasSubstance"/>
+       </owl:Restriction>
+     </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Chemoautotroph">
+    <rdfs:subClassOf rdf:resource="#Autotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Chemoheterotroph">
+    <rdfs:subClassOf rdf:resource="#Heterotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Chemoautotroph">
+    <rdfs:subClassOf rdf:resource="#Autotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Chemoheterotroph">
+    <rdfs:subClassOf rdf:resource="#Heterotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CommunityStructure">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Climax">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Competition">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#DiurnalMovement">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Dominance">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EcologicalDynamics">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EcologicalPhenomena">
+    <rdfs:subClassOf rdf:resource="&phen;#Phenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Evolution">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Extinction">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <owl:equivalentClass rdf:resource="#SpeciesExtinction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SpeciesExtinction"/>
+
+  <owl:Class rdf:about="#FeedingHabitat">
+    <rdfs:subClassOf rdf:resource="#Habitat"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FoodChain">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FoodWebDynamics">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Habitat">
+    <rdfs:subClassOf rdf:resource="&comp;#Environment" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Herbivory">
+    <rdfs:subClassOf rdf:resource="#Predation"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#MassExtinctionEvent">
+    <rdfs:subClassOf rdf:resource="&phen;#ExtremeEvent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&impa;#hasImpact" />
+        <owl:someValuesFrom rdf:resource="#Extinction" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Heterotroph">
+    <rdfs:subClassOf rdf:resource="&biol;#Organism"/>
+    <owl:disjointWith rdf:resource="#Autotroph" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#InvasiveSpecies">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Migration">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mutation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mutualism">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#NaturalSelection">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#NutrientLoading">
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#NutrientCycling">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Parasitism">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Photoautotroph">
+    <rdfs:subClassOf rdf:resource="#Autotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Photoheterotroph">
+    <rdfs:subClassOf rdf:resource="#Heterotroph"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#PopulationDynamics">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Postbreeding">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Predation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#PrimaryProduction">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#RangeChange">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Scavenging">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SecondaryProduction">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Selection">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Speciation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SpeciesInteraction">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SpeciesRecruitment">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Succession">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Symbiosis">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Toxicity">
+    <rdfs:subClassOf rdf:resource="#EcologicalPhenomena"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#TrophicLevel">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#TrophicDynamics">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+<!-- Land changes -->
+  <owl:Class rdf:about="#Aridification">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Deforestation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Desertification">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#HabitatConversion">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:subClassOf rdf:resource="&plan;#EnvironmentalImpact" />
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&impa;#hasImpact" />
+        <owl:someValuesFrom rdf:resource="#Habitat" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#HabitatFragmentation">
+    <rdfs:subClassOf rdf:resource="#HabitatConversion" />
+    <rdfs:comment xml:lang="en">Habitat fragmentation is a process of environmental change important in evolution and conservation biology. As the name implies, it describes the emergence of discontinuities (fragmentation) in an organism's preferred environment (habitat). Habitat fragmentation can be caused by geological processes that slowly alter the layout of the physical environment or by human activity such as land conversion, which can alter the environment on a much faster time scale. The former is suspected of being one of the major causes of speciation. The latter is causative in extinctions of many species. Habitat fragmentation is frequently caused by humans when native vegetation is cleared for human activities such as agriculture, rural development or urbanization. Habitats which were once continuous become divided into separate fragments. After intensive clearing, the separate fragments tend to be very small islands isolated from each other by crop land, pasture, pavement, or even barren land. The latter is often the result of slash and burn farming in tropical forests. The term habitat fragmentation can be considered to include six discrete processes: Reduction in the total area of the habitat, increase in the amount of edge, decrease in the amount of interior habitat, isolation of one habitat fragment from other areas of habitat, breaking up of one patch of habitat into several smaller patches, and Decrease in the average size of each patch of habitat.
+    </rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#LandDegradation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Bioaccumulation">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Bioconcentration">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Contamination">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EndangeredSpecies">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EcosystemHealth">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EcosystemService">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Biodiversity">
+    <rdfs:subClassOf rdf:resource="#EcologicalDynamics"/>
+    <rdfs:comment xml:lang="en">Biodiversity is the variation of life forms within a given ecosystem, biome or for the entire Earth. Biodiversity is often used as a measure of the health of biological systems.</rdfs:comment>
+  </owl:Class>
+
+</rdf:RDF>

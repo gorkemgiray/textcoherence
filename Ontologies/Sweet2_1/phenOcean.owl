@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+   <!ENTITY cstate "http://sweet.jpl.nasa.gov/2.1/stateChemical.owl">
+   <!ENTITY realm "http://sweet.jpl.nasa.gov/2.1/realm.owl">
+   <!ENTITY surf "http://sweet.jpl.nasa.gov/2.1/propSpaceHeight.owl">
+   <!ENTITY planp "http://sweet.jpl.nasa.gov/2.1/phen.owl">
+   <!ENTITY mix "http://sweet.jpl.nasa.gov/2.1/phenMixing.owl">
+   <!ENTITY sys "http://sweet.jpl.nasa.gov/2.1/phenSystem.owl">
+   <!ENTITY ocea "http://sweet.jpl.nasa.gov/2.1/phenOcean.owl#">
+   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&ocea;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+	 xmlns:xsd = "&xsd;"
+         xmlns:cstate="&cstate;"
+         xmlns:planp="&planp;"
+         xmlns:realm="&realm;"
+         xmlns:ocea="&ocea;"
+         xmlns:surf="&surf;"
+         xmlns:mix="&mix;"
+         xmlns:sys="&sys;"
+>
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.1">
+     <owl:imports rdf:resource="&mix;"/>
+     <owl:imports rdf:resource="&sys;"/>
+     <owl:imports rdf:resource="&realm;"/>     
+     <owl:imports rdf:resource="&planp;"/>     
+     <owl:imports rdf:resource="&surf;"/>     
+     <owl:imports rdf:resource="&cstate;"/>     
+  </owl:Ontology>
+
+  <owl:Class rdf:about="#OceanPhenomena">
+    <rdfs:subClassOf rdf:resource="&planp;#PlanetaryPhenomena"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="&realm;#Ocean"/>
+        <owl:onProperty rdf:resource="&realm;#hasPlanetaryRealm"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasOceanPhenomena">
+    <rdfs:range rdf:resource="#OceanPhenomena"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#OceanMixing">
+    <rdfs:subClassOf rdf:resource="#OceanPhenomena"/>
+    <rdfs:subClassOf rdf:resource="&mix;#Mixing" />
+    <rdfs:comment xml:lang="en">Any process or series of processes by which parcels of ocean water with different properties are brought into intimate small-scale contact, so that molecular diffusion erases the differences between them.
+    </rdfs:comment>
+  </owl:Class>
+
+<!-- env impacts -->
+  <owl:Class rdf:about="#AlgalBloom">
+    <rdfs:subClassOf rdf:resource="#OceanEnvironmentalImpact"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CoralBleaching">
+    <rdfs:subClassOf rdf:resource="#OceanEnvironmentalImpact"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#DeadZone">
+    <rdfs:subClassOf rdf:resource="#OceanEnvironmentalImpact"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SeaLevelRise">
+    <rdfs:subClassOf rdf:resource="#OceanEnvironmentalImpact"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="&surf;#SeaLevel"/>
+        <owl:onProperty rdf:resource="&sys;#rising"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#OceanAcidification">
+    <rdfs:subClassOf rdf:resource="#OceanEnvironmentalImpact"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&cstate;#hasChemicalState" />
+        <owl:hasValue rdf:resource="&cstate;#Acid" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#OceanEnvironmentalImpact">
+    <rdfs:subClassOf rdf:resource="#OceanPhenomena"/>
+    <rdfs:subClassOf rdf:resource="&planp;#EnvironmentalImpact"/>
+  </owl:Class>
+
+</rdf:RDF>

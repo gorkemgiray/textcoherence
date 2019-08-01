@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY quake "http://sweet.jpl.nasa.gov/2.1/phenGeolEarthquake.owl">  
+  <!ENTITY wave "http://sweet.jpl.nasa.gov/2.1/phenWave.owl">  
+  <!ENTITY phen "http://sweet.jpl.nasa.gov/2.1/phen.owl">  
+  <!ENTITY geol "http://sweet.jpl.nasa.gov/2.1/phenGeol.owl">  
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&quake;"
+         xmlns:quake="&quake;"
+         xmlns:phen="&phen;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:xsd="&xsd;"
+         xmlns:geol="&geol;"
+         xmlns:wave="&wave;"
+>
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.1">
+     <owl:imports rdf:resource="&geol;"/>
+     <owl:imports rdf:resource="&wave;"/>
+     <owl:imports rdf:resource="&phen;"/>
+  </owl:Ontology>
+
+<!-- Phenomena -->
+  <owl:Class rdf:about="#Aftershock">
+    <rdfs:subClassOf rdf:resource="#Earthquake"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Earthquake">
+    <rdfs:subClassOf rdf:resource="#SeismicPhenomena"/>
+    <rdfs:comment xml:lang="en">Earthquakes are caused by energy release during rapid slippage along a fault. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Foreshock">
+    <rdfs:subClassOf rdf:resource="#Earthquake"/>
+    <owl:disjointWith rdf:resource="#Aftershock" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#SeismicPhenomena">
+    <rdfs:subClassOf rdf:resource="&geol;#GeospherePhenomena"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="&wave;#SeismicWave"/>
+        <owl:onProperty rdf:resource="&phen;#hasPhenomena"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#DeepFocusEarthquake">
+    <rdfs:subClassOf rdf:resource="#Earthquake"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ShallowFocusEarthquake">
+    <rdfs:subClassOf rdf:resource="#Earthquake"/>
+    <owl:disjointWith rdf:resource="#DeepFocusEarthquake" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Tremor">
+    <rdfs:subClassOf rdf:resource="#Earthquake"/>
+    <rdfs:comment xml:lang="en">Low amplitude, continuous earthquake activity often associated with magma movement.</rdfs:comment>
+  </owl:Class>
+
+</rdf:RDF>

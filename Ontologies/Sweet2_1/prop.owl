@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY prop  "http://sweet.jpl.nasa.gov/2.1/prop.owl">
+  <!ENTITY proc  "http://sweet.jpl.nasa.gov/2.1/procPhysical.owl">
+  <!ENTITY plan  "http://sweet.jpl.nasa.gov/2.1/realm.owl">
+  <!ENTITY func  "http://sweet.jpl.nasa.gov/2.1/reprMathFunction.owl">
+  <!ENTITY math  "http://sweet.jpl.nasa.gov/2.1/reprMath.owl">
+  <!ENTITY wave "http://sweet.jpl.nasa.gov/2.1/procWave.owl">    
+  <!ENTITY units "http://sweet.jpl.nasa.gov/2.1/reprSciUnits.owl">    
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&prop;"
+         xmlns:prop="&prop;"
+         xmlns:proc="&proc;"
+         xmlns:func="&func;"
+         xmlns:math="&math;"
+         xmlns:wave = "&wave;"
+         xmlns:units = "&units;"
+         xmlns:plan="&plan;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+ 	 xmlns:xsd="&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="" owl:versionInfo="2.1">
+     <owl:imports rdf:resource="&proc;"/>
+     <owl:imports rdf:resource="&plan;"/>
+     <owl:imports rdf:resource="&wave;"/>
+     <owl:imports rdf:resource="&func;"/>
+     <owl:imports rdf:resource="&math;"/>
+     <owl:imports rdf:resource="&units;"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="#Property" />
+
+  <owl:ObjectProperty rdf:about="#hasProperty">
+    <rdfs:range rdf:resource="#Property"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#PhysicalProperty">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ExtensiveProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+    <owl:disjointWith rdf:resource="#IntensiveProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#IntensiveProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+<!-- Interval Quantities -->
+  <owl:Class rdf:about="#IntervalQuantity">
+    <rdfs:subClassOf rdf:resource="&prop;#Property"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#rangeOf">
+    <rdfs:range rdf:resource="#Property"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasLowerValue">
+    <rdfs:range rdf:resource="#Property"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasUpperValue">
+    <rdfs:range rdf:resource="#Property"/>
+  </owl:ObjectProperty>
+
+<!-- Vector Quantities -->
+  <owl:Class rdf:about="#VectorQuantity">
+    <rdfs:subClassOf rdf:resource="&func;#VectorFunction"/>
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Flux">
+    <rdfs:subClassOf rdf:resource="#VectorQuantity"/>
+    <rdfs:comment xml:lang="en">The rate of flow of some quantity, often used in reference to the flow of some form of energy.
+    </rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#VectorPotential">
+    <rdfs:subClassOf rdf:resource="#VectorQuantity"/>
+  </owl:Class>
+
+<!-- Other properties -->
+  <owl:Class rdf:about="#FieldStrength">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Hydropattern">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty" />
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="&plan;#Hydrosphere"/>
+        <owl:onProperty rdf:resource="&plan;#hasPlanetaryRealm"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment>The full range of hydrologic parameters, which include the depth of water, duration of inundation, and the timing and distribution of freshwater flow.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#HydrogeologicalProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FluidProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Potential">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ScalarPotential">
+    <rdfs:subClassOf rdf:resource="#Potential"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ElectromagneticRadiationProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&proc;#hasPhysicalProcess" />
+        <owl:allValuesFrom rdf:resource="&proc;#RadiativeTransfer" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass rdf:resource="#ElectromagneticRadiationQuantity" />
+  </owl:Class>
+  <owl:Class rdf:about="#ElectromagneticRadiationQuantity"/>
+
+  <owl:Class rdf:about="#Amplitude">
+    <rdfs:subClassOf rdf:resource="#WaveProperty"/>
+    <rdfs:comment xml:lang="en">Often the greatest magnitude at a given point of any spatially and temporally varying physical quantity governed by a wave equation; can also mean the spatial part of a time-harmonic wave function.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Sensitivity">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#StrengthProperty">
+    <rdfs:subClassOf rdf:resource="#SolidProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SolidProperty">
+    <rdfs:subClassOf rdf:resource="#MaterialProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#BiologicalProperty">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ConsistenceProperty">
+    <rdfs:subClassOf rdf:resource="#MaterialProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#MaterialProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FluidProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#RadiationMediumInteractionProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ElectromagneticProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ThermodynamicProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#MotionProperty">
+    <rdfs:subClassOf rdf:resource="#PhysicalProperty" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#AngularMotionProperty">
+    <rdfs:subClassOf rdf:resource="#MotionProperty" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#ReactionProperty">
+    <rdfs:subClassOf rdf:resource="#ChemicalProperty"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ChemicalProperty">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#WaveProperty">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasPhysicalProperty">
+    <rdfs:range rdf:resource="#PhysicalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#measureOf">
+    <rdfs:domain rdf:resource="#PhysicalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#Force">
+    <rdfs:subClassOf rdf:resource="#IntensiveProperty"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="&units;#newton"/>
+        <owl:onProperty rdf:resource="&units;#hasDefaultUnit"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#PhysicalConstant">
+    <rdfs:subClassOf rdf:resource="&math;#Constant"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasConservedQuantity">
+    <rdfs:range rdf:resource="#ConservedQuantity"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#ConservedQuantity">
+    <rdfs:subClassOf rdf:resource="&math;#Constant"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#transferOf">
+    <rdfs:range rdf:resource="#PhysicalProperty"/>
+  </owl:ObjectProperty>
+
+<!-- Metrics -->
+  <owl:Class rdf:about="#Metric">
+    <rdfs:subClassOf rdf:resource="#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Efficiency">
+    <rdfs:subClassOf rdf:resource="#Metric"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ComputationalComplexity">
+    <rdfs:subClassOf rdf:resource="#Metric"/>
+  </owl:Class>
+
+</rdf:RDF>
