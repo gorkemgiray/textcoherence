@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+<!DOCTYPE owl [
+<!ENTITY ome "http://www.r4isstatic.com/linkeddata/ontologies/ontomedia/core/expression#">
+<!ENTITY dc "http://purl.org/dc/elements/1.1/">
+<!ENTITY dct "http://purl.org/dc/terms/">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY base "http://www.r4isstatic.com/linkeddata/ontologies/ontomedia/core/space#">
+<!ENTITY aktloc "http://www.r4isstatic.com/linkeddata/ontologies/ontomedia/misc/AKTlocation#">
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+]>
+
+
+<rdf:RDF
+ xmlns:ome="&ome;"
+ xmlns:aktloc="&aktloc;"
+
+ xmlns:dc="&dc;"
+ xmlns:dct="&dct;"
+ xmlns:xsd="&xsd;"
+ xmlns:rdf="&rdf;"
+ xmlns:owl="&owl;"
+ xmlns:rdfs="&rdfs;"
+ xml:base="&base;"
+>
+	 	 
+
+<owl:Ontology rdf:about="&base;">
+ <rdfs:label>OntoMedia Space Representation</rdfs:label>
+ <dc:title xml:lang="en">OntoMedia Space Representation</dc:title>
+ <dc:description xml:lang="en">The OntoMedia Space representation denotes areas of landscape. Expands on the AKT location ontology</dc:description>
+ <dc:creator>Michael O. Jewell (mailto:moj@ecs.soton.ac.uk)</dc:creator>
+ <dc:creator>K Faith Lawrence (mailto:kf03r@ecs.soton.ac.uk)</dc:creator>
+ <dc:creator>Mischa M Tuffield (mailto:mmt04r@ecs.soton.ac.uk)</dc:creator>
+ <dct:created>2005-05-11</dct:created>
+ <owl:versionInfo>0.2</owl:versionInfo>
+ <owl:imports rdf:resource="http://ontomedia.ecs.soton.ac.uk/ontologies/core/expression"/>
+</owl:Ontology>
+  
+  <!-- Space Classes -->
+  
+  <owl:Class rdf:about="&base;Space">
+    <rdfs:label>Space</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a space</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&ome;Entity"/>
+    <rdfs:subClassOf rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Level-Traversing-Space">
+    <rdfs:label>Level Traversing Space</rdfs:label>
+    <rdfs:comment>This class is used to represent a space which traverses levels</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Space" />
+  </owl:Class>  
+
+  <!-- Enclosed spaces -->
+
+  <owl:Class rdf:ID="Vessel">
+    <rdfs:subClassOf rdf:resource="&aktloc;Enclosed-Space"/>
+    <rdfs:label>Vessel</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a vessel</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Portal">
+    <rdfs:subClassOf rdf:resource="&aktloc;Enclosed-Space"/>
+    <rdfs:label>Portal</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a portal i.e doorway, stargate</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Container">
+    <rdfs:subClassOf rdf:resource="&aktloc;Enclosed-Space"/>
+    <rdfs:label>Container</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a container</rdfs:comment>    
+  </owl:Class>
+
+  <!-- Unenclosed Spaces -->
+  
+  <owl:Class rdf:ID="Region">
+    <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+    <rdfs:label>Region</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="World">
+    <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+    <rdfs:label>World</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a world, planet, moon or other similar body</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Orbit">
+    <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+    <rdfs:label>Orbit</rdfs:label>
+    <rdfs:comment>This property is to be used to describe the path of an orbiting object</rdfs:comment>    
+  </owl:Class>
+
+   <owl:Class rdf:ID="Galaxy">
+     <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+     <rdfs:label>Galaxy</rdfs:label>
+     <rdfs:comment>This property is to be used to describe a galaxy</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Universe">
+    <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+    <rdfs:label>Universe</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a universe</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Urban-Area">
+    <rdfs:subClassOf rdf:resource="&aktloc;Open-Space"/>
+    <rdfs:label>Urban Area</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an urban area</rdfs:comment>    
+  </owl:Class>
+  
+  <!-- Urban Areas -->
+  
+  <owl:Class rdf:ID="Village">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>Village</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a village space</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="City">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>City</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a city space</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Metropolis">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>Metropolis</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a metropolis</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Necropolis">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>Necropolis</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a necropolis</rdfs:comment>    
+  </owl:Class>
+  
+    <owl:Class rdf:ID="Quay">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>Quay</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a quay</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Town">
+    <rdfs:subClassOf rdf:resource="#Urban-Area"/>
+    <rdfs:label>Town</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a town</rdfs:comment>    
+  </owl:Class>
+  
+    <!-- City-->
+    
+  <owl:Class rdf:ID="Port">
+    <rdfs:subClassOf rdf:resource="#City"/>
+    <rdfs:label>Port</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a port city</rdfs:comment>    
+  </owl:Class>
+  
+  <!-- Metropolis -->
+    
+  <owl:Class rdf:ID="Capital">
+    <rdfs:subClassOf rdf:resource="#Metropolis"/>
+    <rdfs:label>Capital</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a Capital city</rdfs:comment>    
+  </owl:Class>
+
+  <!-- Regions -->
+ 
+  <owl:Class rdf:ID="Aquatic">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Aquatic Region</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an aquatic region</rdfs:comment>    
+  </owl:Class> 
+        
+  <owl:Class rdf:ID="Arable">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+        <rdfs:label>Arable</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an arable region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Arboreal">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Arboreal</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an arboreal region</rdfs:comment>    
+  </owl:Class>
+    
+  <owl:Class rdf:ID="Area">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Area</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a specific area</rdfs:comment>    
+  </owl:Class>
+    
+  <owl:Class rdf:ID="Bounding">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Bounding</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a region that marks the boundary between other regions</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Continent">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Continent</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a continent</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Country">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Country</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a country</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Gaseous">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Gaseous</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a gaseous region</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Hydrated">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Hydrated</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a very damp region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Layer">
+    <rdfs:subClassOf rdf:resource="&base;Region"/>
+    <rdfs:label>Layer</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a region that forms a layer</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Mountain">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Mountain</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a mountain</rdfs:comment>    
+  </owl:Class>
+    
+  <owl:Class rdf:ID="Mountain-Range">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Mountain Range</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a continious mountainous region</rdfs:comment>    
+  </owl:Class>
+  
+   <owl:Class rdf:ID="Plains">
+    <rdfs:subClassOf rdf:resource="#Region"/>
+    <rdfs:label>Plains</rdfs:label>
+    <rdfs:comment>This property is to be used to describe plains</rdfs:comment>    
+  </owl:Class>
+
+  <!-- Aquatic -->
+
+ <owl:Class rdf:ID="Bay">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Bay</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a bay region</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Pool">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Pool</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a pool region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Lake">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Lake</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a lake region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Sea">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Sea</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a sea region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Ocean">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Ocean</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an ocean region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Stream">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Stream</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a stream region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="River">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>River</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a river region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Estuary">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Estuary</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an estuary region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Puddle">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Puddle</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a puddle region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Pond">
+    <rdfs:subClassOf rdf:resource="#Aquatic"/>
+    <rdfs:label>Pond</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a man-made pond region</rdfs:comment>    
+  </owl:Class>
+
+
+  <!-- Arboreal -->
+
+  <owl:Class rdf:ID="Copse">
+    <rdfs:subClassOf rdf:resource="#Arboreal"/>
+    <rdfs:label>Copse</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a copse region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Forest">
+    <rdfs:subClassOf rdf:resource="#Arboreal"/>
+    <rdfs:label>Forest</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a forested region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Orchard">
+    <rdfs:subClassOf rdf:resource="#Arboreal"/>
+    <rdfs:label>Orchard</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a cultivated orchard region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Wood">
+    <rdfs:subClassOf rdf:resource="#Arboreal"/>
+    <rdfs:label>Wood</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a wooded region</rdfs:comment>    
+  </owl:Class>
+
+
+  <!-- Hydrated -->
+
+  <owl:Class rdf:ID="Marsh">
+    <rdfs:subClassOf rdf:resource="#Hydrated"/>
+    <rdfs:label>Marsh</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a marshy region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Swamp">
+    <rdfs:subClassOf rdf:resource="#Hydrated"/>
+    <rdfs:label>Swamp</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a swampy region</rdfs:comment>    
+  </owl:Class>
+
+  <owl:Class rdf:ID="Bog">
+    <rdfs:subClassOf rdf:resource="#Hydrated"/>
+    <rdfs:label>Bog</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a boggy region</rdfs:comment>    
+  </owl:Class>
+
+  
+  <!-- Arable -->
+  
+  <owl:Class rdf:ID="Field">
+    <rdfs:subClassOf rdf:resource="#Arable"/>
+    <rdfs:label>Field</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a field</rdfs:comment>    
+  </owl:Class>
+
+
+  <!-- Areas -->
+
+  <owl:Class rdf:ID="Ledge">
+    <rdfs:subClassOf rdf:resource="#Area"/>
+    <rdfs:label>Ledge</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a ledge i.e on the mountain wall</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Lot">
+    <rdfs:subClassOf rdf:resource="#Area"/>
+    <rdfs:label>Lot</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a lot of land</rdfs:comment>    
+  </owl:Class>
+  
+    <!-- Bounding -->
+
+  <owl:Class rdf:ID="Riverbank">
+    <rdfs:subClassOf rdf:resource="#Bounding"/>
+    <rdfs:label>Riverbank</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a riverbank</rdfs:comment>    
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Seashore">
+    <rdfs:subClassOf rdf:resource="#Bounding"/>
+    <rdfs:label>Seashore</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a sea shore</rdfs:comment>    
+  </owl:Class>
+  
+  <!-- Mountainous -->
+  
+  <owl:Class rdf:ID="Volcano">
+    <rdfs:subClassOf rdf:resource="#Mountain"/>
+    <rdfs:label>Volcano</rdfs:label>
+    <rdfs:comment>This property is to be used to describe a volcano</rdfs:comment>    
+  </owl:Class>
+
+  <!-- 2D Spaces -->
+  
+  <owl:Class rdf:ID="Surface-Space">
+    <rdfs:subClassOf rdf:resource="#Space"/>
+    <rdfs:label>Surface Space</rdfs:label>
+    <rdfs:comment>This property is to be used to describe the surface of a object</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Biological-Surface-Space">
+    <rdfs:subClassOf rdf:resource="#Surface-Space"/>
+    <rdfs:label>Biological Surface Space</rdfs:label>
+    <rdfs:comment>This property is to be used to describe the surface of a biological object</rdfs:comment>
+  </owl:Class>
+
+ 
+  <!-- properties -->
+
+  <owl:ObjectProperty rdf:ID="has-dividing-item">
+    <rdfs:label>Has Dividing Item</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an item used to divide a portal</rdfs:comment>
+    <rdfs:domain rdf:resource="#Portal"/>
+    <rdfs:range rdf:resource="&ome;Item"/>
+  </owl:ObjectProperty>  
+
+  <owl:ObjectProperty rdf:ID="adjacent-below">
+    <rdfs:subPropertyOf rdf:resource="#adjacent-to"/>
+    <rdfs:label>Adjacent Below</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an adjacent Abstract Space which is below the other</rdfs:comment>
+    <owl:inverseOf rdf:resource="#adjacent-above" />
+    <rdfs:domain rdf:resource="#&aktloc;Abstract-Space"/>
+    <rdfs:range rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="adjacent-above">
+    <rdfs:subPropertyOf rdf:resource="#adjacent-to"/>
+    <rdfs:label>Adjacent Above</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an adjacent Abstract Space which is above the other</rdfs:comment>
+    <owl:inverseOf rdf:resource="#adjacent-below" />
+    <rdfs:domain rdf:resource="#&aktloc;Abstract-Space"/>
+    <rdfs:range rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="orbit-around">
+    <rdfs:subPropertyOf rdf:resource="#adjacent-to"/>
+    <rdfs:label>Orbit Around</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an adjacent Abstract Space which describes an orbit around the other</rdfs:comment>
+    <owl:inverseOf rdf:resource="#adjacent-below" />
+    <rdfs:domain rdf:resource="#&aktloc;Abstract-Space"/>
+    <rdfs:range rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="is-boundary-of">
+    <rdfs:subPropertyOf rdf:resource="&aktloc;is-located-in"/>
+    <rdfs:label>Is Boundary Of</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an Abstract Space of which the region is the boundary</rdfs:comment>
+    <owl:inverseOf rdf:resource="#has-boundry" />
+    <rdfs:domain rdf:resource="#&aktloc;Abstract-Space"/>
+    <rdfs:range rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="has-boundary">
+    <rdfs:subPropertyOf rdf:resource="&aktloc;is-located-in"/>
+    <rdfs:label>Has Boundary</rdfs:label>
+    <rdfs:comment>This property is to be used to describe an Abstract Space which is the boundary of the Abstract Space</rdfs:comment>
+    <owl:inverseOf rdf:resource="#has-boundry" />
+    <rdfs:domain rdf:resource="#&aktloc;Abstract-Space"/>
+    <rdfs:range rdf:resource="&aktloc;Abstract-Space"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF>
+

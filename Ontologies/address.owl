@@ -1,0 +1,251 @@
+<!-- Modified and translated to OWL by: 
+       Juan Ant. Recio-Garcia. 
+       Group for Artificial Intelligence Applications (GAIA) http://gaia.fdi.ucm.es 
+       Universidad Complutense de Madrid 
+-->
+
+<!-- \copyright Copyright ? 2002, Fujitsu Laboratories of America, Inc.; Motorola; 
+Associa??o para o Desenvolvimento das Telecomunica??es e T?cnicas de Inform?tica; AEGIS; Agentscape AG;
+Deutsches Forschungszentrum fuer Kuenstliche Intelligenz GmbH; Imperial College of Science, Technology and Medicine; 
+Telecom Italia Lab.
+ 
+All rights reserved. 
+
+Redistribution and use of this ontology structure without modification 
+are permitted provided that the following conditions are met: 
+
+* Permission of use and redistribution is granted only for research and 
+development purposes and specifically not for any commercial goal or for 
+standardization purpose. 
+* Redistributions of this ontology in any form must retain the above 
+copyright notice, this list of conditions and the following disclaimer. 
+
+* Neither the name of Fujitsu Laboratories of America, Inc.; Motorola; 
+Associa??o para o Desenvolvimento das Telecomunica??es e T?cnicas de Inform?tica; AEGIS; Agentscape AG;
+Deutsches Forschungszentrum fuer Kuenstliche Intelligenz GmbH; Imperial College of Science, Technology and Medicine; 
+Telecom Italia Lab. nor the names of its 
+contributors may be used to endorse or promote products derived from 
+this software without specific prior written permission. 
+* These terms still apply to renamings and other logically equivalent 
+reformulations of the ontology (or portions thereof) in any language. 
+
+THIS SOFTWARE/SPECIFICATION/DOCUMENTATION IS PROVIDED BY THE COPYRIGHT 
+HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF SATISFACTORY 
+QUALITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE. 
+-->
+
+
+<!-- Wed Feb 13 11:01:13 CET 2002 -->
+<!-- Modified in Xemacs by Gunnar on 17/10
+     Added proper utility namespaces
+     Fixed illegal rdf in instances
+     Removed second "size" class
+     These might all be fixed in v6, which is referenced from restaurant-review and finder, but not accessible anywhere.
+     This is based on http://agentcities.adetti-linha4.org/ontologies/restaurantv4.daml
+  -->
+
+<rdf:RDF 
+   xml:base="http://gaia.fdi.ucm.es/ontologies/address.owl"
+   xmlns="http://gaia.fdi.ucm.es/ontologies/address.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+<owl:Ontology rdf:about="">
+  <owl:versionInfo>address.daml,v 2.0 2002/10/01</owl:versionInfo>
+  <rdfs:comment>
+    An ontology of address, with data types taken from XMLSchema.
+  </rdfs:comment>
+</owl:Ontology>
+
+<owl:Class rdf:ID="Address">
+  <rdfs:label>address</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:ID="ExtendedAddress">
+  <rdfs:comment>
+    This category is to be used instead of address if the following properties are needed: language, floor-side-name,
+    number-type, location-name, location-id.
+  </rdfs:comment>
+  <rdfs:subClassOf rdf:resource="#Address"/>
+</owl:Class>
+
+<owl:Class rdf:ID="BuildingSubDivisionType">
+</owl:Class>
+
+<owl:Class rdf:ID="Office">
+  <rdfs:subClassOf rdf:resource="#BuildingSubDivisionType"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Apartment">
+  <rdfs:subClassOf rdf:resource="#BuildingSubDivisionType"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Store">
+  <rdfs:subClassOf rdf:resource="#BuildingSubDivisionType"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Flat">
+  <rdfs:subClassOf rdf:resource="#BuildingSubDivisionType"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Room">
+  <rdfs:subClassOf rdf:resource="#BuildingSubDivisionType"/>
+</owl:Class>
+
+<owl:Class rdf:ID="PublicPlace">
+</owl:Class>
+
+<owl:Class rdf:ID="Boulevard">
+  <rdfs:subClassOf rdf:resource="#PublicPlace"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Avenue">
+  <rdfs:subClassOf rdf:resource="#PublicPlace"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Road">
+  <rdfs:subClassOf rdf:resource="#PublicPlace"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Street">
+  <rdfs:subClassOf rdf:resource="#PublicPlace"/>
+</owl:Class>
+
+<owl:DatatypeProperty rdf:ID="zipCode">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="doorNumber">
+  <rdfs:comment>
+    e.g.: 15, lot-1
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="areaName">
+  <rdfs:comment>
+    e.g.: downtown; synonym: "neighborhood"
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="cityName">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="floorName">
+  <rdfs:comment>
+    e.g.: first-floor
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="stateName">
+  <rdfs:comment>
+    This property is used also for province, county, region.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:ObjectProperty rdf:ID="addressBuildingSubDivisionType">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="#BuildingSubDivisionType"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:ID="buildingSubDivisionName">
+  <rdfs:comment>
+    e.g.: b-15g158, 12-d.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="countryName">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:ObjectProperty rdf:ID="addressPublicPlace">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="#PublicPlace"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:ID="locationType">
+  <rdfs:comment>
+    e.g.: house, office.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="publicPlaceName">
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="buildingName">
+  <rdfs:comment>
+    e.g.: orion-building.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#Address"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="language">
+  <rdfs:comment>
+    e.g.: Italian.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#ExtendedAddress"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="floorSideName">
+  <rdfs:comment>
+    It allows the stating of additional information on the floor, such as the side (left, right, a, b).
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#ExtendedAddress"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="numberType">
+  <rdfs:comment>
+    It identifies the kind of numbering the place has. Internationally, there are options such as number and lot.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#ExtendedAddress"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="locationName">
+  <rdfs:comment>
+    This property associates a common name (possibly not unique) with an address.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#ExtendedAddress"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="locationId">
+  <rdfs:comment>
+    gis-related id.
+  </rdfs:comment>
+  <rdfs:domain rdf:resource="#ExtendedAddress"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+  
+</rdf:RDF>

@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.justtrade.net/ontologies/currency#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.justtrade.net/ontologies/currency" > 
+  <rdf:Description rdf:nodeID="A0">
+    <rdf:rest rdf:nodeID="A1"/>
+    <rdf:first rdf:resource="#ValueAgreement"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ReciprocalAgreement">
+    <owl:disjointWith rdf:resource="#AuthorityAgreement"/>
+    <rdfs:subClassOf rdf:resource="#Agreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isReciprocityOf">
+    <owl:inverseOf rdf:resource="#hasReciprocity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ReciprocityPartition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isIssuerOf">
+    <owl:inverseOf rdf:resource="#isIssuedBy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Issuer"/>
+    <rdfs:range rdf:resource="#Symbol"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:first rdf:resource="#Reciprocal"/>
+    <rdf:rest rdf:nodeID="A8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isReceiverOfPhysicalValue">
+    <rdfs:domain rdf:resource="#Buyer"/>
+    <rdfs:range rdf:resource="#Seller"/>
+    <owl:inverseOf rdf:resource="#isGiverOfPhysicalValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Value">
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"Value" is the set of all things Actors choose to exchange.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isLenderOf">
+    <rdfs:domain rdf:resource="#Creditor"/>
+    <rdfs:range rdf:resource="#SymbolicValue"/>
+    <owl:inverseOf rdf:resource="#isLentBy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Agreement">
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Agreement" is a statement of Obligation of one or more Actors to one or more Actors.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasRepute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ReputeValuePartition"/>
+    <rdfs:domain rdf:nodeID="A9"/>
+    <owl:inverseOf rdf:resource="#isReputeOf"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Mint">
+    <rdfs:subClassOf rdf:resource="#Seller"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Mint" is an Actor that fabricates SymbolicValue as a service to an Issuer.  An Issuer may be its own Mint.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Symbol">
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A physical or electronic object understood to transport a single Denomination of SymbolicValue</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isTransportedBySymbol">
+    <rdfs:range rdf:resource="#Symbol"/>
+    <rdfs:domain rdf:resource="#SymbolicValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isTransporterOfSymbolicValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isMinterOf">
+    <rdfs:domain rdf:resource="#Mint"/>
+    <rdfs:range rdf:resource="#Symbol"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isMintedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ReputeValuePartition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#ReciprocityPartition"/>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ReputeValue is an aspect of a ValueAgreement (and hence of SymbolicValue) that characterizes its generally perceived Value for Trade purposes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <rdf:first rdf:resource="#Minting"/>
+    <rdf:rest rdf:nodeID="A11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isPartOfAn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isComprisedOfOneOrMore"/>
+    <rdfs:domain rdf:nodeID="A12"/>
+    <rdfs:range rdf:nodeID="A13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isTransporterOfSymbolicValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Symbol"/>
+    <rdfs:range rdf:resource="#SymbolicValue"/>
+    <owl:inverseOf rdf:resource="#isTransportedBySymbol"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ObligationSymbolicValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#FiatSymbolicValue"/>
+    <rdfs:subClassOf rdf:resource="#SymbolicValue"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"ObligationSymbolicValue" is a form of SymbolicValue created on the basis of an Obligation to redeem with PhysicalValue.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Nonreciprocal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Reciprocal"/>
+    <rdfs:subClassOf rdf:resource="#ReciprocityPartition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#InterestObligationSymbolicValue">
+    <owl:disjointWith rdf:resource="#PrincipalObligationSymbolicValue"/>
+    <owl:disjointWith rdf:resource="#PhysicalValue"/>
+    <rdfs:subClassOf rdf:resource="#ObligationSymbolicValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Edict">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Edict" is a Policy WITHOUT the characteristic of reciprocity.   An AuthorityAgreement is a concrete (objective) description of an Edict.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Obligation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:first rdf:resource="#Minting"/>
+    <rdf:rest rdf:nodeID="A14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#PhysicalValue">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"PhysicalValue" is the set of all things Actors choose to acquire for use or produce for sale. "PhysicalValue" travels from Sellers to Buyers. (Note that this is not rigid; in "currency trading" SymbolicValue is exchanged for SymbolicValue.)</rdfs:comment>
+    <owl:disjointWith rdf:resource="#PrincipalObligationSymbolicValue"/>
+    <owl:disjointWith rdf:resource="#InterestObligationSymbolicValue"/>
+    <owl:disjointWith rdf:resource="#SymbolicValue"/>
+    <owl:disjointWith rdf:resource="#ReputeValue"/>
+    <rdfs:subClassOf rdf:resource="#Value"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isComprisedOfOneOrMore">
+    <owl:inverseOf rdf:resource="#isPartOfAn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="A15"/>
+    <rdfs:range rdf:nodeID="A6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isReputeOf">
+    <owl:inverseOf rdf:resource="#hasRepute"/>
+    <rdfs:range rdf:nodeID="A4"/>
+    <rdfs:domain rdf:resource="#ReputeValuePartition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Creditor">
+    <owl:disjointWith rdf:resource="#Debtor"/>
+    <owl:disjointWith rdf:resource="#Trader"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Creditor" is an Actor who provides Value to another Actor within an Agreement.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasReciprocity">
+    <rdfs:range rdf:resource="#ReciprocityPartition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isReciprocityOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Minting">
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Minting" is a collection of Symbols made by a Mint according to a MintingAgreement</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Obligation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Obligation" is a Policy with the characteristic of reciprocity.   A ValueAgreement is a concrete (objective) description of an Obligation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Edict"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Trader">
+    <rdfs:subClassOf rdf:resource="#Role"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"Trader" is a role of an actor in using a currency but playing no part in its creation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Creditor"/>
+    <owl:disjointWith rdf:resource="#Debtor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Issuer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Debtor"/>
+    <owl:disjointWith rdf:resource="#Seller"/>
+    <owl:disjointWith rdf:resource="#Guarantor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Issuer" is an Actor who makes SymbolicValue available to Buyers within an ExchangeAgreement &amp;/or Debtors within a LoanAgreement.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isBorrowerOf">
+    <owl:inverseOf rdf:resource="#isBorrowedBy"/>
+    <rdfs:range rdf:resource="#SymbolicValue"/>
+    <rdfs:domain rdf:resource="#Debtor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isExecutorOf">
+    <owl:inverseOf rdf:resource="#isExecutedBy"/>
+    <rdfs:range rdf:resource="#MintingAgreement"/>
+    <rdfs:domain rdf:resource="#Mint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#UltimateCreditor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "UltimateCreditor" is a Creditor with the special characteritics of a "lender of last resort" (ie, central bank)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Creditor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Debtor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Creditor"/>
+    <owl:disjointWith rdf:resource="#Trader"/>
+    <rdfs:subClassOf rdf:resource="#Role"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Debtor" is an Actor who accepts Value from another Actor within an Agreement.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="#Minting"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Guarantor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Guarantor" is an Actor who co-signs, (with a Debtor), an Agreement.  A Guarantor his under an Obligation passed on by A Debtor when the Debtor fails to comply with the Agreement.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Debtor"/>
+    <owl:disjointWith rdf:resource="#Issuer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#FiatSymbolicValue">
+    <rdfs:subClassOf rdf:resource="#SymbolicValue"/>
+    <owl:disjointWith rdf:resource="#ObligationSymbolicValue"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"FiatSymbolicValue" is a form of SymbolicValue created free of any Obligation to redeem with PhysicalValue.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <owl:unionOf rdf:nodeID="A17"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Issuance">
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Issuance" is collection of Symbols representing SymbolicValue created for an Issuer through one or more MintingAgreements with a Denomination described by a ValueAgreement.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isIssuerOfSymbols">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Mint"/>
+    <rdfs:domain rdf:resource="#Symbol"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isExecutedBy">
+    <rdfs:range rdf:resource="#Mint"/>
+    <owl:inverseOf rdf:resource="#isExecutorOf"/>
+    <rdfs:domain rdf:resource="#MintingAgreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#PrincipalObligationSymbolicValue">
+    <rdfs:subClassOf rdf:resource="#ObligationSymbolicValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#InterestObligationSymbolicValue"/>
+    <owl:disjointWith rdf:resource="#PhysicalValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isReceiverOfObligationValue">
+    <owl:inverseOf rdf:resource="#isGiverOfObligationValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Seller"/>
+    <rdfs:range rdf:resource="#Buyer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ParityReputeValue">
+    <rdfs:subClassOf rdf:resource="#ReputeValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicates that ValueAgreement is equal to its nominal</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isDescribedBy">
+    <rdfs:range rdf:resource="#ValueAgreement"/>
+    <rdfs:domain rdf:resource="#Obligation"/>
+    <owl:inverseOf rdf:resource="#isADescriptionOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isLentBy">
+    <rdfs:range rdf:resource="#Creditor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#SymbolicValue"/>
+    <owl:inverseOf rdf:resource="#isLenderOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ValueAgreement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#ExchangeAgreement"/>
+    <rdfs:subClassOf rdf:resource="#ReciprocalAgreement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#SymbolicValue">
+    <owl:disjointWith rdf:resource="#PhysicalValue"/>
+    <owl:disjointWith rdf:resource="#ReputeValue"/>
+    <rdfs:subClassOf rdf:resource="#Value"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"SymbolicValue" is a concept some set of Actors choose to use to facilitate exchange of PhysicalValue. SymbolicValue Strength is proportional to ValueAgreement Strngth. SymbolicValue travels from Buyers to Sellers. SymbolicValue is transported by Symbols.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Reciprocal">
+    <rdfs:subClassOf rdf:resource="#ReciprocityPartition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Nonreciprocal"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Policy">
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Policy" is a subjective concept held by two or more Actors, concerning the expected future movement of Value between them.  An Agreement is a concrete (objective) description of a Policy.  A "Policy" is a set of explicit &amp;/or implicit rules particular to an Actor. A Policy dictates whether or not an Actor enters into an Agreement.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A18">
+    <rdf:first rdf:resource="#ValueAgreement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Seller">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Issuer"/>
+    <owl:disjointWith rdf:resource="#Buyer"/>
+    <rdfs:subClassOf rdf:resource="#Trader"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Seller" is a Trader who relinquishes some PhysicalValue to acquire some Value.  Except in pure barter, the value acquired will be SymbolicValue.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A17">
+    <rdf:first rdf:resource="#Issuance"/>
+    <rdf:rest rdf:nodeID="A19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isCommissionedBy">
+    <owl:inverseOf rdf:resource="#isCommissionerOf"/>
+    <rdfs:range rdf:resource="#Issuer"/>
+    <rdfs:domain rdf:resource="#MintingAgreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A19">
+    <rdf:first rdf:resource="#Minting"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isIssuedBy">
+    <rdfs:range rdf:resource="#Issuer"/>
+    <rdfs:domain rdf:resource="#Symbol"/>
+    <owl:inverseOf rdf:resource="#isIssuerOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#AuthorityAgreement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "AuthorityAgreement" is a Policy with which counterparts comply without necessarily agreeing.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#ReciprocalAgreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A20">
+    <rdf:first rdf:resource="#Issuance"/>
+    <rdf:rest rdf:nodeID="A16"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:first rdf:resource="#Nonreciprocal"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Trade">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Trade" is the completion of some forms of Agreement.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Actor">
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "Actor" is any person or body of persons involved in creation or use of a currency. They may be involved in numerous concurrent ways as defined by Roles.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isBorrowedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isBorrowerOf"/>
+    <rdfs:domain rdf:resource="#SymbolicValue"/>
+    <rdfs:range rdf:resource="#Debtor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isADescriptionOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ValueAgreement"/>
+    <rdfs:range rdf:resource="#Obligation"/>
+    <owl:inverseOf rdf:resource="#isDescribedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ExchangeAgreement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#ValueAgreement"/>
+    <rdfs:subClassOf rdf:resource="#ReciprocalAgreement"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An "ExchangeAgreement" is Agreement between Buyer and Seller that culminates in a Trade.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A20"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="#SymbolicValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Buyer">
+    <rdfs:subClassOf rdf:resource="#Trader"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Buyer" is a Trader who relinquishes some Value to acquire some PhysicalValue.  Except in pure barter, the value relinquished will be SymbolicValue.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Seller"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#MintingAgreement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a "MintingAgreement" is an ExchangeAgreement in which an Issuer buys (commissions creation of) a collection of Symbols from a Mint</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ExchangeAgreement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <rdf:first rdf:resource="#Symbol"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isGiverOfPhysicalValue">
+    <owl:inverseOf rdf:resource="#isReceiverOfPhysicalValue"/>
+    <rdfs:domain rdf:resource="#Seller"/>
+    <rdfs:range rdf:resource="#Buyer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isCommissionerOf">
+    <rdfs:range rdf:resource="#MintingAgreement"/>
+    <rdfs:domain rdf:resource="#Issuer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isCommissionedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Denomination">
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"Denomination" identifies the units of an Obligation.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isMintedBy">
+    <owl:inverseOf rdf:resource="#isMinterOf"/>
+    <rdfs:range rdf:resource="#Mint"/>
+    <rdfs:domain rdf:resource="#Symbol"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:first rdf:resource="#Symbol"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ReciprocityPartition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#ValuePartition"/>
+    <owl:equivalentClass rdf:nodeID="A2"/>
+    <owl:disjointWith rdf:resource="#ReputeValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"Reciprocity" is a property of Agreements</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <rdf:first rdf:resource="#SymbolicValue"/>
+    <rdf:rest rdf:nodeID="A18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ReputeValue">
+    <owl:disjointWith rdf:resource="#PhysicalValue"/>
+    <owl:disjointWith rdf:resource="#SymbolicValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"ReputeValue" is some percentage of "SymbolicValue" in effect at the time a Seller accepts a Symbol as culmination of a Trade.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Value"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Role">
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+    <owl:disjointWith rdf:resource="#ValuePartition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A "Role" is specific set of activities performed by an Actor.  Actors may play multiple concurrent roles.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#isGiverOfObligationValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Seller"/>
+    <rdfs:domain rdf:resource="#Buyer"/>
+    <owl:inverseOf rdf:resource="#isReceiverOfObligationValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ValuePartition">
+    <owl:disjointWith rdf:resource="#Issuance"/>
+    <owl:disjointWith rdf:resource="#Symbol"/>
+    <owl:disjointWith rdf:resource="#Minting"/>
+    <owl:disjointWith rdf:resource="#Denomination"/>
+    <owl:disjointWith rdf:resource="#Trade"/>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Agreement"/>
+    <owl:disjointWith rdf:resource="#Policy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="#Role"/>
+    <owl:disjointWith rdf:resource="#Value"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,3514 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cinemaChain "http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#" >
+    <!ENTITY cinemaChain3 "http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#12" >
+    <!ENTITY cinemaChain4 "http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#15" >
+    <!ENTITY cinemaChain2 "http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#18" >
+]>
+
+
+<rdf:RDF xmlns="http://users.ecs.soton.ac.uk/~cm7e09/files/cinemaChain.owl#"
+     xml:base="http://users.ecs.soton.ac.uk/~cm7e09/files/cinemaChain.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cinemaChain4="&cinemaChain;15"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:cinemaChain2="&cinemaChain;18"
+     xmlns:cinemaChain3="&cinemaChain;12"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:cinemaChain="http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment
+            >An ontology for a cinema chain. The Cinema has Auditoriums that show screenings of Films. In addition the Cinema Chain ontology also contains Staff and Car Park entities, which have been populated with instance data and tested to work, as it would allow for interesting queries such as returning Cinemas that have Free Parking and some Disabled Parking Spaces.
+
+This Cinema Chain ontology could be extended to include all things normally found in a cinema chain, such as Food and Drink for sale.</rdfs:comment>
+        <dc:date>2010-04-19</dc:date>
+        <dc:creator
+            >c. f. mccabe, email: cm7e09@ecs.soton.ac.uk</dc:creator>
+        <dc:rights
+            >Licensed under Creative Commons license:
+cc-sa
+Share Alike</dc:rights>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;identifier"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;contains">
+        <rdfs:comment
+            >Contains other entities. In this case the domain and range defines that Groups can contain Organisations</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Group"/>
+        <rdfs:range rdf:resource="&cinemaChain;Organisation"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isContainedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasAddress">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >This is the address location of the cinema</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Address"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Cinema"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasAuditorium -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasAuditorium">
+        <rdfs:comment
+            >An auditorium hosts the screenings for a cinema. It belongs to exactly one cinema. There can be multiple auditoriums within a cinema</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Cinema"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isAuditoriumOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasAuditoriumCapacity -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasAuditoriumCapacity">
+        <rdfs:comment
+            >The auditorium has a seating capacity</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:range rdf:resource="&cinemaChain;AuditoriumCapacity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasAuditoriumScreening -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasAuditoriumScreening">
+        <rdfs:comment
+            >the auditorium that is showing the screening</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasCarPark -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasCarPark">
+        <rdfs:comment
+            >A cinema can have a car park</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;CarPark"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Cinema"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isCarParkOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasCarParkCapacity -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasCarParkCapacity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The capacity of a car park, ie. the number of parking spaces it has</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set.</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;CarPark"/>
+        <rdfs:range rdf:resource="&cinemaChain;CarParkCapacity"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isCarParkCapacityOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasCertificate -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasCertificate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Each Film screened at a cinema has a certificate</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set.</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Film"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isCertificateOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasEmployee -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasEmployee">
+        <rdfs:comment
+            >Organisations like a cinema have employees</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Cinema"/>
+        <rdfs:range rdf:resource="&cinemaChain;Staff"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isEmployeeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasFilm -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasFilm">
+        <rdfs:comment
+            >A screening has exactly one Film shown</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Film"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isFilmOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasFormat">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >The format of the Film screening. e.g Digital</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Format"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isFormatOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasGenre">
+        <rdfs:comment
+            >The genre of a film. Films can have one or more genres</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Film"/>
+        <rdfs:range rdf:resource="&cinemaChain;Genre"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isGenreOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasManager -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasManager">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment
+            >A transitive property. ie. if A hasManager B, and B hasManager C, then A hasManager C is true.</rdfs:comment>
+        <rdfs:comment
+            >Has manager describes that a person has a manager.</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Manager"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Staff"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isManagerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasParkingPrice -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasParkingPrice">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Pay Car Parks have a parking price</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;PayAndDisplay"/>
+        <rdfs:range rdf:resource="&cinemaChain;Price"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasReservation -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasReservation">
+        <rdfs:comment
+            >Customer has a Reservation</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:range rdf:resource="&cinemaChain;Reservation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasScheduledScreening -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasScheduledScreening">
+        <rdfs:comment
+            >Cinemas have individual schedules of screenings of films.</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Cinema"/>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasScreeningAllowed -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasScreeningAllowed">
+        <rdfs:comment
+            >Each ticket will be for one specific screening allowed only</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Ticket"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasScreeningTicket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasScreeningDate -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasScreeningDate">
+        <rdfs:comment
+            >A date of a screening</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Date"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasScreeningStartTime -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasScreeningStartTime">
+        <rdfs:comment
+            >The start time for a Screening</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:range rdf:resource="&cinemaChain;Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasScreeningTicket -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasScreeningTicket">
+        <rdfs:comment
+            >Each screening in a cinema requires its own type of ticket</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:range rdf:resource="&cinemaChain;Ticket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasSeat -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasSeat">
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >Each ticket has exactly one seat.</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Seat"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Ticket"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isSeatOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasTicketPrice -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasTicketPrice">
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >Each ticket has a price</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Price"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Ticket"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isTicketPriceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hasTicketReservation -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;hasTicketReservation">
+        <rdfs:comment
+            >A reservation for a ticket</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Reservation"/>
+        <rdfs:range rdf:resource="&cinemaChain;Ticket"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;isTicketReservationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isAddressOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isAddressOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >An address location belongs to a single cinema</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Address"/>
+        <rdfs:range rdf:resource="&cinemaChain;Cinema"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasAddress"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isAuditoriumCapacityOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isAuditoriumCapacityOf">
+        <rdfs:comment
+            >The capacity of a particular auditorium</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:domain rdf:resource="&cinemaChain;AuditoriumCapacity"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasAuditoriumCapacity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isAuditoriumOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isAuditoriumOf">
+        <rdfs:comment
+            >An auditorium will belong to exactly one cinema</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:range rdf:resource="&cinemaChain;Cinema"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isCarParkCapacityOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isCarParkCapacityOf">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The parking capacity of a car park. ie. the number of parking spaces belonging to a car park</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;CarPark"/>
+        <rdfs:domain rdf:resource="&cinemaChain;CarParkCapacity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isCarParkOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isCarParkOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >The car park will belong to a single cinema</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;CarPark"/>
+        <rdfs:range rdf:resource="&cinemaChain;Cinema"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isCertificateOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isCertificateOf">
+        <rdfs:comment
+            >The certificate belonging to a film</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:range rdf:resource="&cinemaChain;Film"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isContainedBy -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isContainedBy">
+        <rdfs:comment
+            >is contained by an entity.</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Group"/>
+        <rdfs:range rdf:resource="&cinemaChain;Group"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Organisation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isEmployeeOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isEmployeeOf">
+        <rdfs:comment
+            >an employee of the cinema</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Cinema"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Staff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isFilmOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isFilmOf">
+        <rdfs:comment
+            >A film screening is for a particular film</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Film"/>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isFormatOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isFormatOf">
+        <rdfs:comment
+            >Each screening of a film has a particular format</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Format"/>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isGenreOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isGenreOf">
+        <rdfs:comment
+            >A film genre belonging to a Film</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Film"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isManagerOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isManagerOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment
+            >isManagerOf is describes that a person is a manager of another person</rdfs:comment>
+        <rdfs:comment
+            >A transitive property. ie. if A isManagerOf B, and B isManagerOf C, then A isManagerOf C also.</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Manager"/>
+        <rdfs:range rdf:resource="&cinemaChain;Staff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isParkingPriceOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isParkingPriceOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Price of a Pay and Display Car Park</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;PayAndDisplay"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Price"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasParkingPrice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isReservationOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isReservationOf">
+        <rdfs:comment
+            >A reservation of a specific Customer</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Reservation"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasReservation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isScreeningDateOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isScreeningDateOf">
+        <rdfs:comment
+            >the screening date belonging of a Screening</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Date"/>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasScreeningDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isScreeningInAuditoriumOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isScreeningInAuditoriumOf">
+        <rdfs:comment
+            >The Auditorium in which a particular screening is sheduled.</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasAuditoriumScreening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isScreeningInCinemaOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isScreeningInCinemaOf">
+        <rdfs:comment
+            >A Screening in a particular cinema</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Cinema"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Screening"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasScheduledScreening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isScreeningStartTimeOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isScreeningStartTimeOf">
+        <rdfs:comment
+            >The start time belonging to a screening</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Time"/>
+        <owl:inverseOf rdf:resource="&cinemaChain;hasScreeningStartTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isSeatOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isSeatOf">
+        <rdfs:comment
+            >The seat assigned to a ticket</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Seat"/>
+        <rdfs:range rdf:resource="&cinemaChain;Ticket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isTicketPriceOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isTicketPriceOf">
+        <rdfs:comment
+            >The ticket price belonging to a ticket</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Price"/>
+        <rdfs:range rdf:resource="&cinemaChain;Ticket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#isTicketReservationOf -->
+
+    <owl:ObjectProperty rdf:about="&cinemaChain;isTicketReservationOf">
+        <rdfs:comment
+            >A ticket reservation of a customer</rdfs:comment>
+        <rdfs:comment
+            >the ticket reservation belonging to a customer</rdfs:comment>
+        <rdfs:range rdf:resource="&cinemaChain;Reservation"/>
+        <rdfs:domain rdf:resource="&cinemaChain;Ticket"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#addressLine -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;addressLine">
+        <rdfs:comment
+            >This Data Type has been intentionally left as not functional type data property so that it can be instantiated and set with different values of properties for each instance. As could be found with addresses several lines long</rdfs:comment>
+        <rdfs:comment
+            >The Line of Address, part of the Address</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#city -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;city">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >The city forms part of an Address</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#currency -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;currency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >The currency defines the units of currency used in a Price</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Price"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#customerAge -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;customerAge">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >The Customer&#39;s Age in years</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#day -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;day">
+        <rdfs:comment
+            >Day is used to define the Screening Dates. The format is part of a Date YYMMDD, where DD denotes the digits describing the day of the month. Can be in range of 01-31</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Date"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#filmFormat -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;filmFormat">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >The Format of a Film, i.e. 70mm</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Format"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#filmGenre -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;filmGenre">
+        <rdfs:comment
+            >Intentially left as not functional as a Film can have several genres.</rdfs:comment>
+        <rdfs:comment
+            >The Genre of a Film, i.e. Action</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Genre"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#filmTitle -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;filmTitle">
+        <rdfs:comment
+            >Intentionally set as not functional as a film can have several titles, usually in different languages</rdfs:comment>
+        <rdfs:comment
+            >The Title of a Film</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Film"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#hour -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;hour">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:isDefinedBy>hour</rdfs:isDefinedBy>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:isDefinedBy
+            >The Hour ranges from 0 to 24, and is used to define the part of the start time of a Screening</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&cinemaChain;Time"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#largeUnitCurrency -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;largeUnitCurrency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Large Unit Currency describes the largest unit of currency to be used in Pricing. ie. the larger denomination</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Price"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#minute -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;minute">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Minute property is related to Time and has a range 0 to 59.
+This is of format HHMM, of 24 hour clock wher MM denotes minutes.
+The Minute propety is used when defining the start time of a Screening</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Time"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#month -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;month">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Month is used to define the Screening Dates. It forms part of a Date YYMMDD, where MM denotes month. Values for Month can be in range of 1-12.</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Date"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#numberOfDisabledSpaces -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;numberOfDisabledSpaces">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >number of disabled car parking spaces</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;CarParkCapacity"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#numberOfNormalSpaces -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;numberOfNormalSpaces">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >number of normal car parking spaces</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;CarParkCapacity"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#numberOfReservedTickets -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;numberOfReservedTickets">
+        <rdfs:comment
+            >The number of tickets a customer reserves for a screening</rdfs:comment>
+        <rdfs:comment
+            >number of reserved tickets</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Reservation"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#numberOfSeats -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;numberOfSeats">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >The number of seats describes the seat capacity of an Auditorium, and is important because each ticket is linked to exactly one seat - so the number of seats defines the number of tickets for a screening that can be issued.</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;AuditoriumCapacity"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#postcode -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;postcode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >the Postcode forms part of an Address and is usually an alphanumeric string, eg. SO17 1UR</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#rowNumber -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;rowNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:comment
+            >The Row Number of a Seat in an Auditorium</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Seat"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#runningTime -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;runningTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >The running time is the duration of the Film measured in minutes</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Film"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#seatNumber -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;seatNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >The Seat Number of a Seat in an Auditorium</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Seat"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#smallUnitCurrency -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;smallUnitCurrency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >Small Unit Currency describes the smallest unit of currency to be used in Pricing. ie. the larger denomination</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Price"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#suitableFor -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;suitableFor">
+        <rdfs:label>suitableForAge</rdfs:label>
+        <rdfs:comment
+            >Suitable for age defines what Films are suitable for Customers, and uses the Customers age along with Rating Certificate to define if film is suitable.</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#year -->
+
+    <owl:DatatypeProperty rdf:about="&cinemaChain;year">
+        <rdfs:comment
+            >Year is used to define the Screening Dates. It forms part of the date YYMMDD, where YY denotes final two digits of the Roman Calander Year for a Date. Can be in range of 00-99</rdfs:comment>
+        <rdfs:comment
+            >Functional property, can only have one property set for any instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&cinemaChain;Date"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#12ARatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;12ARatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;12A"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a 12A Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#12RatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;12RatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;12"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a 12 Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#15RatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;15RatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;15"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a 15 Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#18RatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;18RatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;18"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a 18 Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ActionDoubleBillTicket -->
+
+    <owl:Class rdf:about="&cinemaChain;ActionDoubleBillTicket">
+        <rdfs:label
+            >ActionDoubleBillTicket</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;DoubleBillTicket"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasScreeningAllowed"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;Screening"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;hasFilm"/>
+                                        <owl:onClass>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&cinemaChain;Film"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&cinemaChain;hasGenre"/>
+                                                        <owl:onClass>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="&cinemaChain;Genre"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="&cinemaChain;filmGenre"/>
+                                                                        <owl:hasValue>Action</owl:hasValue>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:onClass>
+                                                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:onClass>
+                                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;DoubleBillTicket"/>
+        <rdfs:comment
+            >ActionDoubleBillTicket represents a class for a DoubleBill Screening, where Films with Action Genre are shown one after another on one Ticket, where Ticket is for 1 Seat and has 1 Price.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Address -->
+
+    <owl:Class rdf:about="&cinemaChain;Address">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;addressLine"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;city"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;postcode"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Location"/>
+        <rdfs:comment
+            >An Address for a cinema location. Contains a first line of the address, the city and the post code</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Adult -->
+
+    <owl:Class rdf:about="&cinemaChain;Adult">
+        <rdfs:label xml:lang="en">Adult</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;customerAge"/>
+                <owl:someValuesFrom>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdfs;Datatype"/>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">26</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">69</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdf:Description>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Adult Customer - a Customer whose Age is between 26 and 69</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ApprovedRatingFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;ApprovedRatingFilm">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Film"/>
+        <rdfs:comment
+            >This is a superclass, where named subclasses have different film certificate ratings which define the age of Customers those Films are suitable for</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Assistant -->
+
+    <owl:Class rdf:about="&cinemaChain;Assistant">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Staff"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasManager"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Manager"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cinemaChain;Manager"/>
+        <rdfs:comment xml:lang="en"
+            >Assistant is an employee of the cinema, and has a Manager. Since hasManager object property is transitive, they have some manager which will include a direct manager and any transitive managers.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Employee</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Auditorium -->
+
+    <owl:Class rdf:about="&cinemaChain;Auditorium">
+        <rdfs:label xml:lang="en">Auditorium</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isAuditoriumOf"/>
+                <owl:onClass rdf:resource="&cinemaChain;Cinema"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasAuditoriumCapacity"/>
+                <owl:onClass rdf:resource="&cinemaChain;AuditoriumCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >An Auditorium is linked to a exactly one Cinema. An Auditorium hosts Screenings of Films.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#AuditoriumCapacity -->
+
+    <owl:Class rdf:about="&cinemaChain;AuditoriumCapacity">
+        <rdfs:label
+            >AuditoriumCapacity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;numberOfSeats"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >The Auditorium Capacity describes the number of Seats it contains, and thus the maximum number of Customers who can watch a particular Screening of a Film.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#AverageFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;AverageFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Film"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;runningTime"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">20</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">90</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Film"/>
+        <rdfs:comment xml:lang="en"
+            >An average duration film is in the range of 20 minutes up to and including 89 minutes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CarPark -->
+
+    <owl:Class rdf:about="&cinemaChain;CarPark">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasCarParkCapacity"/>
+                <owl:onClass rdf:resource="&cinemaChain;CarParkCapacity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Car Park contains parking spaces, that can be either type &#39;Pay and display&#39; or &#39;Disabled&#39; A Car Park is linked to exactly one Cinema.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CarParkCapacity -->
+
+    <owl:Class rdf:about="&cinemaChain;CarParkCapacity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;numberOfDisabledSpaces"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;numberOfNormalSpaces"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >The Car Park Capacity describes the capacity of the carpark. ie. the number of parking spaces it has. There are two data types: 
+number of normal parking spaces, and
+number of disabled parking spaces</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Certificate -->
+
+    <owl:Class rdf:about="&cinemaChain;Certificate">
+        <rdfs:label xml:lang="en">Certificate</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;suitableFor"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;12A"/>
+                    <rdf:Description rdf:about="&cinemaChain;U"/>
+                    <rdf:Description rdf:about="&cinemaChain;15"/>
+                    <rdf:Description rdf:about="&cinemaChain;PG"/>
+                    <rdf:Description rdf:about="&cinemaChain;12"/>
+                    <rdf:Description rdf:about="&cinemaChain;18"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >R18 certificate has been excluded as this is a mainstream chain of cinemas, unlikely to ever screen an R18 film.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >A Certificate defines the minimum age of Customer that can view a particular Film. Each Film carries one Certificate. The British Board of Film Classification (BBFC) is responsible for Certifying Films in the UK, and its rating system is used for cinema ratings on films in this ontology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Child -->
+
+    <owl:Class rdf:about="&cinemaChain;Child">
+        <rdfs:label xml:lang="en">Child</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >Child is a Customer whose age is between 1 and 17 years old. 
+Note: The Customer Age in this ontology only measures customer Age in Years, it doesnt include Months. Therefore to avoid situation where customer hasAge = 0, minimum Customer Age permissable is 1.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;customerAge"/>
+                <owl:someValuesFrom>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdfs;Datatype"/>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">17</xsd:maxInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">1</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdf:Description>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Cinema -->
+
+    <owl:Class rdf:about="&cinemaChain;Cinema">
+        <rdfs:label xml:lang="en">Cinema</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Organisation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasAuditorium"/>
+                        <owl:someValuesFrom rdf:resource="&cinemaChain;Auditorium"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasScheduledScreening"/>
+                        <owl:someValuesFrom rdf:resource="&cinemaChain;Screening"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasAddress"/>
+                        <owl:onClass rdf:resource="&cinemaChain;Address"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <dc:date
+            >Subclass of Organisation. Cinema is a type of Organisation and the service of this Organisation is to provide Film Screenings to the public and employment to Employees.</dc:date>
+        <rdfs:comment xml:lang="en"
+            >A class for respresenting Cinema at a Location. Cinema can have some Auditoriums and some Screenings</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Customer -->
+
+    <owl:Class rdf:about="&cinemaChain;Customer">
+        <rdfs:label xml:lang="en">Customer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasReservation"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Reservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Adult"/>
+                    <rdf:Description rdf:about="&cinemaChain;Child"/>
+                    <rdf:Description rdf:about="&cinemaChain;OAP"/>
+                    <rdf:Description rdf:about="&cinemaChain;Student"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cinemaChain;Staff"/>
+        <rdfs:comment xml:lang="en"
+            >Customer is a type of Person. There are four subclasses of Customer: Child, Student, Adult and OAP. Customer hasAge and hasReservation properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Date -->
+
+    <owl:Class rdf:about="&cinemaChain;Date">
+        <rdfs:label>Date</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;day"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">1</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">31</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;month"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">12</xsd:maxInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">1</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;year"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">2010</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >A class to represent Date in the specified format (YY/MM/DD)
+with properties: Year, and Month, and Day. Screenings take place on a specific Date</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#DefinedGenreFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;DefinedGenreFilm">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#DoubleBillTicket -->
+
+    <owl:Class rdf:about="&cinemaChain;DoubleBillTicket">
+        <rdfs:label xml:lang="en"
+            >DoubleBillTicket</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Ticket"/>
+        <owl:disjointWith rdf:resource="&cinemaChain;SingleTicket"/>
+        <rdfs:comment xml:lang="en"
+            >Ticket for a Double Bill, when two Screenings are shown back-to-back.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Film -->
+
+    <owl:Class rdf:about="&cinemaChain;Film">
+        <rdfs:label>Film</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;filmTitle"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;runningTime"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasGenre"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Genre"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                <owl:onClass rdf:resource="&cinemaChain;Certificate"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Film screened at a cinema, it has at least one genre, must have a Certificate, a running time and a film title.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Format -->
+
+    <owl:Class rdf:about="&cinemaChain;Format">
+        <rdfs:label>Format</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Format35mm"/>
+                    <rdf:Description rdf:about="&cinemaChain;Format70mm"/>
+                    <rdf:Description rdf:about="&cinemaChain;FormatDigital"/>
+                    <rdf:Description rdf:about="&cinemaChain;Format3D"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;filmFormat"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en"
+            >Format of the Film source material.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Free -->
+
+    <owl:Class rdf:about="&cinemaChain;Free">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;CarPark"/>
+        <owl:disjointWith rdf:resource="&cinemaChain;PayAndDisplay"/>
+        <rdfs:comment
+            >Free car park. Customers can park their car for free.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Genre -->
+
+    <owl:Class rdf:about="&cinemaChain;Genre">
+        <rdfs:label>Genre</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;filmGenre"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Horror"/>
+                    <rdf:Description rdf:about="&cinemaChain;Action"/>
+                    <rdf:Description rdf:about="&cinemaChain;Family"/>
+                    <rdf:Description rdf:about="&cinemaChain;War"/>
+                    <rdf:Description rdf:about="&cinemaChain;ScienceFiction"/>
+                    <rdf:Description rdf:about="&cinemaChain;Romance"/>
+                    <rdf:Description rdf:about="&cinemaChain;Comedy"/>
+                    <rdf:Description rdf:about="&cinemaChain;Adventure"/>
+                    <rdf:Description rdf:about="&cinemaChain;Fantasy"/>
+                    <rdf:Description rdf:about="&cinemaChain;Thriller"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >To understand film genres and controversy surrounding them read the interesting article by Robert Stam. He challenged whether genres really exist, or whether they are merely made up by critics. Stam questioned whether &quot;genres are really &#39;out there&#39; in the world or are they really the construction of analysts?&quot;.
+Source: Stm, Robert. Film Theory: An Introduction. Malde, MA: Blakwell 2000. 14.</rdfs:comment>
+        <rdfs:comment
+            >Genre individuals are based on genres of movies listed at http://www.imdb.com</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Genre describes the genre / theme of a Film.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Group -->
+
+    <owl:Class rdf:about="&cinemaChain;Group">
+        <rdfs:label>Group</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;contains"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Organisation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;contains"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Group"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Group describes entities which contain Organisations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#LargeAuditorium -->
+
+    <owl:Class rdf:about="&cinemaChain;LargeAuditorium">
+        <rdfs:label>LargeAuditorium</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Auditorium"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasAuditoriumCapacity"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;AuditoriumCapacity"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;numberOfSeats"/>
+                                        <owl:someValuesFrom>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:minInclusive rdf:datatype="&xsd;integer">200</xsd:minInclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdf:Description>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:comment
+            >A Large Auditorium has a Capacity of 200 Seats and greater</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Location -->
+
+    <owl:Class rdf:about="&cinemaChain;Location">
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">Location</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#LongFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;LongFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Film"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;runningTime"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">90</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Film"/>
+        <rdfs:comment xml:lang="en"
+            >A Long Film has Running Time of 90 minutes or longer</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Manager -->
+
+    <owl:Class rdf:about="&cinemaChain;Manager">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Staff"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isManagerOf"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Assistant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Manager</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Manager who is assisted by some Assitants. The Manager is empolyed by exactly one Cinema</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#MatineeScreening -->
+
+    <owl:Class rdf:about="&cinemaChain;MatineeScreening">
+        <rdfs:label
+            >A Matinee Screening represents a Screening before Noon, 1200 Hours, for a Film certified as suitable for viewing by customers aged 12 and younger.</rdfs:label>
+        <rdfs:label
+            >MatineeScreening</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Screening"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasScreeningStartTime"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;Time"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;hour"/>
+                                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:minInclusive rdf:datatype="&xsd;integer">8</xsd:minInclusive>
+                                                    </rdf:Description>
+                                                    <rdf:Description>
+                                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">12</xsd:maxInclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdf:Description>
+                                        </owl:onDataRange>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasFilm"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;Film"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                                        <owl:onClass>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&cinemaChain;Certificate"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&cinemaChain;suitableFor"/>
+                                                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                                                        <owl:onDataRange>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                                    <rdf:Description>
+                                                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">12</xsd:maxInclusive>
+                                                                    </rdf:Description>
+                                                                </owl:withRestrictions>
+                                                            </rdf:Description>
+                                                        </owl:onDataRange>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:onClass>
+                                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Screening"/>
+        <owl:disjointWith rdf:resource="&cinemaChain;StandardScreening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#MediumAuditorium -->
+
+    <owl:Class rdf:about="&cinemaChain;MediumAuditorium">
+        <rdfs:label
+            >MediumAuditorium</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Auditorium"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasAuditoriumCapacity"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;AuditoriumCapacity"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;numberOfSeats"/>
+                                        <owl:someValuesFrom>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:minExclusive rdf:datatype="&xsd;integer">100</xsd:minExclusive>
+                                                    </rdf:Description>
+                                                    <rdf:Description>
+                                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">150</xsd:maxExclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdf:Description>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:comment
+            >An Medium Auditorium has a Capacity of between 101 and 149 Seats</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#OAP -->
+
+    <owl:Class rdf:about="&cinemaChain;OAP">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;customerAge"/>
+                <owl:someValuesFrom>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdfs;Datatype"/>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">70</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdf:Description>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >A OAP Customer describes Customers aged 70 and greater.
+This range forms eligible Age range of Customers who may purchase a OAP Ticket. 
+Note: The Cinemas defined in this ontology do not require forms of Customer ID such as Pensioner Card, thus the only requirement to purchase a OAP Ticket is that a Customer should be of eligible age to qualify.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Organisation -->
+
+    <owl:Class rdf:about="&cinemaChain;Organisation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isContainedBy"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Group"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <dc:date
+            >Organisation is contained by a Group. Organisation can form many subclasses to provide some service, a Cinema Organisation provides a screening service.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#PGRatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;PGRatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;PG"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a PG Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#PayAndDisplay -->
+
+    <owl:Class rdf:about="&cinemaChain;PayAndDisplay">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasParkingPrice"/>
+                <owl:someValuesFrom rdf:resource="&cinemaChain;Price"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;CarPark"/>
+        <rdfs:comment
+            >Pay and display car park. Customers should pay a fee to park their car.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Person -->
+
+    <owl:Class rdf:about="&cinemaChain;Person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Describes superclass Person</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Price -->
+
+    <owl:Class rdf:about="&cinemaChain;Price">
+        <rdfs:label>Price</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;smallUnitCurrency"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">99</xsd:maxInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;currency"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;largeUnitCurrency"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;integer"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >A class representing Price for Things. Price has datatype properties:
+Currency, e.g UK Pounds
+LargeUnitCurrency, e.g. Pounds
+SmallUnitCurrency, e.g Pence</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Reservation -->
+
+    <owl:Class rdf:about="&cinemaChain;Reservation">
+        <rdfs:label xml:lang="en">Reservation</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasTicketReservation"/>
+                        <owl:someValuesFrom rdf:resource="&cinemaChain;Ticket"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;numberOfReservedTickets"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;integer"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en"
+            >Reservation includes one or more Tickets. A Reservation is made by a Customer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#RomanticComedyFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;RomanticComedyFilm">
+        <rdfs:label
+            >RomanticComedyFilm</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;DefinedGenreFilm"/>
+        <rdfs:comment
+            >A Film of Genres Romantic Comedy and would be suitable for Customer who is 13 Years old.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening -->
+
+    <owl:Class rdf:about="&cinemaChain;Screening">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasFormat"/>
+                <owl:onClass rdf:resource="&cinemaChain;Format"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isScreeningInAuditoriumOf"/>
+                <owl:onClass rdf:resource="&cinemaChain;Auditorium"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasScreeningStartTime"/>
+                <owl:onClass rdf:resource="&cinemaChain;Time"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasFilm"/>
+                <owl:onClass rdf:resource="&cinemaChain;Film"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasScreeningDate"/>
+                <owl:onClass rdf:resource="&cinemaChain;Date"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isScreeningInCinemaOf"/>
+                <owl:onClass rdf:resource="&cinemaChain;Cinema"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Screening</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Screening of films</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Seat -->
+
+    <owl:Class rdf:about="&cinemaChain;Seat">
+        <rdfs:label>Seat</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;isSeatOf"/>
+                        <owl:someValuesFrom rdf:resource="&cinemaChain;Ticket"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;rowNumber"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;integer"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;seatNumber"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;integer"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Location"/>
+        <rdfs:comment xml:lang="en">Seat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ShortFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;ShortFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Film"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;runningTime"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">20</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Film"/>
+        <rdfs:comment xml:lang="en"
+            >A Short Film has a Running Time less than 20 minutes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#SingleTicket -->
+
+    <owl:Class rdf:about="&cinemaChain;SingleTicket">
+        <rdfs:label xml:lang="en">SingleTicket</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Ticket"/>
+        <rdfs:comment xml:lang="en"
+            >Ticket for exactly one Screening, Ticket has 1 Price and is for 1 Seat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#SmallAuditorium -->
+
+    <owl:Class rdf:about="&cinemaChain;SmallAuditorium">
+        <rdfs:label>SmallAuditorium</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;Auditorium"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasAuditoriumCapacity"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&cinemaChain;AuditoriumCapacity"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&cinemaChain;numberOfSeats"/>
+                                        <owl:someValuesFrom>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">100</xsd:maxInclusive>
+                                                    </rdf:Description>
+                                                    <rdf:Description>
+                                                        <xsd:minExclusive rdf:datatype="&xsd;integer">0</xsd:minExclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdf:Description>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Auditorium"/>
+        <rdfs:comment
+            >A Small Auditorium has Capacity of 1 to 100 Seats.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Staff -->
+
+    <owl:Class rdf:about="&cinemaChain;Staff">
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;isEmployeeOf"/>
+                <owl:onClass rdf:resource="&cinemaChain;Cinema"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Staff</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Staff are a type of Person. Staff are employees of a Cinema, and the subclasses of Staff are Manager and Assistant.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#StandardScreening -->
+
+    <owl:Class rdf:about="&cinemaChain;StandardScreening">
+        <rdfs:label
+            >StandardScreening</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:comment
+            >A Screening of a Film in an Auditorium</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Student -->
+
+    <owl:Class rdf:about="&cinemaChain;Student">
+        <rdfs:label xml:lang="en">Student</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;Customer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;customerAge"/>
+                <owl:someValuesFrom>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdfs;Datatype"/>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">25</xsd:maxInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">18</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdf:Description>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >A Student Customer describes Customers aged between 18 and 25.
+This range forms eligible Age range of Customers who may purchase a Student Ticket. 
+Note: The Cinemas defined in this ontology do not require forms of Customer ID such as Student ID, thus the only requirement to purchase a Student Ticket is that a Customer should be of eligible age to qualify.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Ticket -->
+
+    <owl:Class rdf:about="&cinemaChain;Ticket">
+        <rdfs:label xml:lang="en">Ticket</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasSeat"/>
+                <owl:onClass rdf:resource="&cinemaChain;Seat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cinemaChain;hasTicketPrice"/>
+                <owl:onClass rdf:resource="&cinemaChain;Price"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Ticket is for a Screening and has a Seat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Time -->
+
+    <owl:Class rdf:about="&cinemaChain;Time">
+        <rdfs:label>Time</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;Thing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hour"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">24</xsd:maxInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;minute"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="&xsd;integer">60</xsd:maxExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdf:Description>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >A class to represent Time, it has data properties: hour and minute</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#URatedFilm -->
+
+    <owl:Class rdf:about="&cinemaChain;URatedFilm">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cinemaChain;ApprovedRatingFilm"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&cinemaChain;hasCertificate"/>
+                        <owl:hasValue rdf:resource="&cinemaChain;U"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdfs:comment
+            >A Film given a U Rating</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment xml:lang="en"
+            >A Class for Things</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#12 -->
+
+    <owl:Thing rdf:about="&cinemaChain;12">
+        <rdf:type rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:label>12Certificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">12</cinemaChain:suitableFor>
+        <rdfs:comment
+            >12 certificate.
+BBFC definition: Suitable for those aged 12 and over.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#12A -->
+
+    <owl:Thing rdf:about="&cinemaChain;12A">
+        <rdf:type rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:label>12ACertificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">12</cinemaChain:suitableFor>
+        <rdfs:comment
+            >12A certificate.
+BBFC definition: May be unsuitable for under 12s. Those aged under 12 are only admitted if accompanied by an adult at all times during the performance.</rdfs:comment>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmAvatar"/>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmClashOfTheTitans"/>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmTerminator3"/>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmTerminatorSalvation"/>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmWhenInRome"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#15 -->
+
+    <owl:Thing rdf:about="&cinemaChain;15">
+        <rdf:type rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:label>15Certificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">15</cinemaChain:suitableFor>
+        <rdfs:comment
+            >15 certificate.
+BBFC definition: Suitable only for those aged 15 and over.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#18 -->
+
+    <cinemaChain:Certificate rdf:about="&cinemaChain;18">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>18Certificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">18</cinemaChain:suitableFor>
+        <rdfs:comment
+            >18 certificate.
+BBFC definition: Suitable only for adults. Nobody younger than 18 may see an 18 film in a cinema.</rdfs:comment>
+    </cinemaChain:Certificate>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#2010-05-03 -->
+
+    <cinemaChain:Date rdf:about="&cinemaChain;2010-05-03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>2010-05-03</rdfs:label>
+        <cinemaChain:day rdf:datatype="&xsd;integer">03</cinemaChain:day>
+        <cinemaChain:month rdf:datatype="&xsd;integer">05</cinemaChain:month>
+        <cinemaChain:year rdf:datatype="&xsd;integer">2010</cinemaChain:year>
+        <rdfs:comment
+            >A date that cinema is showing one or more Screenings</rdfs:comment>
+    </cinemaChain:Date>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#2010-05-04 -->
+
+    <cinemaChain:Date rdf:about="&cinemaChain;2010-05-04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>2010-05-04</rdfs:label>
+        <cinemaChain:day rdf:datatype="&xsd;integer">04</cinemaChain:day>
+        <cinemaChain:month rdf:datatype="&xsd;integer">05</cinemaChain:month>
+        <cinemaChain:year rdf:datatype="&xsd;integer">2010</cinemaChain:year>
+        <rdfs:comment
+            >A date that cinema is showing one or more Screenings</rdfs:comment>
+    </cinemaChain:Date>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Action -->
+
+    <owl:Thing rdf:about="&cinemaChain;Action">
+        <rdf:type rdf:resource="&cinemaChain;Genre"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Action</cinemaChain:filmGenre>
+        <rdfs:comment>Action Genre</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#AddressOdeonBristol -->
+
+    <cinemaChain:Address rdf:about="&cinemaChain;AddressOdeonBristol">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:postcode rdf:datatype="&xsd;string">BS1 4AE</cinemaChain:postcode>
+        <cinemaChain:city rdf:datatype="&xsd;string">Bristol</cinemaChain:city>
+        <cinemaChain:addressLine rdf:datatype="&xsd;string">Broadmeads</cinemaChain:addressLine>
+        <rdfs:comment
+            >Address for the Bristol Odeon Cinema.</rdfs:comment>
+        <cinemaChain:isAddressOf rdf:resource="&cinemaChain;CinemaOdeonBristol"/>
+    </cinemaChain:Address>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#AddressOdeonSouthampton -->
+
+    <owl:Thing rdf:about="&cinemaChain;AddressOdeonSouthampton">
+        <rdf:type rdf:resource="&cinemaChain;Address"/>
+        <cinemaChain:postcode>SO17</cinemaChain:postcode>
+        <rdfs:comment
+            >Address for the Southampton Odeon Cinema.</rdfs:comment>
+        <cinemaChain:addressLine>West Quay</cinemaChain:addressLine>
+        <cinemaChain:city>Southampton</cinemaChain:city>
+        <cinemaChain:isAddressOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Adventure -->
+
+    <cinemaChain:Genre rdf:about="&cinemaChain;Adventure">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Adventure</cinemaChain:filmGenre>
+        <rdfs:comment>Adventure Genre</rdfs:comment>
+    </cinemaChain:Genre>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#AssistantAlicePeters -->
+
+    <cinemaChain:Assistant rdf:about="&cinemaChain;AssistantAlicePeters">
+        <rdf:type rdf:resource="&cinemaChain;Person"/>
+        <rdf:type rdf:resource="&cinemaChain;Staff"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >The Assistant Alice Peters is an employee of Cinema Odeon Southampton and has manager Peter Simpson.</rdfs:comment>
+        <cinemaChain:isEmployeeOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasManager rdf:resource="&cinemaChain;ManagerPeterSimpson"/>
+    </cinemaChain:Assistant>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Auditorium1 -->
+
+    <owl:Thing rdf:about="&cinemaChain;Auditorium1">
+        <rdf:type rdf:resource="&cinemaChain;Auditorium"/>
+        <rdf:type rdf:resource="&cinemaChain;SmallAuditorium"/>
+        <rdfs:label>Auditorium1</rdfs:label>
+        <rdfs:comment
+            >Auditorium 1 is a small auditorium having 80 seats, it is an auditorium of cinema Odeon Southampton</rdfs:comment>
+        <cinemaChain:hasAuditoriumCapacity rdf:resource="&cinemaChain;Capacity80"/>
+        <cinemaChain:isAuditoriumOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Auditorium2 -->
+
+    <owl:Thing rdf:about="&cinemaChain;Auditorium2">
+        <rdf:type rdf:resource="&cinemaChain;Auditorium"/>
+        <rdf:type rdf:resource="&cinemaChain;MediumAuditorium"/>
+        <rdfs:label>Auditorium2</rdfs:label>
+        <rdfs:comment
+            >Auditorium 2 is a medium auditorium having 120 seats, it is an auditorium of cinema Odeon Southampton</rdfs:comment>
+        <cinemaChain:hasAuditoriumCapacity rdf:resource="&cinemaChain;Capacity120"/>
+        <cinemaChain:isAuditoriumOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Auditorium3 -->
+
+    <cinemaChain:Auditorium rdf:about="&cinemaChain;Auditorium3">
+        <rdf:type rdf:resource="&cinemaChain;LargeAuditorium"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Auditorium3</rdfs:label>
+        <rdfs:comment
+            >Auditorium 3 is a large auditorium having 250 seats, it is an auditorium of cinema Odeon Southampton</rdfs:comment>
+        <cinemaChain:hasAuditoriumCapacity rdf:resource="&cinemaChain;Capacity250"/>
+        <cinemaChain:isAuditoriumOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+    </cinemaChain:Auditorium>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Auditorium4 -->
+
+    <cinemaChain:Auditorium rdf:about="&cinemaChain;Auditorium4">
+        <rdf:type rdf:resource="&cinemaChain;MediumAuditorium"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Auditorium 4 is a medium auditorium having 120 seats, it is an auditorium of Cinema Odeon Bristol</rdfs:comment>
+        <cinemaChain:hasAuditoriumCapacity rdf:resource="&cinemaChain;Capacity120"/>
+        <cinemaChain:isAuditoriumOf rdf:resource="&cinemaChain;CinemaOdeonBristol"/>
+    </cinemaChain:Auditorium>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Capacity120 -->
+
+    <cinemaChain:AuditoriumCapacity rdf:about="&cinemaChain;Capacity120">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Capacity120</rdfs:label>
+        <cinemaChain:numberOfSeats rdf:datatype="&xsd;integer">120</cinemaChain:numberOfSeats>
+        <rdfs:comment
+            >Capacity120 is the capacity of Auditorium 2, and it has 120 Seats that will allow 120 Customers during a Screening.</rdfs:comment>
+        <cinemaChain:isAuditoriumCapacityOf rdf:resource="&cinemaChain;Auditorium2"/>
+        <cinemaChain:isAuditoriumCapacityOf rdf:resource="&cinemaChain;Auditorium4"/>
+    </cinemaChain:AuditoriumCapacity>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Capacity250 -->
+
+    <cinemaChain:AuditoriumCapacity rdf:about="&cinemaChain;Capacity250">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Capacity250</rdfs:label>
+        <cinemaChain:numberOfSeats rdf:datatype="&xsd;integer">250</cinemaChain:numberOfSeats>
+        <rdfs:comment
+            >Capacity250 is the capacity of Auditorium 3, and it has 250 seats that will allow 250 Customers at any Screening.</rdfs:comment>
+        <cinemaChain:isAuditoriumCapacityOf rdf:resource="&cinemaChain;Auditorium3"/>
+    </cinemaChain:AuditoriumCapacity>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Capacity80 -->
+
+    <cinemaChain:AuditoriumCapacity rdf:about="&cinemaChain;Capacity80">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Capacity80</rdfs:label>
+        <cinemaChain:numberOfSeats rdf:datatype="&xsd;integer">80</cinemaChain:numberOfSeats>
+        <rdfs:comment
+            >Capacity80 is the capacity of Auditorium 1, and it has 80 Seats that will allow 80 Customers during a Screening.</rdfs:comment>
+        <cinemaChain:isAuditoriumCapacityOf rdf:resource="&cinemaChain;Auditorium1"/>
+    </cinemaChain:AuditoriumCapacity>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CapacityParking100 -->
+
+    <owl:Thing rdf:about="&cinemaChain;CapacityParking100">
+        <rdf:type rdf:resource="&cinemaChain;CarParkCapacity"/>
+        <cinemaChain:numberOfDisabledSpaces rdf:datatype="&xsd;integer">20</cinemaChain:numberOfDisabledSpaces>
+        <cinemaChain:numberOfNormalSpaces rdf:datatype="&xsd;integer">80</cinemaChain:numberOfNormalSpaces>
+        <rdfs:comment
+            >This is the Car Park Capacity of the Car Park of the cinema Odeon Southampton. There are 80 normal parking spaces and 20 disabled parking spaces</rdfs:comment>
+        <cinemaChain:isCarParkCapacityOf rdf:resource="&cinemaChain;CarParkSouthampton"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CarParkSouthampton -->
+
+    <cinemaChain:PayAndDisplay rdf:about="&cinemaChain;CarParkSouthampton">
+        <rdf:type rdf:resource="&cinemaChain;CarPark"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <dc:identifier
+            >Car Park with some Parking Spaces. This is a Pay and Display Car Park  that has a Price. It belongs to the Southampton Odeon Cinema</dc:identifier>
+        <cinemaChain:hasCarParkCapacity rdf:resource="&cinemaChain;CapacityParking100"/>
+        <cinemaChain:isCarParkOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasParkingPrice rdf:resource="&cinemaChain;ParkingPrice1"/>
+    </cinemaChain:PayAndDisplay>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CinemaOdeonBristol -->
+
+    <owl:Thing rdf:about="&cinemaChain;CinemaOdeonBristol">
+        <rdf:type rdf:resource="&cinemaChain;Cinema"/>
+        <rdf:type rdf:resource="&cinemaChain;Group"/>
+        <rdf:type rdf:resource="&cinemaChain;Organisation"/>
+        <rdfs:comment
+            >The Bristol Odeon Cinema contains 1 Auditorium named Auditorium4, and is located in City of Bristol. It does not have a Car Park</rdfs:comment>
+        <cinemaChain:hasAddress rdf:resource="&cinemaChain;AddressOdeonBristol"/>
+        <cinemaChain:hasAuditorium rdf:resource="&cinemaChain;Auditorium4"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening2ClashOfTheTitans"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening2PartlyCloudy"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CinemaSouthamptonOdeon -->
+
+    <cinemaChain:Organisation rdf:about="&cinemaChain;CinemaSouthamptonOdeon">
+        <rdf:type rdf:resource="&cinemaChain;Cinema"/>
+        <rdf:type rdf:resource="&cinemaChain;Group"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label
+            >CinemaOdeonSouthampton</rdfs:label>
+        <rdfs:comment
+            >The Southampton Odeon Cinema contains three Auditoriums named Auditorium1, Auditorium2 and Auditorium 3, and is located in the city of Southampton. 
+This Cinema has a Car Park
+This Cinema employs 1 manager and 1 assistant</rdfs:comment>
+        <cinemaChain:hasAddress rdf:resource="&cinemaChain;AddressOdeonSouthampton"/>
+        <cinemaChain:hasEmployee rdf:resource="&cinemaChain;AssistantAlicePeters"/>
+        <cinemaChain:hasAuditorium rdf:resource="&cinemaChain;Auditorium1"/>
+        <cinemaChain:hasAuditorium rdf:resource="&cinemaChain;Auditorium2"/>
+        <cinemaChain:hasAuditorium rdf:resource="&cinemaChain;Auditorium3"/>
+        <cinemaChain:hasCarPark rdf:resource="&cinemaChain;CarParkSouthampton"/>
+        <cinemaChain:hasEmployee rdf:resource="&cinemaChain;ManagerPeterSimpson"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1Avatar"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1ClashOfTheTitans"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1PartlyCloudy"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1Terminator3"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1TerminatorSalvation"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening1WhenInRome"/>
+        <cinemaChain:hasScheduledScreening rdf:resource="&cinemaChain;Screening2Avatar"/>
+    </cinemaChain:Organisation>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Comedy -->
+
+    <owl:Thing rdf:about="&cinemaChain;Comedy">
+        <rdf:type rdf:resource="&cinemaChain;Genre"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Comedy</cinemaChain:filmGenre>
+        <rdfs:comment>Comedy Genre</rdfs:comment>
+        <cinemaChain:isGenreOf rdf:resource="&cinemaChain;FilmWhenInRome"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CustomerConnorMccabe -->
+
+    <cinemaChain:Person rdf:about="&cinemaChain;CustomerConnorMccabe">
+        <rdf:type rdf:resource="&cinemaChain;Customer"/>
+        <rdf:type rdf:resource="&cinemaChain;Student"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:customerAge rdf:datatype="&xsd;integer">24</cinemaChain:customerAge>
+        <rdfs:comment
+            >Connor Mccabe is a Student Customer</rdfs:comment>
+        <cinemaChain:hasReservation rdf:resource="&cinemaChain;ReservationConnorMcCabe"/>
+    </cinemaChain:Person>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CustomerJohnathonRoss -->
+
+    <cinemaChain:Person rdf:about="&cinemaChain;CustomerJohnathonRoss">
+        <rdf:type rdf:resource="&cinemaChain;Adult"/>
+        <rdf:type rdf:resource="&cinemaChain;Customer"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:customerAge rdf:datatype="&xsd;integer">40</cinemaChain:customerAge>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Johnathon Ross is an adult customer</rdfs:comment>
+        <cinemaChain:hasReservation rdf:resource="&cinemaChain;ReservationJohnationRoss"/>
+    </cinemaChain:Person>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#CustomerMarkKermode -->
+
+    <cinemaChain:Adult rdf:about="&cinemaChain;CustomerMarkKermode">
+        <rdf:type rdf:resource="&cinemaChain;Customer"/>
+        <rdf:type rdf:resource="&cinemaChain;Person"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:customerAge rdf:datatype="&xsd;integer">40</cinemaChain:customerAge>
+        <rdfs:comment
+            >Merk Kermode is an Adult Customer</rdfs:comment>
+        <cinemaChain:hasReservation rdf:resource="&cinemaChain;ReservationMarkKermode"/>
+    </cinemaChain:Adult>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#DoubleBillTicketTerminator3AndTerminatorSalvation -->
+
+    <cinemaChain:DoubleBillTicket rdf:about="&cinemaChain;DoubleBillTicketTerminator3AndTerminatorSalvation">
+        <rdf:type rdf:resource="&cinemaChain;ActionDoubleBillTicket"/>
+        <rdf:type rdf:resource="&cinemaChain;Ticket"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Double Bill Ticket allowing Customer to see two action genre films, Terminator 3, and Terminator Salvation, shown one after another in one Auditorium on a single Ticket. Ticket is for row 2, seat 5</rdfs:comment>
+        <cinemaChain:isTicketReservationOf rdf:resource="&cinemaChain;ReservationJohnationRoss"/>
+        <cinemaChain:hasSeat rdf:resource="&cinemaChain;Row2Seat5"/>
+        <cinemaChain:hasScreeningAllowed rdf:resource="&cinemaChain;Screening1Terminator3"/>
+        <cinemaChain:hasScreeningAllowed rdf:resource="&cinemaChain;Screening1TerminatorSalvation"/>
+        <cinemaChain:hasTicketPrice rdf:resource="&cinemaChain;TicketPrice2"/>
+    </cinemaChain:DoubleBillTicket>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Family -->
+
+    <cinemaChain:Genre rdf:about="&cinemaChain;Family">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Family</cinemaChain:filmGenre>
+        <rdfs:comment>Family Genre</rdfs:comment>
+    </cinemaChain:Genre>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Fantasy -->
+
+    <cinemaChain:Genre rdf:about="&cinemaChain;Fantasy">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Fantasy</cinemaChain:filmGenre>
+        <rdfs:comment>Fantasy Genre</rdfs:comment>
+        <cinemaChain:isGenreOf rdf:resource="&cinemaChain;FilmAvatar"/>
+        <cinemaChain:isGenreOf rdf:resource="&cinemaChain;FilmClashOfTheTitans"/>
+    </cinemaChain:Genre>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmAvatar -->
+
+    <cinemaChain:LongFilm rdf:about="&cinemaChain;FilmAvatar">
+        <rdf:type rdf:resource="&cinemaChain;12ARatedFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;Film"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">162</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string">Avatar</cinemaChain:filmTitle>
+        <dc:identifier
+            >http://www.imdb.com/title/tt0499549/</dc:identifier>
+        <rdfs:comment
+            >Avatar is a Fantasy, and Science Fiction genre film that has a running time of 162 minutes making it a Long Film. It has a certificate 12A.</rdfs:comment>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;12A"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Fantasy"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;ScienceFiction"/>
+    </cinemaChain:LongFilm>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmClashOfTheTitans -->
+
+    <cinemaChain3:ARatedFilm rdf:about="&cinemaChain;FilmClashOfTheTitans">
+        <rdf:type rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;Film"/>
+        <rdf:type rdf:resource="&cinemaChain;LongFilm"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">106</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string"
+            >Clash of the Titans</cinemaChain:filmTitle>
+        <rdfs:comment
+            >Clash of the Titans is a Fantasy, and Action genre film that has a running time of 106 minutes making it a Long Film. It has a certificate 12A.</rdfs:comment>
+        <dc:identifier
+            >http://www.imdb.com/title/tt0800320/</dc:identifier>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;12A"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Action"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Fantasy"/>
+    </cinemaChain3:ARatedFilm>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmPartlyCloudy -->
+
+    <cinemaChain:URatedFilm rdf:about="&cinemaChain;FilmPartlyCloudy">
+        <rdf:type rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;Film"/>
+        <rdf:type rdf:resource="&cinemaChain;ShortFilm"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">6</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string">Partly Cloudy</cinemaChain:filmTitle>
+        <dc:identifier
+            >http://www.imdb.com/title/tt1425244/</dc:identifier>
+        <rdfs:comment
+            >Partly Cloudy is a Short Film with running time of 6 minutes. It has Genre of Family and has a U certificate</rdfs:comment>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;U"/>
+    </cinemaChain:URatedFilm>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmTerminator3 -->
+
+    <cinemaChain:ApprovedRatingFilm rdf:about="&cinemaChain;FilmTerminator3">
+        <rdf:type rdf:resource="&cinemaChain;12ARatedFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;Film"/>
+        <rdf:type rdf:resource="&cinemaChain;LongFilm"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">109</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string">Terminator 3</cinemaChain:filmTitle>
+        <dc:identifier
+            >http://www.imdb.com/title/tt0181852/</dc:identifier>
+        <rdfs:comment
+            >Terminator 3 is an action genre film, with a running time of 109 minutes making it a Long Film, and a certificate 12A.</rdfs:comment>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;12A"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Action"/>
+    </cinemaChain:ApprovedRatingFilm>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmTerminatorSalvation -->
+
+    <owl:Thing rdf:about="&cinemaChain;FilmTerminatorSalvation">
+        <rdf:type rdf:resource="&cinemaChain;12ARatedFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;Film"/>
+        <rdf:type rdf:resource="&cinemaChain;LongFilm"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">115</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string"
+            >Terminator Salvation</cinemaChain:filmTitle>
+        <rdfs:comment
+            >Terminator Salvation is an Action genre film that has a running time of 115 minutes making it a Long Film. It has a certificate 12A.</rdfs:comment>
+        <dc:identifier
+            >IMDB link: http://www.imdb.com/title/tt0438488/</dc:identifier>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;12A"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Action"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FilmWhenInRome -->
+
+    <cinemaChain:Film rdf:about="&cinemaChain;FilmWhenInRome">
+        <rdf:type rdf:resource="&cinemaChain;12ARatedFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;ApprovedRatingFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;LongFilm"/>
+        <rdf:type rdf:resource="&cinemaChain;RomanticComedyFilm"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:runningTime rdf:datatype="&xsd;integer">91</cinemaChain:runningTime>
+        <cinemaChain:filmTitle rdf:datatype="&xsd;string">When in Rome</cinemaChain:filmTitle>
+        <dc:identifier
+            >http://www.imdb.com/title/tt1185416/</dc:identifier>
+        <rdfs:comment
+            >When in Rome is a Romantic Comedy Film, with Romance and Comedy genres. The Film has a Running Time of 91 minutes making it a long Film. It has a Certificate of 12A</rdfs:comment>
+        <cinemaChain:hasCertificate rdf:resource="&cinemaChain;12A"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Comedy"/>
+        <cinemaChain:hasGenre rdf:resource="&cinemaChain;Romance"/>
+    </cinemaChain:Film>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Format35mm -->
+
+    <cinemaChain:Format rdf:about="&cinemaChain;Format35mm">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmFormat rdf:datatype="&xsd;string">35mm</cinemaChain:filmFormat>
+        <rdfs:comment
+            >35mm Format of Film source</rdfs:comment>
+    </cinemaChain:Format>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Format3D -->
+
+    <owl:Thing rdf:about="&cinemaChain;Format3D">
+        <rdf:type rdf:resource="&cinemaChain;Format"/>
+        <cinemaChain:filmFormat rdf:datatype="&xsd;string">3D</cinemaChain:filmFormat>
+        <rdfs:comment
+            >3D Format of Film source</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Format70mm -->
+
+    <owl:Thing rdf:about="&cinemaChain;Format70mm">
+        <rdf:type rdf:resource="&cinemaChain;Format"/>
+        <cinemaChain:filmFormat rdf:datatype="&xsd;string">70mm</cinemaChain:filmFormat>
+        <rdfs:comment
+            >70mm Format of Film source</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#FormatDigital -->
+
+    <cinemaChain:Format rdf:about="&cinemaChain;FormatDigital">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmFormat rdf:datatype="&xsd;string">Digital</cinemaChain:filmFormat>
+        <rdfs:comment
+            >Digital Format of Film source</rdfs:comment>
+    </cinemaChain:Format>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Horror -->
+
+    <owl:Thing rdf:about="&cinemaChain;Horror">
+        <rdf:type rdf:resource="&cinemaChain;Genre"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Horror</cinemaChain:filmGenre>
+        <rdfs:comment>Horror Genre</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ManagerPeterSimpson -->
+
+    <cinemaChain:Manager rdf:about="&cinemaChain;ManagerPeterSimpson">
+        <rdf:type rdf:resource="&cinemaChain;Person"/>
+        <rdf:type rdf:resource="&cinemaChain;Staff"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >The manager Peter Simpson, is an employess of Cinema Odeon Southampton, and is manager of Assistant Alice Peters</rdfs:comment>
+        <cinemaChain:isManagerOf rdf:resource="&cinemaChain;AssistantAlicePeters"/>
+        <cinemaChain:isEmployeeOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+    </cinemaChain:Manager>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#PG -->
+
+    <owl:Thing rdf:about="&cinemaChain;PG">
+        <rdf:type rdf:resource="&cinemaChain;Certificate"/>
+        <rdfs:label>PGCertificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">8</cinemaChain:suitableFor>
+        <rdfs:comment
+            >Parental Guidance (PG) Certificate. 
+BBFC definition: General viewing, but certain scenes may be unsuitable for children under 8.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ParkingPrice1 -->
+
+    <owl:Thing rdf:about="&cinemaChain;ParkingPrice1">
+        <rdf:type rdf:resource="&cinemaChain;Price"/>
+        <cinemaChain:smallUnitCurrency rdf:datatype="&xsd;integer">0</cinemaChain:smallUnitCurrency>
+        <cinemaChain:largeUnitCurrency rdf:datatype="&xsd;integer">3</cinemaChain:largeUnitCurrency>
+        <rdfs:comment
+            >The parking price of Pay and Display Car Park. This parking price is for the Car Park of Cinema Odeon Southampton.</rdfs:comment>
+        <cinemaChain:isParkingPriceOf rdf:resource="&cinemaChain;CarParkSouthampton"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ReservationConnorMcCabe -->
+
+    <owl:Thing rdf:about="&cinemaChain;ReservationConnorMcCabe">
+        <rdf:type rdf:resource="&cinemaChain;Reservation"/>
+        <cinemaChain:numberOfReservedTickets rdf:datatype="&xsd;integer">1</cinemaChain:numberOfReservedTickets>
+        <rdfs:comment
+            >Reservation belonging to ConnorMcCabe to see a Stantdard Screening of Avatar.</rdfs:comment>
+        <cinemaChain:isReservationOf rdf:resource="&cinemaChain;CustomerConnorMccabe"/>
+        <cinemaChain:hasTicketReservation rdf:resource="&cinemaChain;SingleTicketAvatar"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ReservationJohnationRoss -->
+
+    <owl:Thing rdf:about="&cinemaChain;ReservationJohnationRoss">
+        <rdf:type rdf:resource="&cinemaChain;Reservation"/>
+        <cinemaChain:numberOfReservedTickets rdf:datatype="&xsd;integer">1</cinemaChain:numberOfReservedTickets>
+        <rdfs:comment
+            >Reservation belonging to Johnathon Ross to see a Double Bill Screening of Terminator 3, and Terminator Salvation</rdfs:comment>
+        <cinemaChain:isReservationOf rdf:resource="&cinemaChain;CustomerJohnathonRoss"/>
+        <cinemaChain:hasTicketReservation rdf:resource="&cinemaChain;DoubleBillTicketTerminator3AndTerminatorSalvation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ReservationMarkKermode -->
+
+    <owl:Thing rdf:about="&cinemaChain;ReservationMarkKermode">
+        <rdf:type rdf:resource="&cinemaChain;Reservation"/>
+        <cinemaChain:numberOfReservedTickets rdf:datatype="&xsd;integer">1</cinemaChain:numberOfReservedTickets>
+        <rdfs:comment
+            >Reservation belonging to Mark Kermode to see a standard Screening of When in Rome.</rdfs:comment>
+        <cinemaChain:isReservationOf rdf:resource="&cinemaChain;CustomerMarkKermode"/>
+        <cinemaChain:hasTicketReservation rdf:resource="&cinemaChain;SingleTicketWhenInRome"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Romance -->
+
+    <owl:Thing rdf:about="&cinemaChain;Romance">
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Romance</cinemaChain:filmGenre>
+        <rdfs:comment>Romance Genre</rdfs:comment>
+        <cinemaChain:isGenreOf rdf:resource="&cinemaChain;FilmWhenInRome"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Row2Seat5 -->
+
+    <owl:Thing rdf:about="&cinemaChain;Row2Seat5">
+        <rdf:type rdf:resource="&cinemaChain;Seat"/>
+        <cinemaChain:rowNumber rdf:datatype="&xsd;integer">2</cinemaChain:rowNumber>
+        <cinemaChain:seatNumber rdf:datatype="&xsd;integer">5</cinemaChain:seatNumber>
+        <rdfs:comment
+            >The fifth seat in Row 2</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Row3Seat3 -->
+
+    <owl:Thing rdf:about="&cinemaChain;Row3Seat3">
+        <rdf:type rdf:resource="&cinemaChain;Seat"/>
+        <cinemaChain:rowNumber rdf:datatype="&xsd;integer">3</cinemaChain:rowNumber>
+        <cinemaChain:seatNumber rdf:datatype="&xsd;integer">3</cinemaChain:seatNumber>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The third seat in Row 3</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Row8Seat9 -->
+
+    <owl:Thing rdf:about="&cinemaChain;Row8Seat9">
+        <rdf:type rdf:resource="&cinemaChain;Seat"/>
+        <cinemaChain:rowNumber rdf:datatype="&xsd;integer">8</cinemaChain:rowNumber>
+        <cinemaChain:seatNumber rdf:datatype="&xsd;integer">9</cinemaChain:seatNumber>
+        <rdfs:comment
+            >The 9th seat in Row 8</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#ScienceFiction -->
+
+    <owl:Thing rdf:about="&cinemaChain;ScienceFiction">
+        <rdf:type rdf:resource="&cinemaChain;Genre"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Science Fiction</cinemaChain:filmGenre>
+        <cinemaChain:isGenreOf rdf:resource="&cinemaChain;FilmAvatar"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1Avatar -->
+
+    <owl:Thing rdf:about="&cinemaChain;Screening1Avatar">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&cinemaChain;StandardScreening"/>
+        <rdfs:comment
+            >This is the screening of the FIlm Avatar in 3D Format. It is being shown in Auditorium 3 in Southampton Odeon Cinema. The Screening is scheduled for 12 noon on the date 3rd May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-03"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium3"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmAvatar"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningTicket rdf:resource="&cinemaChain;SingleTicketAvatar"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1200Hours"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1ClashOfTheTitans -->
+
+    <owl:Thing rdf:about="&cinemaChain;Screening1ClashOfTheTitans">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&cinemaChain;StandardScreening"/>
+        <rdfs:comment
+            >This is the screening of the Film Clash of The Titans in 3D Format. It is being shown in Auditorium 3 in Southampton Odeon Cinema. The Screening is scheduled for 6 PM on the date 4th May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-04"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium3"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmClashOfTheTitans"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1800Hours"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1PartlyCloudy -->
+
+    <owl:Thing rdf:about="&cinemaChain;Screening1PartlyCloudy">
+        <rdf:type rdf:resource="&cinemaChain;MatineeScreening"/>
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdfs:comment
+            >This is the Matinee screening of the FIlm Partly Cloudy in Digital Format. It is being shown in Auditorium 3 in Southampton Odeon Cinema. The Screening is scheduled for 11 AM on the date 4th May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-04"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium3"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmPartlyCloudy"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;FormatDigital"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1100Hours"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1Terminator3 -->
+
+    <cinemaChain:StandardScreening rdf:about="&cinemaChain;Screening1Terminator3">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >This is a Screening of the FIlm Terminator 3 in 3D Format. It is being shown in Auditorium 2 in Southampton Odeon Cinema. The Screening is scheduled for 12 noon on the date 3rd May 2010
+
+This screening is 1st part of a Double Bill Screening.The ticket assigned  for this screening is DoubleBillTicketTerminator3AndTerminatorSalvation</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-03"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium2"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasScreeningTicket rdf:resource="&cinemaChain;DoubleBillTicketTerminator3AndTerminatorSalvation"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmTerminator3"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1200Hours"/>
+    </cinemaChain:StandardScreening>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1TerminatorSalvation -->
+
+    <cinemaChain:StandardScreening rdf:about="&cinemaChain;Screening1TerminatorSalvation">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >This is a Screening of the FIlm Terminator Salvation in 3D Format. It is being shown in Auditorium 2 in Southampton Odeon Cinema.
+The Screening is scheduled for 6 PM on the date 3rd May 2010
+
+This screening is 2nd part of a Double Bill Screening.The ticket assigned  for this screening is DoubleBillTicketTerminator3AndTerminatorSalvation</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-03"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium2"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasScreeningTicket rdf:resource="&cinemaChain;DoubleBillTicketTerminator3AndTerminatorSalvation"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmTerminatorSalvation"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1800Hours"/>
+    </cinemaChain:StandardScreening>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening1WhenInRome -->
+
+    <cinemaChain:Screening rdf:about="&cinemaChain;Screening1WhenInRome">
+        <rdf:type rdf:resource="&cinemaChain;StandardScreening"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >This is the screening of the FIlm When in Rome in 70mm Format. It is being shown in Auditorium 1 in Southampton Odeon Cinema.
+The Screening is scheduled for 11 AM on the date 4th May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-04"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium1"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmWhenInRome"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format70mm"/>
+        <cinemaChain:hasScreeningTicket rdf:resource="&cinemaChain;SingleTicketWhenInRome"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1100Hours"/>
+    </cinemaChain:Screening>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening2Avatar -->
+
+    <owl:Thing rdf:about="&cinemaChain;Screening2Avatar">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&cinemaChain;StandardScreening"/>
+        <rdfs:comment
+            >This is a Screening of the FIlm Avatar in 3D Format. It is being shown in Auditorium 3 in Southampton Odeon Cinema.The  Screening is scheduled for 6 PM on the date 4th May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-04"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium3"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaSouthamptonOdeon"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmAvatar"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1800Hours"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening2ClashOfTheTitans -->
+
+    <owl:Thing rdf:about="&cinemaChain;Screening2ClashOfTheTitans">
+        <rdf:type rdf:resource="&cinemaChain;Screening"/>
+        <rdf:type rdf:resource="&cinemaChain;StandardScreening"/>
+        <rdfs:comment
+            >A Screening of the Film Clash of the Titans in 3D at 11AM  on 3rd May 2010 in Auditorium 4 in Bristol Odeon Cinema</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-03"/>
+        <cinemaChain:isScreeningInAuditoriumOf rdf:resource="&cinemaChain;Auditorium4"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaOdeonBristol"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmClashOfTheTitans"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format3D"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1100Hours"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Screening2PartlyCloudy -->
+
+    <cinemaChain:Screening rdf:about="&cinemaChain;Screening2PartlyCloudy">
+        <rdf:type rdf:resource="&cinemaChain;MatineeScreening"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >This is the Matinee screening of the FIlm Partly Cloudy in 35mm Format. It is being shown in Auditorium 4 in Bristol Odeon Cinema. The Screening is scheduled for 11 AM on the date 4th May 2010</rdfs:comment>
+        <cinemaChain:hasScreeningDate rdf:resource="&cinemaChain;2010-05-04"/>
+        <cinemaChain:isScreeningInCinemaOf rdf:resource="&cinemaChain;CinemaOdeonBristol"/>
+        <cinemaChain:hasFilm rdf:resource="&cinemaChain;FilmPartlyCloudy"/>
+        <cinemaChain:hasFormat rdf:resource="&cinemaChain;Format35mm"/>
+        <cinemaChain:hasScreeningStartTime rdf:resource="&cinemaChain;Time1100Hours"/>
+    </cinemaChain:Screening>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#SingleTicketAvatar -->
+
+    <cinemaChain:SingleTicket rdf:about="&cinemaChain;SingleTicketAvatar">
+        <rdf:type rdf:resource="&cinemaChain;Ticket"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label
+            >SingleTicketAvatar</rdfs:label>
+        <rdfs:comment
+            >This Ticket is the reserved ticket of the Customer Connor McCabe, and is to see the Film Avatar. A Seat in Row 3 and Seat 3 has been specified on this Ticket. The cost of the ticket is &#163;5.25</rdfs:comment>
+        <cinemaChain:isTicketReservationOf rdf:resource="&cinemaChain;ReservationConnorMcCabe"/>
+        <cinemaChain:hasSeat rdf:resource="&cinemaChain;Row8Seat9"/>
+        <cinemaChain:hasScreeningAllowed rdf:resource="&cinemaChain;Screening1Avatar"/>
+        <cinemaChain:hasTicketPrice rdf:resource="&cinemaChain;TicketPrice1"/>
+    </cinemaChain:SingleTicket>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#SingleTicketWhenInRome -->
+
+    <owl:Thing rdf:about="&cinemaChain;SingleTicketWhenInRome">
+        <rdf:type rdf:resource="&cinemaChain;SingleTicket"/>
+        <rdf:type rdf:resource="&cinemaChain;Ticket"/>
+        <rdfs:label
+            >SingleTicketWhenInRome</rdfs:label>
+        <rdfs:comment
+            >This Ticket is the reserved ticket of the Customer Mark Kermode, and is to see the Film When in Rome. A Seat in Row 2 and Seat 5 has been specified on this Ticket. The cost of the ticket is &#163;7.50</rdfs:comment>
+        <cinemaChain:isTicketReservationOf rdf:resource="&cinemaChain;ReservationMarkKermode"/>
+        <cinemaChain:hasSeat rdf:resource="&cinemaChain;Row3Seat3"/>
+        <cinemaChain:hasScreeningAllowed rdf:resource="&cinemaChain;Screening1WhenInRome"/>
+        <cinemaChain:hasTicketPrice rdf:resource="&cinemaChain;TicketPrice3"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Thriller -->
+
+    <cinemaChain:Genre rdf:about="&cinemaChain;Thriller">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">Thriller</cinemaChain:filmGenre>
+        <rdfs:comment>Thriller genre</rdfs:comment>
+    </cinemaChain:Genre>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#TicketPrice1 -->
+
+    <owl:Thing rdf:about="&cinemaChain;TicketPrice1">
+        <rdf:type rdf:resource="&cinemaChain;Price"/>
+        <cinemaChain:smallUnitCurrency rdf:datatype="&xsd;integer">25</cinemaChain:smallUnitCurrency>
+        <cinemaChain:largeUnitCurrency rdf:datatype="&xsd;integer">5</cinemaChain:largeUnitCurrency>
+        <cinemaChain:currency rdf:datatype="&xsd;string">UK Pounds</cinemaChain:currency>
+        <rdfs:comment
+            >The Ticket price for a particular ticket, in this case price is &#163;5.25</rdfs:comment>
+        <cinemaChain:isTicketPriceOf rdf:resource="&cinemaChain;SingleTicketAvatar"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#TicketPrice2 -->
+
+    <owl:Thing rdf:about="&cinemaChain;TicketPrice2">
+        <rdf:type rdf:resource="&cinemaChain;Price"/>
+        <cinemaChain:smallUnitCurrency rdf:datatype="&xsd;integer">50</cinemaChain:smallUnitCurrency>
+        <cinemaChain:largeUnitCurrency rdf:datatype="&xsd;integer">9</cinemaChain:largeUnitCurrency>
+        <cinemaChain:currency rdf:datatype="&xsd;string">UK Pounds</cinemaChain:currency>
+        <rdfs:comment
+            >The Ticket price for a particular Ticket, in this case the price is &#163;9.50</rdfs:comment>
+        <cinemaChain:isTicketPriceOf rdf:resource="&cinemaChain;DoubleBillTicketTerminator3AndTerminatorSalvation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#TicketPrice3 -->
+
+    <owl:Thing rdf:about="&cinemaChain;TicketPrice3">
+        <rdf:type rdf:resource="&cinemaChain;Price"/>
+        <cinemaChain:smallUnitCurrency rdf:datatype="&xsd;integer">50</cinemaChain:smallUnitCurrency>
+        <cinemaChain:largeUnitCurrency rdf:datatype="&xsd;integer">7</cinemaChain:largeUnitCurrency>
+        <cinemaChain:currency rdf:datatype="&xsd;string">UK Pounds</cinemaChain:currency>
+        <rdfs:comment
+            >The Ticket price for a particular Ticket, in this case the price is &#163;7.50</rdfs:comment>
+        <cinemaChain:isTicketPriceOf rdf:resource="&cinemaChain;SingleTicketWhenInRome"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Time1100Hours -->
+
+    <owl:Thing rdf:about="&cinemaChain;Time1100Hours">
+        <rdf:type rdf:resource="&cinemaChain;Time"/>
+        <cinemaChain:minute rdf:datatype="&xsd;integer">0</cinemaChain:minute>
+        <cinemaChain:hour rdf:datatype="&xsd;integer">10</cinemaChain:hour>
+        <rdfs:comment
+            >1100 Hours starting time for a Screening.</rdfs:comment>
+        <rdfs:comment>24 Hour Format</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Time1200Hours -->
+
+    <owl:Thing rdf:about="&cinemaChain;Time1200Hours">
+        <rdf:type rdf:resource="&cinemaChain;Time"/>
+        <cinemaChain:minute rdf:datatype="&xsd;integer">0</cinemaChain:minute>
+        <cinemaChain:hour rdf:datatype="&xsd;integer">12</cinemaChain:hour>
+        <rdfs:comment>24 Hour Format</rdfs:comment>
+        <rdfs:comment
+            >1200 Hours starting time for a Screening</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#Time1800Hours -->
+
+    <cinemaChain:Time rdf:about="&cinemaChain;Time1800Hours">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:minute rdf:datatype="&xsd;integer">0</cinemaChain:minute>
+        <cinemaChain:hour rdf:datatype="&xsd;integer">18</cinemaChain:hour>
+        <rdfs:comment
+            >1800 Hours starting time for a Screening.</rdfs:comment>
+        <rdfs:comment>24 Hour Format</rdfs:comment>
+    </cinemaChain:Time>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#U -->
+
+    <cinemaChain:Certificate rdf:about="&cinemaChain;U">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>UCertificate</rdfs:label>
+        <cinemaChain:suitableFor rdf:datatype="&xsd;integer">1</cinemaChain:suitableFor>
+        <rdfs:comment
+            >Universal certificate. 
+BBFC definition: All ages admitted, there is nothing unsuitable for children.</rdfs:comment>
+        <cinemaChain:isCertificateOf rdf:resource="&cinemaChain;FilmPartlyCloudy"/>
+    </cinemaChain:Certificate>
+    
+
+
+    <!-- http://users.ecs.soton.ac.uk/~cm7e09/ontology/cinemaChain.owl#War -->
+
+    <cinemaChain:Genre rdf:about="&cinemaChain;War">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <cinemaChain:filmGenre rdf:datatype="&xsd;string">War</cinemaChain:filmGenre>
+        <rdfs:comment>War Genre</rdfs:comment>
+    </cinemaChain:Genre>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;AverageFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;LongFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;ShortFilm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;LargeAuditorium"/>
+            <rdf:Description rdf:about="&cinemaChain;MediumAuditorium"/>
+            <rdf:Description rdf:about="&cinemaChain;SmallAuditorium"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;12ARatedFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;12RatedFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;15RatedFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;18RatedFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;PGRatedFilm"/>
+            <rdf:Description rdf:about="&cinemaChain;URatedFilm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;AuditoriumCapacity"/>
+            <rdf:Description rdf:about="&cinemaChain;CarParkCapacity"/>
+            <rdf:Description rdf:about="&cinemaChain;Certificate"/>
+            <rdf:Description rdf:about="&cinemaChain;Date"/>
+            <rdf:Description rdf:about="&cinemaChain;Film"/>
+            <rdf:Description rdf:about="&cinemaChain;Format"/>
+            <rdf:Description rdf:about="&cinemaChain;Genre"/>
+            <rdf:Description rdf:about="&cinemaChain;Group"/>
+            <rdf:Description rdf:about="&cinemaChain;Location"/>
+            <rdf:Description rdf:about="&cinemaChain;Person"/>
+            <rdf:Description rdf:about="&cinemaChain;Price"/>
+            <rdf:Description rdf:about="&cinemaChain;Reservation"/>
+            <rdf:Description rdf:about="&cinemaChain;Screening"/>
+            <rdf:Description rdf:about="&cinemaChain;Ticket"/>
+            <rdf:Description rdf:about="&cinemaChain;Time"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;AuditoriumCapacity"/>
+            <rdf:Description rdf:about="&cinemaChain;CarParkCapacity"/>
+            <rdf:Description rdf:about="&cinemaChain;Certificate"/>
+            <rdf:Description rdf:about="&cinemaChain;Date"/>
+            <rdf:Description rdf:about="&cinemaChain;Film"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&cinemaChain;Adult"/>
+            <rdf:Description rdf:about="&cinemaChain;Child"/>
+            <rdf:Description rdf:about="&cinemaChain;OAP"/>
+            <rdf:Description rdf:about="&cinemaChain;Student"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

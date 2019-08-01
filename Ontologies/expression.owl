@@ -1,0 +1,1217 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.estrellaproject.org/lkif-core/expression.owl#"
+     xml:base="http://www.estrellaproject.org/lkif-core/expression.owl"
+     xmlns:process="http://www.estrellaproject.org/lkif-core/process.owl#"
+     xmlns:expression="http://www.estrellaproject.org/lkif-core/expression.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:lkif-top="http://www.estrellaproject.org/lkif-core/lkif-top.owl#"
+     xmlns:action="http://www.estrellaproject.org/lkif-core/action.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:role="http://www.estrellaproject.org/lkif-core/role.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LKIF-Core, version 1.0.2, copyright (C) 2007, the ESTRELLA consortium</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Partner contributions from the University of Amsterdam (UvA), the University of Bologna (UNIBO) and the Fraunhofer institute (FOKUS).
+
+	Authors:      Rinke Hoekstra (UvA), Alexander Boer (UvA), Kasper van den Berg (UvA)
+	Contributors: Joost Breuker (UvA), Rosella Rubino (UNIBO), Thomas Gordon (FOKUS)</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The LKIF-Core ontology, version 1.0, is part of Deliverable 1.4 of the European project for Standardised Transparent Representations in order to Extend Legal Accessibility (ESTRELLA, IST-2004-027665), http://www.estrellaproject.org
+
+	The use of this ontology, and the OWL files through which it is distributed, is covered by the GNU Lesser General Public License (LGPL), version 2.1 (http://www.gnu.org/copyleft/lesser.html) in as far as the copyright is not covered by additional restrictions of the ESTRELLA consortium agreement (info@estrellaproject.org). The LGPL license places copyright restrictions on the ontology itself but does not apply these restrictions to software that merely links with concepts defined in the ontology library. Please read the license restrictions before using this work.</owl:versionInfo>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This file defines a number of types of what is commonly called a propositional attitude (PA). These relate propositional content to the proposition expressing the content. A subdivision of the propositional attitudes are the mental attitudes (see e.g. Cugola, 1996), types of propositions in the mind. Another category is the PA of an act of communication.</rdfs:comment>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This module is part of LKIF-Core, version 1.0.2, part of Deliverable 1.4 of ESTRELLA, IST-2004-027665</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/action.owl#actor -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#actor"/>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#addressee -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#addressee">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Allows for expressing the relation between a communicated attitude and the Agent to which the communication act is addressed</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#asserted_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#asserted_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an expression being asserted to the assertion</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Assertion"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#asserts"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#asserts -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#asserts">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an assertion to the expression being asserted</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Assertion"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#attitude -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#attitude">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a proposition to the attitude held towards it</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#author -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#author">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an expression to the author of the expression (e.g. for expressions contained in documents)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#utterer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#bears -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#bears">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Medium &#39;bears&#39; or carries expressions.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Medium"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#medium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#believed_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#believed_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a belief to the agent holding the belief</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#believes -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#believes">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an agent to the belief(s) it holds</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believed_by"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#holds"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#declared_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#declared_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a declared expression to the attitude to the declaration</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Declaration"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#declares"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#declares -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#declares">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a declaration to the expression being declared</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Declaration"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#evaluated_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#evaluated_by">
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Attitude"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualified_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#evaluates -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#evaluates">
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Attitude"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluated_by"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualifies"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#towards"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#evaluatively_comparable -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#evaluatively_comparable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Expresses whether some thing is evaluatively comparable to some other thing.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluatively_comparable"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#held_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#held_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a propositional attitude to the agent holding the attitude</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#holds -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#holds">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an agent to the propositional attitude it holds</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#intended_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#intended_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies that some intention is held by some agent</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Intention"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#intends -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#intends">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies that the agent holds some intention</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Intention"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#holds"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#intended_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#medium -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#medium">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an expression to the medium it is beared in (i.e. for extentional propositions)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Medium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#observer -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#observer">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a believed observation to the agent observing it</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believed_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#observes -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#observes">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an agent to the thing it beliefs it observes</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believes"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#observer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#promised_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#promised_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an expression to the promise over the expression</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Promise"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#promises"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#promises -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#promises">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a promise to the expression being promised</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Promise"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#qualified_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#qualified_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates something which is qualified to the attitude or qualification qualifying it</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualification"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#qualifies -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#qualifies">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an evaluative attitude or qualification to the proposition or thing being qualified</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualification"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualified_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#stated_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a statement to its author</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#states -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#states">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an author to its statements</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#towards"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#towards -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#towards">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A towards relation between a propositional attitude and a proposition expresses that the attitude is held towards that proposition. Qualification of the proposition can be either true or false, i.e. the attitude denotes whether the proposition is either true or false.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#utterer -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#utterer">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an utterance (communicated propositional attitude) to its utterer</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#utters -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#utters">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an agent to its utterance(s)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+        <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#holds"/>
+        <owl:inverseOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#utterer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/process.owl#creation -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/process.owl#creation"/>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/role.owl#played_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/role.owl#plays -->
+
+    <owl:ObjectProperty rdf:about="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/action.owl#Action -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#Action">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#actor"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believes"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#towards"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+                                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expectation"/>
+                                            </owl:Restriction>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#actor"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#intends"/>
+                        <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Intention"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>NOTE (OWL 1.1) the action may actually be &#39;part of&#39; the intention of the agent, that is: intends some (expression:Intention and Self)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/action.owl#Agent -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#Agent">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#holds"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/action.owl#Creation -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#Creation"/>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/action.owl#Reaction -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#Reaction">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#actor"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#observes"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualifies"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                                                                        <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Action"/>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>NOTE: question remains whether some observation is also a *requirement* of the reaction. Furthermore, the current definition ensures that the observed action becomes a top:Mental_Object (i.e. it is internalised).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Argument -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Argument">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Reason"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An argument is a reason that is expressed through some medium</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Assertion -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Assertion">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#asserts"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The assertion is subject to a fit between words and world, in Searle&#39;s terms. It&#39;s propositional content can be true of false. If it is inconsistent with other assertions, beliefs, observations, it may come to be considered false.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Assumption -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Assumption">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proposes something that usually is the case, although there is no specific evidence that it is true in this particular case</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Belief -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Belief">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believed_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#believed_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Someting an agent &#39;believes in&#39;, i.e. holds as true</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Cause -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Cause">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A cause is an epistemic role played by something which is the outcome of a (chain) of processes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#addressee"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#utterer"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#addressee"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A communictated attitude is a propositional attitude involved in an act of communication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Declaration -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Declaration">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#declares"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Searle: the successful performance of a declaration is sufficient to bring about the fit between words and world, to make the propositional content true. In other words, if there is an inconsistency between the declaration and assertions, beliefs, or observations, it is not the declaration that is false. True of definitions and norms, and several other performative statements by legislators.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Desire -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Desire">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A feeling of wanting</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Document -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Document">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Medium"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#bears"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Statement_In_Writing"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Document bears some (and only) expression(s) stated by some statement in writing.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Attitude -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Attitude">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluates"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluates"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An evaluative attitude expresses e.g. a judgment. The proposition qualified by the evaluative attitude is comparable to something else.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluated_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Attitude"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluatively_comparable"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#evaluatively_comparable"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Evaluative_Proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Some thing which is evaluatively qualified, i.e. an evaluation applies to the proposition, the proposition is judged. The proposition is comparable to some other proposition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Evidence -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Evidence">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Observation and/or statement, used as a backing for a belief. Evidence is the role of observation which is qualified by some belief.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Exception -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Exception">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An exception is something that is excluded from a general statement or does not follow a rule. In LKIF rules, an exception is a rule which has an exception relation to another rule (cf. Deliverable 1.1)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Expectation -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Expectation">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An expectation is a predictive belief held on purely logical grounds, i.e. not based on direct external evidence, like an observation or a statement by another agent. It is also often characterized as a &quot;belief about the future&quot;, but this isn&#39;t very helpful since one may also hold expectations about the (yet unknown) past. The theory of evolution is for instance a fertile ground for predictions about the existence of past species, and therefore at the same a predictor of future observations.</rdfs:comment>
+        <rdfs:comment>Is not only not an observation by itself, but also the thing being expected cannot be an observation in any sense</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Expression -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Expression">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#medium"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Medium"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#stated_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#medium"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Medium"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An expression is a proposition beared by some medium, e.g. a document, and is stated by some communicated attitude</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Fact -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Fact">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#plays"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A fact is a proposition (about something) which is (commonly) agreed upon to hold as true: it has some backing in evidence</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Intention -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Intention">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#intended_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#intended_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intention is where the agent expects certain consequences of his or her actions and desires those consequences to occur. This concept must be related to qualification and preference in some way.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Lie -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Lie">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Assertion"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An assertion that is inconsistent with the beliefs of the speaker. It is *intentionally* false.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Medium -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Medium">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#bears"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#bears"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A medium is a bearer of expressions, i.e. externalised propositions. Propositions become expressions once they are externalised through some medium.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Observation -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Observation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#observer"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An observation is the role played by some proposition believed to be true or false through observation of an agent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Problem -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Problem">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A problem is an observation that deviates from an Intention.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOTE: This currently cannot be expressed: OWL DL does not support negation of properties. The definition will be further elaborated once OWL 1.1 is supported by development tools.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Promise -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Promise">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#promises"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A promise is a communicated attitude about some future action or state</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Proposition -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A (non logical) proposition is a proposition qualified by a propositional attitude. NB: The proposition used here does not correspond to a proposition in proposition logics.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOTE: In previous versions of this ontology, this class was called &#39;Qualified&#39;. In lieu of the separation between Proposition and Propositional_Attitude, the intended meaning of that class has been moved to &#39;Evaluative_Proposition&#39;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Propositional_Attitude">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#towards"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#towards"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A propositional attitude connects a person (the holder of the attitude) to some proposition, in fact it expresses some qualification over the proposition. Distinguishing a proposition from the propositional content expressed by it is necessary when properties relating to the thing expressed and properties of the expression itself must be distinguished. For LKIF the distinction between Belief, Intention, Qualification, and Observation is relevant. The distinction between belief/expectation, intention, and observation is relevant for i.a. establishing mens rea (guilty mind). The distinction between beliefs (expressing the content of the mind of an agent) and statements (expressing the content of an act of communication by an agent) is classical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Qualification -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Qualification">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualifies"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualifies"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A qualification expresses e.g. a judgment. The thing qualified by the qualification is comparable to something else.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Qualified -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualified_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualification"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#qualitatively_comparable"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Qualified"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Something that is qualified by some qualification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Reason -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Reason">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/role.owl#played_by"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Proposition"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#attitude"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Belief"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Teleological counterpart of cause</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Speech_Act -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Speech_Act">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/process.owl#creation"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Creation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A speech act (or illocutionary act) creates some propositional attitude which qualifies an expression (which by default is mediated through some medium). The actor of the speech act is the utterer of the atitude (NB cannot be expressed in OWL DL).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Statement_In_Writing -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Statement_In_Writing">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#states"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Expression"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#medium"/>
+                                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Document"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Communicated_Attitude"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#author"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Not to be confused with the actual writing/document itself, which is the medium of the statement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/expression.owl#Surprise -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/expression.owl#Surprise">
+        <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Observation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A surprise is an observation that deviates from an expectation.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOTE: This currently cannot be expressed: OWL DL does not support negation of properties. The definition will be further elaborated once OWL 1.1 is supported by development tools.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Concept -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Concept"/>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/lkif-top.owl#Mental_Object">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#held_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.estrellaproject.org/lkif-core/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role -->
+
+    <owl:Class rdf:about="http://www.estrellaproject.org/lkif-core/role.owl#Epistemic_Role"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->

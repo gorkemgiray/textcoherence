@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY time "http://sweet.jpl.nasa.gov/1.1/time.owl#" >
+    <!ENTITY units "http://sweet.jpl.nasa.gov/1.1/units.owl#" >
+    <!ENTITY numerics "http://sweet.jpl.nasa.gov/1.1/numerics.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY performance "http://swap.uib.es/ontologies/performance.owl#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2006/12/owl2-xml#"
+     xml:base="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:numerics="http://sweet.jpl.nasa.gov/1.1/numerics.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://sweet.jpl.nasa.gov/1.1/time.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:performance="http://swap.uib.es/ontologies/performance.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:units="http://sweet.jpl.nasa.gov/1.1/units.owl#"
+     URI="http://swap.uib.es/ontologies/performance.owl">
+    <Import
+        >http://afrodita.rcub.bg.ac.yu/~gasevic/projects/PNO/OWL/PNO-core.owl</Import>
+    <Import
+        >http://sweet.jpl.nasa.gov/1.1/time.owl</Import>
+    <Annotation annotationURI="&rdfs;comment">
+        <Constant
+            >UML-SPT Model trasnformed into OWL</Constant>
+    </Annotation>
+    <Annotation annotationURI="&owl;versionInfo">
+        <Constant>0.3</Constant>
+    </Annotation>
+    <Annotation annotationURI="&rdfs;comment">
+        <Constant
+            >This representation has the function to permit Software Performane Enginnering models using only OWL.</Constant>
+    </Annotation>
+    <Import
+        >http://afrodita.rcub.bg.ac.yu/~gasevic/projects/PNO/OWL/PNO-core.owl</Import>
+    <Import
+        >http://sweet.jpl.nasa.gov/1.1/time.owl</Import>
+    <SubClassOf>
+        <Class URI="&performance;BASBlocking"/>
+        <Class URI="&performance;Finite"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;BASBlocking"/>
+        <Class URI="&performance;Drop"/>
+        <Class URI="&performance;WaitingQueue"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;BASBlocking"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Capacity"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;Capacity"/>
+        <Class URI="&performance;Distribution"/>
+        <Class URI="&performance;PerformanceDescription"/>
+        <Class URI="&performance;Priority"/>
+        <Class URI="&performance;SchedulingPolicy"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;Capacity"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;ClosedWorkload"/>
+        <Class URI="&performance;Workload"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;ClosedWorkload"/>
+        <Class URI="&performance;OpenWorkload"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;ClosedWorkload"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Context"/>
+        <Class URI="&performance;PerformanceDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&performance;Context"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&performance;hasScenario"/>
+            <Class URI="&performance;Scenario"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&performance;Context"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >A performance context specifies one or more scenarios that are used to explore various dynamic situations involving a specific set of resources.
+</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&performance;Context"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Distribution"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Distribution"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Drop"/>
+        <Class URI="&performance;Finite"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Drop"/>
+    </Declaration>
+    <Declaration>
+        <Class URI="&performance;Entity"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;FCFS"/>
+        <Class URI="&performance;SchedulingPolicy"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;FCFS"/>
+        <Class URI="&performance;LCFS"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;FCFS"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Finite"/>
+        <Class URI="&performance;Capacity"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;Finite"/>
+        <Class URI="&performance;Infinite"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;Finite"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Infinite"/>
+        <Class URI="&performance;Capacity"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Infinite"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;LCFS"/>
+        <Class URI="&performance;SchedulingPolicy"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;LCFS"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;OpenWorkload"/>
+        <Class URI="&performance;Workload"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;OpenWorkload"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Passive"/>
+        <Class URI="&performance;Resource"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;Passive"/>
+        <Class URI="&performance;Processing"/>
+    </DisjointClasses>
+    <Declaration>
+        <Class URI="&performance;Passive"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;PerformanceDescription"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;PerformanceDescription"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Priority"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Priority"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Processing"/>
+        <Class URI="&performance;Resource"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Processing"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Resource"/>
+        <Class URI="&performance;PerformanceDescription"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&performance;Resource"/>
+        <Class URI="&performance;Workload"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&performance;Resource"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >The set of resources involved in this performance context; this
+includes both processing resources and passive resources.
+</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&performance;Resource"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Scenario"/>
+        <Class URI="&performance;PerformanceDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&performance;Scenario"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&performance;hasStep"/>
+            <Class URI="&performance;Step"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&performance;Scenario"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >The set of scenarios defined in the performance context.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&performance;Scenario"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;SchedulingPolicy"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;SchedulingPolicy"/>
+    </Declaration>
+    <Declaration>
+        <Class URI="&performance;Service"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Step"/>
+        <Class URI="&performance;PerformanceDescription"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&performance;Step"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >An increment in the execution of a particular scenario that takes may use resources to perform its function.
+</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&performance;Step"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Supplier"/>
+        <Class URI="&performance;Entity"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;Supplier"/>
+    </Declaration>
+    <Declaration>
+        <Class URI="&performance;Task"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;WaitingQueue"/>
+        <Class URI="&performance;Finite"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&performance;WaitingQueue"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&performance;Workload"/>
+        <Class URI="&performance;PerformanceDescription"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&performance;Workload"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >A workload specifies the intensity of demand for the execution of a specific scenario as well as the required or estimated response times for that workload. The specification of the workload depends on its subtype.
+</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&performance;Workload"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&performance;arrivalRatio"/>
+        <ObjectProperty URI="&performance;ratio"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;arrivalRatio"/>
+        <Class URI="&performance;OpenWorkload"/>
+    </ObjectPropertyDomain>
+    <Declaration>
+        <ObjectProperty URI="&performance;arrivalRatio"/>
+    </Declaration>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;behaviorPattern"/>
+        <Class URI="&performance;Distribution"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;behaviorPattern"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;capacity"/>
+        <Class URI="&performance;Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;capacity"/>
+        <Class URI="&performance;Capacity"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&performance;capacity"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >The number of permissible concurrent users, for example using a
+counting semaphore.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&performance;capacity"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;hasScenario"/>
+        <Class URI="&performance;Context"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;hasScenario"/>
+        <Class URI="&performance;Scenario"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;hasScenario"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&performance;hasServiceDuration"/>
+        <ObjectProperty URI="&time;hasDuration"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&performance;hasServiceDuration"/>
+        <ObjectProperty URI="&performance;isAServiceDuration"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;hasServiceDuration"/>
+        <Class URI="&performance;Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;hasServiceDuration"/>
+        <Class URI="&time;Duration"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;hasServiceDuration"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;hasStep"/>
+        <Class URI="&performance;Scenario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;hasStep"/>
+        <Class URI="&performance;Step"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;hasStep"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;isAServiceDuration"/>
+        <Class URI="&time;Duration"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;isAServiceDuration"/>
+        <Class URI="&performance;Service"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;isAServiceDuration"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;isATemporalRelation"/>
+        <Class URI="&time;Duration"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;isATemporalRelation"/>
+        <Class URI="&time;TemporalRelation"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;isATemporalRelation"/>
+    </Declaration>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;ratio"/>
+        <Class URI="&performance;Distribution"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;ratio"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;schedulingPolicy"/>
+        <Class URI="&performance;Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&performance;schedulingPolicy"/>
+        <Class URI="&performance;SchedulingPolicy"/>
+    </ObjectPropertyRange>
+    <Declaration>
+        <ObjectProperty URI="&performance;schedulingPolicy"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&performance;serviceRatio"/>
+        <ObjectProperty URI="&performance;ratio"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&performance;serviceRatio"/>
+        <Class URI="&performance;Processing"/>
+    </ObjectPropertyDomain>
+    <Declaration>
+        <ObjectProperty URI="&performance;serviceRatio"/>
+    </Declaration>
+    <DataPropertyDomain>
+        <DataProperty URI="&performance;population"/>
+        <Class URI="&performance;ClosedWorkload"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty URI="&performance;population"/>
+        <Datatype URI="&xsd;int"/>
+    </DataPropertyRange>
+    <EntityAnnotation>
+        <DataProperty URI="&performance;population"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >The size of the workload (number of system users).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <DataProperty URI="&performance;population"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Bernoulli"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Bernoulli"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Beta"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Beta"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Binomial"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Binomial"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Chi-Square"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Chi-Square"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&time;Duration"/>
+        <Individual URI="&performance;Device1TimeService"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class URI="&units;UnitDerivedByScaling"/>
+        <Individual URI="&performance;Device1TimeService"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&performance;isAServiceDuration"/>
+        <Individual URI="&performance;Device1TimeService"/>
+        <Individual URI="&performance;DeviceService"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&performance;isATemporalRelation"/>
+        <Individual URI="&performance;Device1TimeService"/>
+        <Individual URI="&performance;relationStartEndDevice"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&units;derivedFromUnit"/>
+        <Individual URI="&performance;Device1TimeService"/>
+        <Individual URI="&units;second"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty URI="&numerics;hasValue"/>
+        <Individual URI="&performance;Device1TimeService"/>
+        <Constant>0.012</Constant>
+    </DataPropertyAssertion>
+    <Declaration>
+        <Individual URI="&performance;Device1TimeService"/>
+    </Declaration>
+    <Declaration>
+        <Individual URI="&performance;DeviceService"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Erlang"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Erlang"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Exponential"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Exponential"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;F"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;F"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Gamma"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Gamma"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Geometric"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Geometric"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Lognormal"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Lognormal"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;NegativeBinomial"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;NegativeBinomial"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Normal"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Normal"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Pareto"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Pareto"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Pascal"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Pascal"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Poisson"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Poisson"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;StudentsT"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;StudentsT"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;UniformContinuos"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;UniformContinuos"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;UniformDiscrete"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;UniformDiscrete"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&performance;Distribution"/>
+        <Individual URI="&performance;Weibull"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&performance;Weibull"/>
+    </Declaration>
+    <Declaration>
+        <Individual URI="&performance;relationStartEndDevice"/>
+    </Declaration>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

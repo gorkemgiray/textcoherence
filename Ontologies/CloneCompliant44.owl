@@ -1,0 +1,1679 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:vizier="http://vizier.u-strasbg.fr/codes#"
+    xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:simbad="http://simbad.u-strasbg.fr/codes#"
+    xmlns="http://eurovotech.org/objects-structure.owl#"
+  xml:base="http://eurovotech.org/objects-structure.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >classified</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="PlanetaryNebula">
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Planetary_Nebulae</vizier:kwd>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CompositeObject"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Planetary_Nebulae</simbad:shortCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Planetary_Nebulae</rdfs:label>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PN</simbad:name>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A planetary nebula is a nebula surrounding a stellar remnant (white dwarf)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassG">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class G in Morgan Keeman's spectral classification</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SpectralClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="QuasiStellarObject">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QSOs</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ActiveGalacticNuclei"/>
+    </owl:disjointWith>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QSO</simbad:name>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QSOs</vizier:kwd>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QSO</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Galaxy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RadioMetric">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RadioMillimetric"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RadioSubMillimetric"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RadioCentimetric"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Radio"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UltraViolet">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GammaRays"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="X-rays"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Infrared"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Optical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="EMSpectrumRange"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NonStellarBody">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StellarObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SubStellarObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#X-rays">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GammaRays"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Infrared"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Optical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#UltraViolet"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ClassicalT-Tauri">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="T-Tauri"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SuperClusterOfGalaxies">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SCG</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDirectComponent"/>
+        </owl:onProperty>
+        <owl:valuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SuperClG</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="ClusterOfGalaxies"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompositeObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GalaxiesGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompositeObject"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GroupG</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GrG</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Galaxy"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AssociationOfStars">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ClusterOfStars"/>
+    </owl:disjointWith>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Associations</vizier:kwd>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ClusterOfGalaxies"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Associations</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Star"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assoc*</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Associations</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompositeObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Morphology">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Process"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AstrObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Measurement"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Geometry or morphology of astronomical objects (including non-astronomical object components)</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SpectralCharacteristic"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassA">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpectralClass"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class A in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CosmologicalLensing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Lensing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Unknown">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unknown</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AstrObject"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Object of Unknown nature</rdfs:comment>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >?</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="LuminosityClassV">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LuminosityClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MillimetricRadioSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RadioSource"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mm</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio(mm)</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="Cloud">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Nebula"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cloud</simbad:name>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cloud of unknown nature</rdfs:comment>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cld</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="NebulaMorphology">
+    <rdfs:subClassOf rdf:resource="#Morphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LuminosityClassIV">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LuminosityClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SpectralCharacteristic">
+    <owl:disjointWith rdf:resource="#Morphology"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Measurement"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mainly spectral line properties</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Process"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AstrObject"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="XRayBinary">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CataclysmicVariable"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="VariableCompositeObject"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EclipsingBinary"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="X-raySource"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DoubleStar"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SpectroscopicBinary"/>
+    </owl:disjointWith>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >XB</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >XB*</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="PlanetaryNebulaShell">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#PlanetaryNebula"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="isComponentOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Nebula"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PulsatingStar">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pu*</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PulsV*</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="VariableStar"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pulsating Variable Star</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MetricRadioSource">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mR</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RadioSource"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio(m)</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="SubMillimetricRadioSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RadioSource"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >smm</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio(sub-mm)</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:about="#Lensing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Process"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LuminosityClassIII">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LuminosityClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Nebula">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DiffuseMatter"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neb</simbad:name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nebulae</rdfs:label>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nebulae</vizier:kwd>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neb</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="OpenCluster">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Open_clusters</rdfs:label>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OpCl</simbad:name>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GlobularCluster"/>
+    </owl:disjointWith>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Open_clusters</vizier:kwd>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ClusterOfStars"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OpC</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="LensedGalaxy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RadioSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="EMSource"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio</simbad:name>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rad</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="PlanetaryNebulaCentralStar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StellarRemnant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#GlobularCluster">
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Globular_Clusters</vizier:kwd>
+    <owl:disjointWith rdf:resource="#OpenCluster"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GlCl</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ClusterOfStars"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Globular_Clusters</simbad:shortCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Globular_Clusters</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassB">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpectralClass"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class B in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PreMainSequenceStar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="YoungStellarObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EclipsingBinary">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:eclipsing</rdfs:label>
+    <owl:disjointWith rdf:resource="#XRayBinary"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:eclipsing</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DoubleStar"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VariableCompositeObject"/>
+    </rdfs:subClassOf>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:eclipsing</vizier:kwd>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SpectroscopicBinary"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CataclysmicVariable"/>
+    </owl:disjointWith>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EB*</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="Eclipse">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProcessVariability"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipseAlgol">
+    <rdfs:subClassOf rdf:resource="#Eclipse"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pulsation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessVariability"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Infrared">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#UltraViolet"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GammaRays"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#X-rays"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Optical"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ActiveGalacticNuclei">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GalaxyInGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RadioGalaxy"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GalaxyInCluster"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#QuasiStellarObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StarMorphology">
+    <rdfs:subClassOf rdf:resource="#Morphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RedSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="OpticalSource"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#X-raySource">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >X</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSource"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >X</simbad:name>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Xrays</vizier:kwd>
+  </owl:Class>
+  <owl:Class rdf:ID="HIIRegion">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HII_regions</rdfs:label>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HII</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HII_regions</vizier:kwd>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HII (inonized) region</rdfs:comment>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HII</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipseWUMa">
+    <rdfs:subClassOf rdf:resource="#Eclipse"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Process">
+    <owl:disjointWith rdf:resource="#SpectralCharacteristic"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AstrObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Morphology"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Measurement"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Phenomenom or associated process</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#CompositeObject">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A composite object contains at least two distinct individual astronomical objects</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AstrObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:complementOf rdf:resource="#Unknown"/>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >multiple_object</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mul</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:about="#RadioSubMillimetric">
+    <owl:disjointWith rdf:resource="#RadioMetric"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Radio"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RadioMillimetric"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RadioCentimetric"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#GalaxyInCluster">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RadioGalaxy"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GalaxyInGroup"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Galaxy in Cluster of Galaxies</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ActiveGalacticNuclei"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GiC</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GinCl</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="__YoungBrownDwarf__">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BrownDwarf"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#YoungStellarObject"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Concept which may or may not de deleted from the ontology</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ReflexionNebula">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RfNeb</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RNe</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Optical">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GammaRays"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#X-rays"/>
+    <owl:disjointWith rdf:resource="#UltraViolet"/>
+    <owl:disjointWith rdf:resource="#Infrared"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BrownDwarf">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StellarObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="NearInfrared"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isObservedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="NearInfraredSource"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SubStellarObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipsingBinaryBetaLyrae">
+    <rdfs:subClassOf rdf:resource="#EclipsingBinary"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EB*betLyr</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bL*</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="Starburst">
+    <rdfs:subClassOf rdf:resource="#Process"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DQHerCataclysmicVariable">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DwarfNova"/>
+    </owl:disjointWith>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DQ*</simbad:shortCode>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cataclysmic Variable Star DQ Her type</rdfs:comment>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DQHer</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CataclysmicVariable"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AMHerCataclysmicVariable"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NovaLikeObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Nova"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Mass">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CataclysmicVariable">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DoubleStar"/>
+    </rdfs:subClassOf>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:cataclysmic</vizier:kwd>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CataclyV*</simbad:name>
+    <owl:disjointWith rdf:resource="#EclipsingBinary"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SpectroscopicBinary"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VariableCompositeObject"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CV*</simbad:shortCode>
+    <owl:disjointWith rdf:resource="#XRayBinary"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:cataclysmic</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GalaxiesCompactGroup">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CGG</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Compact_Gr_G</simbad:name>
+    <rdfs:subClassOf rdf:resource="#GalaxiesGroup"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HIRegion">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HI (neutral) region</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HI</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HI</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="LuminosityClassI">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LuminosityClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Measurement">
+    <owl:disjointWith rdf:resource="#SpectralCharacteristic"/>
+    <owl:disjointWith rdf:resource="#Morphology"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Measured observational parameters/properties</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AstrObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Process"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#GalaxyInGroup">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GiG</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#GalaxyInCluster"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RadioGalaxy"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ActiveGalacticNuclei"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GinGroup</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:about="#ClusterOfGalaxies">
+    <rdfs:subClassOf rdf:resource="#CompositeObject"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clusters_of_galaxies</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#GalaxiesGroup"/>
+              <owl:Class rdf:about="#Galaxy"/>
+              <owl:Class rdf:ID="GalaxyPair"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ClG</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ClG</simbad:name>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clusters_of_galaxies</vizier:kwd>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:minCardinality>
+        <owl:valuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#AssociationOfStars"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ClusterOfStars"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="WhiteDwarf">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:white_dwarf</rdfs:label>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:white_dwarf</vizier:kwd>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A white dwarf or a stellar remnant</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StellarRemnant"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WD*</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:white_dwarf</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:about="#RadioCentimetric">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RadioMillimetric"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Radio"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#RadioMetric"/>
+    <owl:disjointWith rdf:resource="#RadioSubMillimetric"/>
+  </owl:Class>
+  <owl:Class rdf:ID="UltraVioletSource">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UV</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSource"/>
+    </rdfs:subClassOf>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></vizier:kwd>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UV</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:about="#AMHerCataclysmicVariable">
+    <owl:disjointWith rdf:resource="#DQHerCataclysmicVariable"/>
+    <rdfs:subClassOf rdf:resource="#CataclysmicVariable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NovaLikeObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DwarfNova"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cataclysmic Variable Star AM Her type</rdfs:comment>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AMHer</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AM*</simbad:shortCode>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Nova"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#OpticalSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSource"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Halo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GalaxyMorphology"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProperMotion">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Explosion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessVariability"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RadioGalaxy">
+    <owl:disjointWith rdf:resource="#ActiveGalacticNuclei"/>
+    <rdfs:subClassOf rdf:resource="#RadioSource"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rG</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RadioG</simbad:name>
+    <owl:disjointWith rdf:resource="#GalaxyInCluster"/>
+    <owl:disjointWith rdf:resource="#GalaxyInGroup"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StarInNebula">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SubStellarObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StellarObject"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*iN</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*inNeb</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="Red">
+    <rdfs:subClassOf rdf:resource="#Optical"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Blue"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="MultipleStar">
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Multiple_Stars</vizier:kwd>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Multiple_Stars</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#CompositeObject"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >**</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#StellarObject"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Double or multiple star</simbad:name>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A system of two or more distinct stars</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Nova">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Novae</simbad:shortCode>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NovaLikeObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AMHerCataclysmicVariable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DwarfNova"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#CataclysmicVariable"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nova</simbad:name>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Novae</vizier:kwd>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Novae</rdfs:label>
+    <owl:disjointWith rdf:resource="#DQHerCataclysmicVariable"/>
+  </owl:Class>
+  <owl:Class rdf:ID="QualitativeMorphology">
+    <rdfs:subClassOf rdf:resource="#Morphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Compact">
+    <rdfs:subClassOf rdf:resource="#QualitativeMorphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HighMassXrayBinary">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HXB</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HMXB</simbad:name>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LowMassXRayBinary"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#XRayBinary"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GalaxyInPair">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GinPair</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GiP</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SubStellarObject">
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#StellarObject"/>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AstrObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Redshift">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GalaxyMorphology">
+    <rdfs:subClassOf rdf:resource="#Morphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SurfaceBrightness">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LowMassXRayBinary">
+    <owl:disjointWith rdf:resource="#HighMassXrayBinary"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LXB</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LMXB</simbad:name>
+    <rdfs:subClassOf rdf:resource="#XRayBinary"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NearInfrared">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FarInfrared"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Infrared"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wavelength &lt; 10 microns</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="StarInDoubleStar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StellarObject"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*i*</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*in**</simbad:name>
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A star that is part of a double star</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#RadioMillimetric">
+    <owl:disjointWith rdf:resource="#RadioCentimetric"/>
+    <owl:disjointWith rdf:resource="#RadioSubMillimetric"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Radio"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#RadioMetric"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SpectroscopicBinary">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:spectroscopic</simbad:shortCode>
+    <owl:disjointWith rdf:resource="#CataclysmicVariable"/>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:spectroscopic</vizier:kwd>
+    <owl:disjointWith rdf:resource="#EclipsingBinary"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VariableCompositeObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DoubleStar"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#XRayBinary"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Binaries:spectroscopic</rdfs:label>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SB</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassM">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpectralClass"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class M in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SpiralArm">
+    <rdfs:subClassOf rdf:resource="#GalaxyMorphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CentimetricRadioSource">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cm</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#RadioSource"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio(cm)</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:about="#Blue">
+    <rdfs:subClassOf rdf:resource="#Optical"/>
+    <owl:disjointWith rdf:resource="#Red"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DiffuseMatter">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neb</simbad:shortCode>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nebulae</vizier:kwd>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generic concept for various types of nebula</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AstrObject"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ClusterOfStars"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasMorphology"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#NebulaMorphology"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#GammaRays">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Optical"/>
+    <owl:disjointWith rdf:resource="#X-rays"/>
+    <owl:disjointWith rdf:resource="#UltraViolet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Infrared"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProcessVariability">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Process implying an observed variability</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Process"/>
+  </owl:Class>
+  <owl:Class rdf:about="#VariableStar">
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:variable</vizier:kwd>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >V*</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="VariableObject"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:variable</simbad:shortCode>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Star"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars:variable</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="InfraredSource">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSource"/>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IR</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IR</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipsingBinaryWUMa">
+    <rdfs:subClassOf rdf:resource="#EclipsingBinary"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EB*WUMa</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WU*</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="HerbigHaro">
+    <rdfs:subClassOf rdf:resource="#PreMainSequenceStar"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StellarBlackHole">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#StellarRemnant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BlueSource">
+    <rdfs:subClassOf rdf:resource="#OpticalSource"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NearInfraredSource">
+    <rdfs:subClassOf rdf:resource="#InfraredSource"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IR&lt;10µ</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NIR</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:about="#StellarObject">
+    <owl:equivalentClass rdf:resource="#SubStellarObject"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AstrObject"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FarInfrared">
+    <owl:disjointWith rdf:resource="#NearInfrared"/>
+    <rdfs:subClassOf rdf:resource="#Infrared"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wavelength > 30 microns</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AstrObject">
+    <owl:disjointWith rdf:resource="#SpectralCharacteristic"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EMSpectrumRange"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Process"/>
+    <owl:disjointWith rdf:resource="#Measurement"/>
+    <owl:disjointWith rdf:resource="#Morphology"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >_Test_Astrobject</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Any astronomical object</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#YoungStellarObject">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YSOs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#StellarObject"/>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YSOs</vizier:kwd>
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Star">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ProtoStar"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StellarRemnant"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A stellar object: proto-star, star in the main sequence, evolved star or stellar remnant</rdfs:comment>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stars</vizier:kwd>
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+    <rdfs:subClassOf rdf:resource="#StellarObject"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Star</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:about="#ClusterOfStars">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cl*</simbad:shortCode>
+    <owl:disjointWith rdf:resource="#ClusterOfGalaxies"/>
+    <rdfs:subClassOf rdf:resource="#CompositeObject"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Galaxy"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:minCardinality>
+        <owl:valuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#AssociationOfStars"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#StellarObject"/>
+              <owl:Class rdf:about="#MultipleStar"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cl*</simbad:name>
+    <owl:disjointWith rdf:resource="#DiffuseMatter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipsingBinaryAlgol">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Al*</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EB*Algol</simbad:name>
+    <rdfs:subClassOf rdf:resource="#EclipsingBinary"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DarkNebula">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DNe</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DkNeb</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:about="#Galaxy">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Galaxies</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Galaxy</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#GalaxyMorphology"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasMorphology"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <vizier:kwd rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Galaxies</vizier:kwd>
+    <rdfs:subClassOf rdf:resource="#AstrObject"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Galaxies</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#GalaxyPair">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PairG</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+        <owl:valuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Galaxy"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CompositeObject"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PaG</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="BrightNebula">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BrNeb</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BNe</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GammaRaySource">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >gamma</simbad:name>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EMSource"/>
+    </rdfs:subClassOf>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >gam</simbad:shortCode>
+  </owl:Class>
+  <owl:Class rdf:ID="LensedQuasiStellarObject">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lensed quasar</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LensedGalaxy"/>
+    <rdfs:subClassOf rdf:resource="#QuasiStellarObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MolecularCloud">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MolCld</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MoC</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Cloud"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StarInAssociation">
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+    <rdfs:subClassOf rdf:resource="#StellarObject"/>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*iA</simbad:shortCode>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*inAssoc</simbad:name>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassO">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpectralClass"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class O in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Enveloppe">
+    <rdfs:subClassOf rdf:resource="#StarMorphology"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProtoStar">
+    <rdfs:subClassOf rdf:resource="#SubMillimetricRadioSource"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#RadioSubMillimetric"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isObservedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StellarRemnant"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Star"/>
+    <rdfs:subClassOf rdf:resource="#YoungStellarObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LuminosityClassII">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LuminosityClass"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Planet">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Comet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Asteroid"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#NonStellarBody"/>
+  </owl:Class>
+  <owl:Class rdf:about="#VariableCompositeObject">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VariableObject"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CompositeObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Temperature">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassF">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpectralClass"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class F in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="EclipseBetaLyrae">
+    <rdfs:subClassOf rdf:resource="#Eclipse"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DwarfNova">
+    <owl:disjointWith rdf:resource="#DQHerCataclysmicVariable"/>
+    <rdfs:subClassOf rdf:resource="#CataclysmicVariable"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DwarfNova</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DN*</simbad:shortCode>
+    <owl:disjointWith rdf:resource="#Nova"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NovaLikeObject"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AMHerCataclysmicVariable"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DoubleStar">
+    <rdfs:subClassOf rdf:resource="#MultipleStar"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Double or multiple star</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >**</simbad:shortCode>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A system of two stars</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Asteroid">
+    <owl:disjointWith rdf:resource="#Planet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Comet"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#NonStellarBody"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SpectralClass">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isMeasuredFor"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#StellarObject"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Any class in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#EMSource">
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:complementOf rdf:resource="#Unknown"/>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#AstrObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Velocity">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StellarRemnant">
+    <rdfs:subClassOf rdf:resource="#StellarObject"/>
+    <owl:disjointWith rdf:resource="#Star"/>
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+    <owl:disjointWith rdf:resource="#ProtoStar"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NeutronStar">
+    <rdfs:subClassOf rdf:resource="#StellarRemnant"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StarInCluster">
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*iC</simbad:shortCode>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An individual star located in a star cluster</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SubStellarObject"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*inCl</simbad:name>
+    <rdfs:subClassOf rdf:resource="#StellarObject"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EMSpectrumRange">
+    <owl:disjointWith rdf:resource="#SpectralCharacteristic"/>
+    <owl:disjointWith rdf:resource="#Measurement"/>
+    <owl:disjointWith rdf:resource="#AstrObject"/>
+    <owl:disjointWith rdf:resource="#Process"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Set of ranges in the electromagnetic spectrum</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Morphology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Rotation">
+    <rdfs:subClassOf rdf:resource="#ProcessVariability"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MicroLensing">
+    <rdfs:subClassOf rdf:resource="#ProcessVariability"/>
+    <rdfs:subClassOf rdf:resource="#Lensing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LuminosityClass">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#StellarObject"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isMeasuredFor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SpectralClassK">
+    <rdfs:subClassOf rdf:resource="#SpectralClass"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class K in Morgan Keeman's spectral classification</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SupernovaRemnantShell">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SNR</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SNR</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#Nebula"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MagneticField">
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:about="#VariableObject">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Object which features a variability</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:complementOf rdf:resource="#Unknown"/>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#AstrObject"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NovaLikeObject">
+    <rdfs:subClassOf rdf:resource="#CataclysmicVariable"/>
+    <owl:disjointWith rdf:resource="#Nova"/>
+    <owl:disjointWith rdf:resource="#DwarfNova"/>
+    <owl:disjointWith rdf:resource="#AMHerCataclysmicVariable"/>
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nova-like</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NL*</simbad:shortCode>
+    <owl:disjointWith rdf:resource="#DQHerCataclysmicVariable"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Radio">
+    <rdfs:subClassOf rdf:resource="#EMSpectrumRange"/>
+    <owl:disjointWith rdf:resource="#UltraViolet"/>
+    <owl:disjointWith rdf:resource="#GammaRays"/>
+    <owl:disjointWith rdf:resource="#X-rays"/>
+    <owl:disjointWith rdf:resource="#Infrared"/>
+    <owl:disjointWith rdf:resource="#Optical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Comet">
+    <owl:disjointWith rdf:resource="#Asteroid"/>
+    <owl:disjointWith rdf:resource="#Planet"/>
+    <rdfs:subClassOf rdf:resource="#NonStellarBody"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Weak-lineT-Tauri">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#T-Tauri"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FarInfraredSource">
+    <simbad:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IR>30µ</simbad:name>
+    <simbad:shortCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FIR</simbad:shortCode>
+    <rdfs:subClassOf rdf:resource="#InfraredSource"/>
+  </owl:Class>
+  <owl:Class rdf:about="#T-Tauri">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isObservedIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#NearInfrared"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PreMainSequenceStar"/>
+    <rdfs:subClassOf rdf:resource="#NearInfraredSource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasGravitationalLink">
+    <rdfs:range rdf:resource="#AstrObject"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <owl:inverseOf rdf:resource="#hasGravitationalLink"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProcess">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates that an astronomical object is the location of a Process/has an attached process</rdfs:comment>
+    <rdfs:range rdf:resource="#Process"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMeasurement">
+    <rdfs:range rdf:resource="#Measurement"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isMeasuredFor"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates that an astronomical object has a related (observational) measurement</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasHighMeasurement">
+    <rdfs:range rdf:resource="#Measurement"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates that an astronomical object has a related (observational) measurement which value is considered as HIGH</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#hasMeasurement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isMorphologyOf">
+    <rdfs:range rdf:resource="#AstrObject"/>
+    <rdfs:domain rdf:resource="#Morphology"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasMorphology"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isMeasuredFor">
+    <owl:inverseOf rdf:resource="#hasMeasurement"/>
+    <rdfs:range rdf:resource="#AstrObject"/>
+    <rdfs:domain rdf:resource="#Measurement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasComponent">
+    <rdfs:domain rdf:resource="#CompositeObject"/>
+    <rdfs:range rdf:resource="#AstrObject"/>
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="#isComponentOf"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isDirectComponentOf">
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasDirectComponent"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isComponentOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#CompositeObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDirectComponent">
+    <rdfs:range rdf:resource="#AstrObject"/>
+    <owl:inverseOf rdf:resource="#isDirectComponentOf"/>
+    <rdfs:subPropertyOf rdf:resource="#hasComponent"/>
+    <rdfs:domain rdf:resource="#CompositeObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isObservedIn">
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <rdfs:range rdf:resource="#EMSpectrumRange"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasMorphology">
+    <rdfs:range rdf:resource="#Morphology"/>
+    <owl:inverseOf rdf:resource="#isMorphologyOf"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLowMeasurement">
+    <rdfs:range rdf:resource="#Measurement"/>
+    <rdfs:subPropertyOf rdf:resource="#hasMeasurement"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates that an astronomical object has a related (observational) measurement which value is considered as LOW</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://vizier.u-strasbg.fr/codes#kwd">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Vizier keyword</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://simbad.u-strasbg.fr/codes#name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Standard name in Simbad's object classification</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#isComponentOf">
+    <owl:inverseOf rdf:resource="#hasComponent"/>
+    <rdfs:range rdf:resource="#CompositeObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AstrObject"/>
+  </owl:TransitiveProperty>
+  <owl:AnnotationProperty rdf:about="http://simbad.u-strasbg.fr/codes#shortCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Short code in Simbad's object classification</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:AnnotationProperty>
+  <GalaxyPair rdf:ID="GalaxyPair_2"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 331)  http://protege.stanford.edu -->

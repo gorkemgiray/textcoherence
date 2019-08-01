@@ -1,0 +1,973 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:swrlx="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:query="http://swrl.stanford.edu/ontologies/built-ins/3.3/query.owl#"
+    xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
+    xmlns:tbox="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1226578903.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:abox="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1226578903.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.w3.org/2003/11/swrl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/query.owl"/>
+    <owl:imports rdf:resource="http://www.w3.org/2003/11/swrlb"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:ID="PermanentFocusLens">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="ReplacebleLens"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Lens">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="PurchasebleItem"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="DigitalCamera">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="Camera"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="MacroLens">
+    <rdfs:subClassOf rdf:resource="#PermanentFocusLens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Brand"/>
+  <rdfs:Class rdf:ID="FilmTLRCamera">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="FilmCamera"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="FilmSLRCamera">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="#FilmCamera"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Sensor"/>
+  <rdfs:Class rdf:ID="Battery">
+    <rdfs:subClassOf rdf:resource="#PurchasebleItem"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="#FilmCamera">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="#Camera"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="SensorCMOS">
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="ZoomLens">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="#ReplacebleLens"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="TelePhotoLens">
+    <rdfs:subClassOf rdf:resource="#PermanentFocusLens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="NonReplacebleLens">
+    <rdfs:subClassOf rdf:resource="#Lens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="DigitalSLRCamera">
+    <rdfs:subClassOf rdf:resource="#DigitalCamera"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="MemoryCard">
+    <rdfs:subClassOf rdf:resource="#PurchasebleItem"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="#Camera">
+    <rdfs:subClassOf rdf:resource="#PurchasebleItem"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="DigitalCompactCamera">
+    <rdfs:subClassOf rdf:resource="#DigitalCamera"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Manufacturer"/>
+  <rdfs:Class rdf:ID="SensorCCD">
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="NormalLens">
+    <rdfs:subClassOf rdf:resource="#PermanentFocusLens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Display"/>
+  <rdfs:Class rdf:about="#ReplacebleLens">
+    <rdfs:subClassOf rdf:resource="#Lens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="FishEyeLens">
+    <rdfs:subClassOf rdf:resource="#PermanentFocusLens"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="FilmCompactCamera">
+    <rdfs:subClassOf rdf:resource="#FilmCamera"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="WideAngleLens">
+    <rdfs:subClassOf rdf:resource="#PermanentFocusLens"/>
+  </rdfs:Class>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/2003/11/swrl#argument2"/>
+  <owl:ObjectProperty rdf:ID="part_of">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="has"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Camera"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Sensor"/>
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#NonReplacebleLens"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="used_in">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="uses"/>
+    </owl:inverseOf>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#MemoryCard"/>
+          <rdfs:Class rdf:about="#Battery"/>
+          <rdfs:Class rdf:about="#ReplacebleLens"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Camera"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#has">
+    <rdfs:domain rdf:resource="#Camera"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#Sensor"/>
+          <rdfs:Class rdf:about="#NonReplacebleLens"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="#part_of"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#uses">
+    <rdfs:domain rdf:resource="#Camera"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Battery"/>
+          <rdfs:Class rdf:about="#MemoryCard"/>
+          <rdfs:Class rdf:about="#ReplacebleLens"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="#used_in"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="formatVideo">
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MPEG4</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >MPEG2</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="formatPhoto">
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >JPEG</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >GIF</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RAW</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="distance-macro-min">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-height">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#PurchasebleItem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="resolution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#Sensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="voltage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Battery"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="serialShotSpeed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Camera"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="distance-macro-max">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="distance-min">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ISO-min">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Camera"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="aperture-blades">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="weight">
+    <rdfs:domain rdf:resource="#PurchasebleItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-diagonal">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#Sensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="serialShotsJPEG">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="filter-thread">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ISO-max">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="viewFinder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Electronic</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >TTLfocusingScreen</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >TTLpentaprism</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Optical</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Camera"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-depth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#PurchasebleItem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="distance-max">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="batteriesNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DigitalCompactCamera"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >3</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >4</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >1</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="focal-equivalent-min">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-diameter">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="capacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Battery"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="serialShotsRAW">
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="focal-length-min">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="makes">
+    <rdfs:range rdf:resource="#PurchasebleItem"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="made_by"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="aperture-min">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="lensGroups">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="bayonetType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#ReplacebleLens"/>
+          <rdfs:Class rdf:about="#DigitalSLRCamera"/>
+          <rdfs:Class rdf:about="#FilmSLRCamera"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >EF</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >EF-S</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="lensElements">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="aperture-max">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="cropFactor">
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-width">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#PurchasebleItem"/>
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#Sensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="shutter-speed-max">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Camera"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="shutter-speed-min">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Camera"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="videoRecording">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimension-length">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#PurchasebleItem"/>
+          <rdfs:Class rdf:about="#Display"/>
+          <rdfs:Class rdf:about="#Sensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="focal-equivalent-max">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="pictureWidth">
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="owns">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="owned_by"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Brand"/>
+    <rdfs:domain rdf:resource="#Manufacturer"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="focal-lenght-max">
+    <rdfs:domain rdf:resource="#Lens"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="internal-memory">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="pictureLength">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#DigitalCamera"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#made_by">
+    <owl:inverseOf rdf:resource="#makes"/>
+    <rdfs:domain rdf:resource="#PurchasebleItem"/>
+    <rdfs:range rdf:resource="#Manufacturer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#owned_by">
+    <rdfs:range rdf:resource="#Manufacturer"/>
+    <owl:inverseOf rdf:resource="#owns"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Brand"/>
+  </owl:InverseFunctionalProperty>
+  <MemoryCard rdf:ID="MemoryCard_SDHC">
+    <used_in>
+      <DigitalCompactCamera rdf:ID="Casio_Exilim_z1000">
+        <dimension-depth rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >22.4</dimension-depth>
+        <dimension-height rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >58.4</dimension-height>
+        <ISO-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >50</ISO-min>
+        <dimension-width rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >92.0</dimension-width>
+        <videoRecording rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</videoRecording>
+        <shutter-speed-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >5.0E-4</shutter-speed-max>
+        <pictureLength rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3648</pictureLength>
+        <internal-memory rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >8</internal-memory>
+        <has>
+          <NonReplacebleLens rdf:ID="Lens_Exilim_Optical">
+            <aperture-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >5.4</aperture-max>
+            <distance-max rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >infinity</distance-max>
+            <focal-equivalent-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >38</focal-equivalent-min>
+            <distance-macro-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.06</distance-macro-min>
+            <distance-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.4</distance-min>
+            <aperture-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >2.8</aperture-min>
+            <focal-length-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</focal-length-min>
+            <distance-macro-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.5</distance-macro-max>
+            <focal-lenght-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</focal-lenght-max>
+            <part_of rdf:resource="#Casio_Exilim_z1000"/>
+            <focal-equivalent-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >114</focal-equivalent-max>
+          </NonReplacebleLens>
+        </has>
+        <ISO-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3200</ISO-max>
+        <made_by>
+          <Manufacturer rdf:ID="Casio_Computer_Co.">
+            <owns>
+              <Brand rdf:ID="Casio">
+                <owned_by rdf:resource="#Casio_Computer_Co."/>
+              </Brand>
+            </owns>
+            <makes rdf:resource="#Casio_Exilim_z1000"/>
+          </Manufacturer>
+        </made_by>
+        <shutter-speed-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.5</shutter-speed-min>
+        <formatVideo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MPEG2</formatVideo>
+        <formatPhoto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >JPEG</formatPhoto>
+        <uses rdf:resource="#MemoryCard_SDHC"/>
+        <pictureWidth rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2736</pictureWidth>
+      </DigitalCompactCamera>
+    </used_in>
+    <used_in>
+      <DigitalSLRCamera rdf:ID="Canon_EOS_450D">
+        <has>
+          <Display rdf:ID="Display_LCD_3">
+            <part_of>
+              <DigitalCompactCamera rdf:ID="Canon_Powershot_S10IS">
+                <shutter-speed-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >3.0E-4</shutter-speed-max>
+                <dimension-width rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >128.0</dimension-width>
+                <dimension-depth rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >87.0</dimension-depth>
+                <uses>
+                  <Battery rdf:ID="AA">
+                    <used_in rdf:resource="#Canon_Powershot_S10IS"/>
+                    <voltage rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >1.5</voltage>
+                  </Battery>
+                </uses>
+                <serialShotSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.7</serialShotSpeed>
+                <formatVideo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >MPEG4</formatVideo>
+                <has>
+                  <SensorCCD rdf:ID="SensorCCD_10_8.94">
+                    <part_of rdf:resource="#Canon_Powershot_S10IS"/>
+                    <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >10.37</resolution>
+                    <dimension-diagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >8.94</dimension-diagonal>
+                  </SensorCCD>
+                </has>
+                <pictureLength rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >3648</pictureLength>
+                <ISO-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >1600</ISO-max>
+                <videoRecording rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</videoRecording>
+                <formatPhoto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >JPEG</formatPhoto>
+                <has>
+                  <NonReplacebleLens rdf:ID="Canon_Zoom_SX10_IS">
+                    <focal-equivalent-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >560</focal-equivalent-max>
+                    <focal-lenght-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >100</focal-lenght-max>
+                    <focal-length-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >5</focal-length-min>
+                    <focal-equivalent-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >28</focal-equivalent-min>
+                    <aperture-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >5.6</aperture-min>
+                    <aperture-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >2.8</aperture-max>
+                    <part_of rdf:resource="#Canon_Powershot_S10IS"/>
+                  </NonReplacebleLens>
+                </has>
+                <pictureWidth rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >2736</pictureWidth>
+                <viewFinder rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Electronic</viewFinder>
+                <shutter-speed-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >15.0</shutter-speed-min>
+                <weight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >600.0</weight>
+                <ISO-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >80</ISO-min>
+                <dimension-height rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >88.0</dimension-height>
+                <made_by>
+                  <Manufacturer rdf:ID="Canon_Inc.">
+                    <makes rdf:resource="#Canon_Powershot_S10IS"/>
+                    <makes>
+                      <ZoomLens rdf:ID="Canon_EF_28-135mm_f3.5-5.6_IS_USM_Lens">
+                        <focal-length-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >28</focal-length-min>
+                        <lensElements rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >16</lensElements>
+                        <focal-lenght-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >135</focal-lenght-max>
+                        <aperture-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >3.5</aperture-max>
+                        <filter-thread rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >72.0</filter-thread>
+                        <distance-macro-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.5</distance-macro-min>
+                        <aperture-blades rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >9</aperture-blades>
+                        <distance-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.5</distance-min>
+                        <distance-max rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >infinity</distance-max>
+                        <aperture-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >5.6</aperture-min>
+                        <lensGroups rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >12</lensGroups>
+                        <made_by rdf:resource="#Canon_Inc."/>
+                        <weight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >540.0</weight>
+                        <dimension-length rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >96.8</dimension-length>
+                        <dimension-diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >78.4</dimension-diameter>
+                      </ZoomLens>
+                    </makes>
+                    <owns>
+                      <Brand rdf:ID="Canon">
+                        <owned_by rdf:resource="#Canon_Inc."/>
+                      </Brand>
+                    </owns>
+                  </Manufacturer>
+                </made_by>
+                <has rdf:resource="#Display_LCD_3"/>
+              </DigitalCompactCamera>
+            </part_of>
+            <part_of rdf:resource="#Canon_EOS_450D"/>
+            <dimension-diagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >3.0</dimension-diagonal>
+            <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >260000.0</resolution>
+          </Display>
+        </has>
+        <bayonetType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >EF-S</bayonetType>
+        <has>
+          <SensorCMOS rdf:ID="SensorCMOS_15x22_12">
+            <dimension-width rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >14.8</dimension-width>
+            <part_of rdf:resource="#Canon_EOS_450D"/>
+            <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >12.2</resolution>
+            <dimension-length rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >22.8</dimension-length>
+          </SensorCMOS>
+        </has>
+        <serialShotSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.5</serialShotSpeed>
+        <viewFinder rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >TTLpentaprism</viewFinder>
+        <uses>
+          <MemoryCard rdf:ID="MemoryCard_MMC">
+            <used_in rdf:resource="#Canon_EOS_450D"/>
+          </MemoryCard>
+        </uses>
+        <shutter-speed-min rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >30.0</shutter-speed-min>
+        <pictureLength rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4272</pictureLength>
+        <formatPhoto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RAW</formatPhoto>
+        <uses>
+          <Battery rdf:ID="LP_E5">
+            <used_in rdf:resource="#Canon_EOS_450D"/>
+          </Battery>
+        </uses>
+        <uses>
+          <MemoryCard rdf:ID="MemoryCard_SD">
+            <used_in rdf:resource="#Canon_EOS_450D"/>
+          </MemoryCard>
+        </uses>
+        <uses rdf:resource="#MemoryCard_SDHC"/>
+        <weight rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >475.0</weight>
+        <ISO-min rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >100</ISO-min>
+        <dimension-depth rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >61.0</dimension-depth>
+        <pictureWidth rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2848</pictureWidth>
+        <serialShotsRAW rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</serialShotsRAW>
+        <shutter-speed-max rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2.5E-4</shutter-speed-max>
+        <ISO-max rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1600</ISO-max>
+        <dimension-height rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >97.5</dimension-height>
+        <dimension-width rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >128.8</dimension-width>
+        <cropFactor rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.6</cropFactor>
+        <formatPhoto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >JPEG</formatPhoto>
+      </DigitalSLRCamera>
+    </used_in>
+  </MemoryCard>
+  <Battery rdf:ID="Battery_NP40_Li-Ion">
+    <capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1300</capacity>
+    <voltage rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >3.7</voltage>
+  </Battery>
+  <swrl:Variable rdf:ID="z"/>
+  <NonReplacebleLens rdf:ID="Lens_Zoom_Nikkor"/>
+  <swrl:Variable rdf:ID="y"/>
+  <MemoryCard rdf:ID="MemoryCard_MemoryStick"/>
+  <Battery rdf:ID="Battery_Canon-1050_Li-Ion"/>
+  <swrl:Variable rdf:ID="a"/>
+  <SensorCCD rdf:ID="SensorCCD_10_11mm">
+    <dimension-diagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >11.04</dimension-diagonal>
+    <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >10.0</resolution>
+  </SensorCCD>
+  <Brand rdf:ID="Minox">
+    <owned_by>
+      <Manufacturer rdf:ID="Minox_GmbH">
+        <owns rdf:resource="#Minox"/>
+      </Manufacturer>
+    </owned_by>
+  </Brand>
+  <Brand rdf:ID="Olympus">
+    <owned_by>
+      <Manufacturer rdf:ID="Olympus_Corp.">
+        <owns rdf:resource="#Olympus"/>
+      </Manufacturer>
+    </owned_by>
+  </Brand>
+  <Brand rdf:ID="Pentax">
+    <owned_by>
+      <Manufacturer rdf:ID="Hoya_Corp.">
+        <owns rdf:resource="#Pentax"/>
+      </Manufacturer>
+    </owned_by>
+  </Brand>
+  <Display rdf:ID="Display_LCD_2.8">
+    <dimension-diagonal rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >2.8</dimension-diagonal>
+    <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >230000.0</resolution>
+  </Display>
+  <swrl:Variable rdf:ID="c"/>
+  <swrl:Variable rdf:ID="b"/>
+  <MemoryCard rdf:ID="MemoryCard_CF"/>
+  <Manufacturer rdf:ID="Matsushita_Electric_Co.">
+    <owns>
+      <Brand rdf:ID="Panasonic">
+        <owned_by rdf:resource="#Matsushita_Electric_Co."/>
+      </Brand>
+    </owns>
+  </Manufacturer>
+  <Brand rdf:ID="Sony">
+    <owned_by>
+      <Manufacturer rdf:ID="Sony_Corp.">
+        <owns rdf:resource="#Sony"/>
+      </Manufacturer>
+    </owned_by>
+  </Brand>
+  <Brand rdf:ID="Nikon">
+    <owned_by>
+      <Manufacturer rdf:ID="Nikon_Corp.">
+        <owns rdf:resource="#Nikon"/>
+      </Manufacturer>
+    </owned_by>
+  </Brand>
+  <swrl:Imp rdf:ID="RuleDiagonal">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:DatavaluedPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#dimension-diagonal"/>
+            <swrl:argument1>
+              <swrl:Variable rdf:ID="x"/>
+            </swrl:argument1>
+            <swrl:argument2 rdf:resource="#c"/>
+          </swrl:DatavaluedPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:DatavaluedPropertyAtom>
+            <swrl:argument2 rdf:resource="#y"/>
+            <swrl:argument1 rdf:resource="#x"/>
+            <swrl:propertyPredicate rdf:resource="#dimension-length"/>
+          </swrl:DatavaluedPropertyAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:BuiltinAtom>
+                            <swrl:arguments>
+                              <rdf:List>
+                                <rdf:rest>
+                                  <rdf:List>
+                                    <rdf:first rdf:resource="#b"/>
+                                    <rdf:rest>
+                                      <rdf:List>
+                                        <rdf:first rdf:resource="#c"/>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                      </rdf:List>
+                                    </rdf:rest>
+                                  </rdf:List>
+                                </rdf:rest>
+                                <rdf:first rdf:resource="#a"/>
+                              </rdf:List>
+                            </swrl:arguments>
+                            <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+                          </swrl:BuiltinAtom>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:BuiltinAtom>
+                        <swrl:arguments>
+                          <rdf:List>
+                            <rdf:first rdf:resource="#z"/>
+                            <rdf:rest>
+                              <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                >2</rdf:first>
+                                <rdf:rest>
+                                  <rdf:List>
+                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    <rdf:first rdf:resource="#c"/>
+                                  </rdf:List>
+                                </rdf:rest>
+                              </rdf:List>
+                            </rdf:rest>
+                          </rdf:List>
+                        </swrl:arguments>
+                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#pow"/>
+                      </swrl:BuiltinAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:BuiltinAtom>
+                    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#pow"/>
+                    <swrl:arguments>
+                      <rdf:List>
+                        <rdf:rest>
+                          <rdf:List>
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            >2</rdf:first>
+                            <rdf:rest>
+                              <rdf:List>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                <rdf:first rdf:resource="#b"/>
+                              </rdf:List>
+                            </rdf:rest>
+                          </rdf:List>
+                        </rdf:rest>
+                        <rdf:first rdf:resource="#y"/>
+                      </rdf:List>
+                    </swrl:arguments>
+                  </swrl:BuiltinAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:DatavaluedPropertyAtom>
+                <swrl:argument2 rdf:resource="#z"/>
+                <swrl:propertyPredicate rdf:resource="#dimension-width"/>
+                <swrl:argument1 rdf:resource="#x"/>
+              </swrl:DatavaluedPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <SensorCMOS rdf:ID="SensorCMOS_24x36_21.9">
+    <dimension-length rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >36.0</dimension-length>
+    <resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >21.9</resolution>
+    <dimension-width rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >24.0</dimension-width>
+  </SensorCMOS>
+  <Manufacturer rdf:ID="Hasselblad_AS">
+    <owns>
+      <Brand rdf:ID="Hasselblad">
+        <owned_by rdf:resource="#Hasselblad_AS"/>
+      </Brand>
+    </owns>
+  </Manufacturer>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

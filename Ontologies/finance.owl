@@ -1,0 +1,1378 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+  xml:base="http://www.owl-ontologies.com/unnamed.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/protege"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="ComercialService">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialTransaction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Tax">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ChargeAFee"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PiggybankLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProducerPriceIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="InflationIndex"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UsingAnAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NASDAQ">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StockMarket"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Corporation"/>
+  <owl:Class rdf:ID="MoneyMarket">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SavingsAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Mortgage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StockIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Index"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ordering"/>
+  <owl:Class rdf:ID="TreasuryBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Straddle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="OptionStrategy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Liquidation">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RegisteredBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GrowthStock">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Stock"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VerifyingCardCode">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AuthorizationOfTransaction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SavingsAndLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialOrganization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialDefault">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ObjectiveNorm"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LiquidityAttribute">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Attribute"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DefinedContributionPlan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PensionPlan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialContract">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Contract"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LiabilityAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Security">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DebitCard">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BankCard"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IOCOrder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Order"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Broker">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CognitiveAgent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RothIRAAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="IndividualRetirementAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SpreadOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#OptionStrategy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ValueStock">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Stock"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ExerciseAnOption">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EnteringAPin">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AuthorizationOfTransaction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Agent">
+    <rdfs:subClassOf rdf:resource="#CognitiveAgent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialAccount">
+    <rdfs:subClassOf rdf:resource="#Contract"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CancellingAnOrder">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Procedure"/>
+  <owl:Class rdf:about="#ChargeAFee">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Rollover">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EquityOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Option"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BalloonLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CreditAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TimePosition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Time"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="_403BPlan">
+    <rdfs:subClassOf rdf:resource="#DefinedContributionPlan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialOrder">
+    <rdfs:subClassOf rdf:resource="#Ordering"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Text"/>
+  <owl:Class rdf:ID="CallableLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FHALoan">
+    <rdfs:subClassOf rdf:resource="#Mortgage"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SymbolicString"/>
+  <owl:Class rdf:ID="StockSplit">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="_401KPlan">
+    <rdfs:subClassOf rdf:resource="#DefinedContributionPlan"/>
+  </owl:Class>
+  <owl:Class rdf:about="#OptionStrategy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Collection"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialOrganization">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Organization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PennyStock">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Stock"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RestrictedStock">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Stock"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CorporateBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MarketOrder">
+    <rdfs:subClassOf rdf:resource="#FinancialOrder"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalHousingAdministration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Government"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Stock">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StockMarketTransaction">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FillingAnOrder">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Share">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CurrencyMeasure"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MonetaryNote">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BankStatement">
+    <rdfs:subClassOf rdf:resource="#Text"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NASDAQCompositeIndex">
+    <rdfs:subClassOf rdf:resource="#StockIndex"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LongStraddle">
+    <rdfs:subClassOf rdf:resource="#Straddle"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ShortSale">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="YieldAttribute">
+    <rdfs:subClassOf rdf:resource="#Attribute"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MarketValueWeightedIndex">
+    <rdfs:subClassOf rdf:resource="#StockIndex"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CommonStock">
+    <rdfs:subClassOf rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OCOOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Annuity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Index">
+    <rdfs:subClassOf rdf:resource="#Procedure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConsumerPriceIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InflationIndex"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ClosingAnAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialService"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MarketShareWeightedIndex">
+    <rdfs:subClassOf rdf:resource="#StockIndex"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Day">
+    <rdfs:subClassOf rdf:resource="#TimePosition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DepositAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SecuredBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="InterestOnlyLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AdjustableRateAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="InterestBearingAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IndividualRetirementAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PensionPlan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MOCOrder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DayOrder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LoanCommitment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Offering"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GovernmentBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MunicipalBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeDuration">
+    <rdfs:subClassOf rdf:resource="#Time"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CertificateOfDeposit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SavingsAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="_408KPlan">
+    <rdfs:subClassOf rdf:resource="#DefinedContributionPlan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NikkeiIndex">
+    <rdfs:subClassOf rdf:resource="#Index"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SavingsAccount">
+    <rdfs:subClassOf rdf:resource="#DepositAccount"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InterestBearingAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Call">
+    <rdfs:subClassOf rdf:resource="#Ordering"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DefensiveStock">
+    <rdfs:subClassOf rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndexOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Option"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Payment">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DepositingACheck">
+    <rdfs:subClassOf rdf:resource="#UsingAnAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FOKOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StationaryArtifact"/>
+  <owl:Class rdf:ID="BankTermLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Certificate"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AutomaticTransaction">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StockMarket">
+    <rdfs:subClassOf rdf:resource="#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FixedAnnuity">
+    <rdfs:subClassOf rdf:resource="#Annuity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConsolidationLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Human">
+    <rdfs:subClassOf rdf:resource="#CognitiveAgent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="InternalTransfer">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PutOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Option"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RiskAttribute">
+    <rdfs:subClassOf rdf:resource="#Attribute"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LimitOrder">
+    <rdfs:subClassOf rdf:resource="#FinancialOrder"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CouponBond">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bond"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialService">
+    <rdfs:subClassOf rdf:resource="#ComercialService"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Refinancing">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Liability">
+    <rdfs:subClassOf rdf:resource="#FinancialContract"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CreditCardAccount">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CreditAccount"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ConventionalOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Option"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Bond">
+    <rdfs:subClassOf rdf:resource="#FinancialInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CorpuscularObject"/>
+  <owl:Class rdf:ID="BrokerageAccount">
+    <rdfs:subClassOf rdf:resource="#DepositAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Title">
+    <rdfs:subClassOf rdf:resource="#Certificate"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AssetAllocation">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndexedLoan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AmericanStyleOption">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Option"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BankCard">
+    <rdfs:subClassOf rdf:resource="#FinancialInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GTCOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:about="#InterestBearingAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Downtick">
+    <rdfs:subClassOf rdf:resource="#StockMarketTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Loan">
+    <rdfs:subClassOf rdf:resource="#LiabilityAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Uptick">
+    <rdfs:subClassOf rdf:resource="#StockMarketTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Option">
+    <rdfs:subClassOf rdf:resource="#FinancialContract"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PerformanceBond">
+    <rdfs:subClassOf rdf:resource="#Bond"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AONOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PriceWeightedIndex">
+    <rdfs:subClassOf rdf:resource="#StockIndex"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposit">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VariableAnnuity">
+    <rdfs:subClassOf rdf:resource="#Annuity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Receipt">
+    <rdfs:subClassOf rdf:resource="#FinancialInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ExternalTransfer">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SinglePaymentLoan">
+    <rdfs:subClassOf rdf:resource="#Loan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DayLoan">
+    <rdfs:subClassOf rdf:resource="#Loan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CreditCard">
+    <rdfs:subClassOf rdf:resource="#BankCard"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Prepayment">
+    <rdfs:subClassOf rdf:resource="#Payment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndexBond">
+    <rdfs:subClassOf rdf:resource="#Bond"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BankOrganization">
+    <rdfs:subClassOf rdf:resource="#FinancialOrganization"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ProcessingACheck">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AuthorizationOfTransaction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CallableBond">
+    <rdfs:subClassOf rdf:resource="#Bond"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StockOption">
+    <rdfs:subClassOf rdf:resource="#Option"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DrawingACheck">
+    <rdfs:subClassOf rdf:resource="#UsingAnAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ProfitSharingPlan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PensionPlan"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ATMMachine">
+    <rdfs:subClassOf rdf:resource="#StationaryArtifact"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CreditUnion">
+    <rdfs:subClassOf rdf:resource="#FinancialOrganization"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleOption">
+    <rdfs:subClassOf rdf:resource="#OptionStrategy"/>
+  </owl:Class>
+  <owl:Class rdf:about="#InflationIndex">
+    <rdfs:subClassOf rdf:resource="#Index"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Check">
+    <rdfs:subClassOf rdf:resource="#FinancialInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LEAPS">
+    <rdfs:subClassOf rdf:resource="#Option"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BlueChipStock">
+    <rdfs:subClassOf rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TaxableInvestment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Investing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CorporateAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BrokerLoan">
+    <rdfs:subClassOf rdf:resource="#Loan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MNHOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PayCheck">
+    <rdfs:subClassOf rdf:resource="#Check"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NHOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Object"/>
+  <owl:Class rdf:ID="CheckingAccount">
+    <rdfs:subClassOf rdf:resource="#DepositAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DirectRollover">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BankCardAttribute">
+    <rdfs:subClassOf rdf:resource="#ObjectiveNorm"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RealEstate">
+    <rdfs:subClassOf rdf:resource="#CorpuscularObject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FixedRateAccount">
+    <rdfs:subClassOf rdf:resource="#InterestBearingAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MortgageBond">
+    <rdfs:subClassOf rdf:resource="#CorporateBond"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PensionPlan">
+    <rdfs:subClassOf rdf:resource="#FinancialAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MutualFundAccount">
+    <rdfs:subClassOf rdf:resource="#DepositAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PersonalAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialAccount"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CreditAccount">
+    <rdfs:subClassOf rdf:resource="#LiabilityAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Penalty">
+    <rdfs:subClassOf rdf:resource="#ChargeAFee"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IntentionalProcess"/>
+  <owl:Class rdf:ID="JointAccount">
+    <rdfs:subClassOf rdf:resource="#PersonalAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CallOption">
+    <rdfs:subClassOf rdf:resource="#Option"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EuropeanStyleOption">
+    <rdfs:subClassOf rdf:resource="#Option"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConventionalMortgage">
+    <rdfs:subClassOf rdf:resource="#Mortgage"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TraditionalSavingsAccount">
+    <rdfs:subClassOf rdf:resource="#SavingsAccount"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RequestQuote">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StopOrder">
+    <rdfs:subClassOf rdf:resource="#FinancialOrder"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TreasuryBill">
+    <rdfs:subClassOf rdf:resource="#SavingsAccount"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DayOrder">
+    <rdfs:subClassOf rdf:resource="#Order"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ButterflySpread">
+    <rdfs:subClassOf rdf:resource="#SpreadOption"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OpeningAnAccount">
+    <rdfs:subClassOf rdf:resource="#FinancialService"/>
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Investing">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EvergreenLoan">
+    <rdfs:subClassOf rdf:resource="#Loan"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Withdrawl">
+    <rdfs:subClassOf rdf:resource="#FinancialTransaction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BridgeLoan">
+    <rdfs:subClassOf rdf:resource="#Loan"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AuthorizationOfTransaction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RegulatoryProcess"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#FinancialService"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeInterval">
+    <rdfs:subClassOf rdf:resource="#Time"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PreferredStock"/>
+  <owl:Class rdf:ID="ZeroCouponBond">
+    <rdfs:subClassOf rdf:resource="#Bond"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TaxFreeInvestment">
+    <rdfs:subClassOf rdf:resource="#Investing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Government">
+    <rdfs:subClassOf rdf:resource="#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialRating">
+    <rdfs:subClassOf rdf:resource="#Attribute"/>
+  </owl:Class>
+  <owl:Class rdf:ID="JunkBond">
+    <rdfs:subClassOf rdf:resource="#CorporateBond"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="outOfTheMoney">
+    <rdfs:domain rdf:resource="#Option"/>
+    <rdfs:range rdf:resource="#TimePosition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="limitPrice">
+    <rdfs:domain rdf:resource="#LimitOrder"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="income">
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="telephoneNumber">
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="maturityDate">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range rdf:resource="#Day"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="afterTaxIncome">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IntentionalProcess"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Human"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="bondRating">
+    <rdfs:domain rdf:resource="#Bond"/>
+    <rdfs:range rdf:resource="#FinancialRating"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="minimumPayment">
+    <rdfs:domain rdf:resource="#LiabilityAccount"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeDuration"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="effectiveDate">
+    <rdfs:domain rdf:resource="#Contract"/>
+    <rdfs:range rdf:resource="#Day"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="confirmationNumber">
+    <rdfs:range rdf:resource="#FinancialTransaction"/>
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="taxDeferredIncome">
+    <rdfs:domain rdf:resource="#Human"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#IntentionalProcess"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dayPhone">
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="optionHolder">
+    <rdfs:domain rdf:resource="#Option"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="downPayment">
+    <rdfs:domain rdf:resource="#Loan"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="availableCash">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="emailAddress">
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+    <rdfs:range rdf:resource="#Agent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="date">
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+    <rdfs:range rdf:resource="#Day"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="originalBalance">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="issuedBy">
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+    <rdfs:domain rdf:resource="#FinancialInstrument"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="currentInterestRate">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Day"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="closingPrice">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Stock"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="amountCharged">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#ChargeAFee"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="yieldLevel">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range rdf:resource="#YieldAttribute"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="statementPeriod">
+    <rdfs:domain rdf:resource="#BankStatement"/>
+    <rdfs:range rdf:resource="#TimeInterval"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="financialAsset">
+    <rdfs:range rdf:resource="#Object"/>
+    <rdfs:domain rdf:resource="#Agent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="accuredInterest">
+    <rdfs:domain rdf:resource="#Bond"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="customerRepresentative">
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CognitiveAgent"/>
+          <owl:Class rdf:about="#Organization"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="cardCode">
+    <rdfs:range rdf:resource="#BankCard"/>
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="amountDue">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimePosition"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="riskLevel">
+    <rdfs:domain rdf:resource="#Investing"/>
+    <rdfs:range rdf:resource="#RiskAttribute"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="optionSeller">
+    <rdfs:domain rdf:resource="#Option"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="periodicPayment">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeDuration"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="fixedInterestRate">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dividend">
+    <rdfs:domain rdf:resource="#Stock"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="customer">
+    <rdfs:range rdf:resource="#Organization"/>
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="transactionRequest">
+    <rdfs:domain rdf:resource="#FinancialTransaction"/>
+    <rdfs:range rdf:resource="#FinancialInstrument"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="marketValueAmount">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="strikePrice">
+    <rdfs:domain rdf:resource="#FinancialInstrument"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="transactionResponce">
+    <rdfs:domain rdf:resource="#FinancialTransaction"/>
+    <rdfs:range rdf:resource="#FinancialInstrument"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="underlier">
+    <rdfs:range rdf:resource="#FinancialInstrument"/>
+    <rdfs:domain rdf:resource="#Option"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="represents"/>
+  <owl:ObjectProperty rdf:ID="statementAccount">
+    <rdfs:domain rdf:resource="#BankStatement"/>
+    <rdfs:range rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="accountNumber">
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+    <rdfs:range rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="splitFor">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#StockSplit"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="overDraft">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dailyLimit">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#FinancialTransaction"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="premium">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#Option"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="loanFee">
+    <rdfs:domain rdf:resource="#Loan"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="bidPrice">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="incomeEarned">
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#IntentionalProcess"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="creditLimit">
+    <rdfs:domain rdf:resource="#CreditAccount"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="pin">
+    <rdfs:range rdf:resource="#BankCard"/>
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="orderFor">
+    <rdfs:domain rdf:resource="#FinancialOrder"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#FinancialTransaction"/>
+          <owl:Class rdf:about="#Share"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="profit">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#FinancialTransaction"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="transactionAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#FinancialTransaction"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="netWorth">
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Day"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="minimumBalance">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#FinancialTransaction"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="loanForPurchase">
+    <rdfs:range rdf:resource="#Object"/>
+    <rdfs:domain rdf:resource="#Loan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="callDate">
+    <rdfs:domain rdf:resource="#Bond"/>
+    <rdfs:range rdf:resource="#Day"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dateOfStatement">
+    <rdfs:range rdf:resource="#Day"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="uniqueIdentifier"/>
+  <owl:ObjectProperty rdf:ID="checkAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Check"/>
+    <rdfs:range rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="attribute"/>
+  <owl:ObjectProperty rdf:ID="compoundInterest">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interestEarned">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="currentAccountBalance">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="atTheMoney">
+    <rdfs:range rdf:resource="#TimePosition"/>
+    <rdfs:domain rdf:resource="#Option"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="floorLoan">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#Loan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="property"/>
+  <owl:ObjectProperty rdf:ID="price">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Object"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inTheMoney">
+    <rdfs:range rdf:resource="#TimePosition"/>
+    <rdfs:domain rdf:resource="#Option"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="liquidity">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range rdf:resource="#LiquidityAttribute"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="marginBalance">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="employeeContribution">
+    <rdfs:domain rdf:resource="#Human"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="serviceFee">
+    <rdfs:domain rdf:resource="#FinancialOrganization"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#FinancialTransaction"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="faceValue">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="eveningPhone">
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="insured">
+    <rdfs:domain rdf:resource="#Contract"/>
+    <rdfs:range rdf:resource="#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="shortBalance">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="stockHolder">
+    <rdfs:domain rdf:resource="#Stock"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="availableBalance">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Day"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="potentialLoss">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Investing"/>
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#CognitiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="checkNumer">
+    <rdfs:range rdf:resource="#Check"/>
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="primeInterestRate">
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#Day"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="statementInterest">
+    <rdfs:domain rdf:resource="#BankStatement"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="askPrice">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="lender">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Loan"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="couponInterest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+    <rdfs:domain rdf:resource="#Bond"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="cardAccount">
+    <rdfs:range rdf:resource="#FinancialAccount"/>
+    <rdfs:domain rdf:resource="#BankCard"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="agreementPeriod">
+    <rdfs:domain rdf:resource="#Contract"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TimeInterval"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="quantity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="signedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#FinancialInstrument"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="shareOf">
+    <rdfs:range rdf:resource="#Corporation"/>
+    <rdfs:domain rdf:resource="#Stock"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="creditsPerPeriod">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="financialAccount">
+    <rdfs:range rdf:resource="#FinancialOrganization"/>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="securedBy">
+    <rdfs:range rdf:resource="#Object"/>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="borrower">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Loan"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="debitsPerPeriod">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="principalAmount">
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CurrencyMeasure"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="accountHolder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="stockSymbol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#SymbolicString"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="simpleInterest">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#CurrencyMeasure"/>
+          <owl:Class rdf:about="#TimeInterval"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#FinancialAccount"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="agreementMember">
+    <rdfs:domain rdf:resource="#Contract"/>
+    <rdfs:range rdf:resource="#CognitiveAgent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <LiquidityAttribute rdf:ID="HighLiquidity"/>
+  <FinancialRating rdf:ID="BRating"/>
+  <FinancialRating rdf:ID="DRating"/>
+  <BankCardAttribute rdf:ID="ValidCardAttribute"/>
+  <FinancialRating rdf:ID="AAARating"/>
+  <YieldAttribute rdf:ID="HighYield"/>
+  <RiskAttribute rdf:ID="HighRisk"/>
+  <LiquidityAttribute rdf:ID="LowLiquidity"/>
+  <BankCardAttribute rdf:ID="ExpiredCard"/>
+  <FinancialRating rdf:ID="CRating"/>
+  <RiskAttribute rdf:ID="LowRisk"/>
+  <YieldAttribute rdf:ID="LowYield"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 1.3, Build 225.4)  http://protege.stanford.edu -->

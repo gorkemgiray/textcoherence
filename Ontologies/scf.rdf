@@ -1,0 +1,327 @@
+<?xml version='1.0'?>
+
+<!DOCTYPE rdf:RDF [
+        <!ENTITY rdfns 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+        <!ENTITY rdfsns 'http://www.w3.org/2000/01/rdf-schema#'>
+        <!ENTITY dcns 'http://purl.org/dc/elements/1.1/'>
+        <!ENTITY dcqns 'http://purl.org/dc/terms/'>
+        <!ENTITY scfns 'http://www.iwi-iuk.org/material/RDF/1.1/Schema/Class/scf#'>
+   ]>
+
+<rdf:RDF xmlns:rdf="&rdfns;"
+         xmlns:rdfs="&rdfsns;"
+         xmlns:dc="&dcns;"
+         xmlns:dcq="&dcqns;"
+         xmlns:scf="&scfns;" >
+
+<rdf:Description rdf:about="&scfns;">
+    <dc:title>Class Scheme for Science Fields</dc:title>
+    <dc:publisher>iwi</dc:publisher>
+    <dcq:created>2003-04-03</dcq:created>
+    <dcq:modified>2003-04-03</dcq:modified>
+    <dcq:modified>2003-07-03</dcq:modified>
+    <dcq:modified>2003-12-04</dcq:modified>
+    <dcq:modified>2005-01-19</dcq:modified>
+    <dc:description>The Class Scheme for Science Fields namespace providing access to it's content by means of an RDF Schema. The Science Fields Class is a RDF Class, intended for use in, but not limited to, schemes for the Math&#38;Industry project.</dc:description>
+</rdf:Description>
+
+<rdfs:Class rdf:about="&scfns;ScienceFields">
+    <rdfs:label xml:lang="en">Science Fields</rdfs:label>
+    <rdfs:label xml:lang="de">Wissenschaftsbereiche</rdfs:label>
+    <rdfs:comment>This class represents a collection of basical science fields.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+</rdfs:Class>
+
+<!-- Science Fields - level 1: -->
+
+<rdfs:Class rdf:about="&scfns;Archeology">
+    <rdfs:label xml:lang="de">Arch&#228;ologie</rdfs:label>
+    <rdfs:label xml:lang="en">Archeology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of archeology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Architecture">
+    <rdfs:label xml:lang="de">Architektur</rdfs:label>
+    <rdfs:label xml:lang="en">Architecture</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of architecture.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Art">
+    <rdfs:label xml:lang="de">Bildende Kunst</rdfs:label>
+    <rdfs:label xml:lang="en">Art</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of art.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Biology">
+    <rdfs:label xml:lang="de">Biologie</rdfs:label>
+    <rdfs:label xml:lang="en">Biology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of biology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Chemistry">
+    <rdfs:label xml:lang="de">Chemie</rdfs:label>
+    <rdfs:label xml:lang="en">Chemistry</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of chemistry.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;EducationAndTeaching">
+    <rdfs:label xml:lang="de">Erziehung, Unterricht</rdfs:label>
+    <rdfs:label xml:lang="en">Education and Teaching</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of education and teaching.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;EarthScience">
+    <rdfs:label xml:lang="de">Geowissenschaften</rdfs:label>
+    <rdfs:label xml:lang="en">Earth Science</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of earth science.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;History">
+    <rdfs:label xml:lang="de">Geschichte</rdfs:label>
+    <rdfs:label xml:lang="en">History</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of history.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;ComputerScience">
+    <rdfs:label xml:lang="de">Informatik</rdfs:label>
+    <rdfs:label xml:lang="en">Computer Science</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of computer science.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Agriculture">
+    <rdfs:label xml:lang="de">Landwirtschaft</rdfs:label>
+    <rdfs:label xml:lang="en">Agriculture</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of agriculture.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Literature">
+    <rdfs:label xml:lang="de">Literaturwissenschaft</rdfs:label>
+    <rdfs:label xml:lang="en">Literature</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of literature.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Mathematics">
+    <rdfs:label xml:lang="de">Mathematik</rdfs:label>
+    <rdfs:label xml:lang="en">Mathematics</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of mathematics.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Medicine">
+    <rdfs:label xml:lang="de">Medizin</rdfs:label>
+    <rdfs:label xml:lang="en">Medicine</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of medicine.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Music">
+    <rdfs:label xml:lang="de">Musik</rdfs:label>
+    <rdfs:label xml:lang="en">Music</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of music.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Philosophy">
+    <rdfs:label xml:lang="de">Philosophie</rdfs:label>
+    <rdfs:label xml:lang="en">Philosophy</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of philosophy.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Physics">
+    <rdfs:label xml:lang="de">Physik</rdfs:label>
+    <rdfs:label xml:lang="en">Physics</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of physics.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Politics">
+    <rdfs:label xml:lang="de">Politik</rdfs:label>
+    <rdfs:label xml:lang="en">Politics</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of politics.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Psycology">
+    <rdfs:label xml:lang="de">Psychologie</rdfs:label>
+    <rdfs:label xml:lang="en">Psychology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of psycology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Journalism">
+    <rdfs:label xml:lang="de">Publizistik</rdfs:label>
+    <rdfs:label xml:lang="en">Journalism</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of journalism.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Law">
+    <rdfs:label xml:lang="de">Recht</rdfs:label>
+    <rdfs:label xml:lang="en">Law</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of law.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Religion">
+    <rdfs:label xml:lang="de">Religion</rdfs:label>
+    <rdfs:label xml:lang="en">Religion</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of religions science and theology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Sociology">
+    <rdfs:label xml:lang="de">Soziologie</rdfs:label>
+    <rdfs:label xml:lang="en">Soziology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of sociology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Sport">
+    <rdfs:label xml:lang="de">Sport</rdfs:label>
+    <rdfs:label xml:lang="en">Sport</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of sport.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;TheaterDanceFilm">
+    <rdfs:label xml:lang="de">Theater, Tanz, Film</rdfs:label>
+    <rdfs:label xml:lang="en">Theater, Dance, Film</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of theater, dance and film.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Ethnology">
+    <rdfs:label xml:lang="de">V&#246;lkerkunde</rdfs:label>
+    <rdfs:label xml:lang="en">Ethnology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of ethnology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Languages">
+    <rdfs:label xml:lang="de">Sprachwissenschaften</rdfs:label>
+    <rdfs:label xml:lang="en">Languages</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of general linguistics and sciences of special languages.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;Economics">
+    <rdfs:label xml:lang="de">Wirtschaftswissenschaften</rdfs:label>
+    <rdfs:label xml:lang="en">Economics</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of economics.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;EngineeringTechnology">
+    <rdfs:label xml:lang="de">Ingenieurwissenschaften</rdfs:label>
+    <rdfs:label xml:lang="en">Engineering Technology</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of engineering technology.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;ScienceFields"/>
+</rdfs:Class>
+
+<!-- Science Fields level 2 -->
+
+<!-- Science Fields level 2 - Subclasses of Economics: -->
+
+<rdfs:Class rdf:about="&scfns;EconomicHistory">
+    <rdfs:label xml:lang="de">Wirtschaftsgeschichte</rdfs:label>
+    <rdfs:label xml:lang="en">Economic History</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of economic history.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;Economics"/>
+</rdfs:Class>
+
+<!-- Science Fields level 2 - Subclasses of EnigneeringTechnology: -->
+
+<!-- TRANSLATION -->
+<rdfs:Class rdf:about="&scfns;MachineEngineering">
+    <rdfs:label xml:lang="de">Maschinentechnik</rdfs:label>
+    <rdfs:label xml:lang="en">Machine Engineering</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of machine engineering.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;EngineeringTechnology"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;EnvironmentalEngineering">
+    <rdfs:label xml:lang="de">Umwelttechnik</rdfs:label>
+    <rdfs:label xml:lang="en">Environmental Engineering</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of environmental engineering.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;EngineeringTechnology"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;ProductionEngineering">
+    <rdfs:label xml:lang="de">Fertigungstechnik</rdfs:label>
+    <rdfs:label xml:lang="en">Production Engineering</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of production engineering.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;EngineeringTechnology"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;ElectricalEngineering">
+    <rdfs:label xml:lang="de">Elektrotechnik</rdfs:label>
+    <rdfs:label xml:lang="en">Electrical Engineering</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of electrical engineering.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;EngineeringTechnology"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="&scfns;PowerEngineering">
+    <rdfs:label xml:lang="de">Energietechnik</rdfs:label>
+    <rdfs:label xml:lang="en">Power Engineering</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of power engineering.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;EngineeringTechnology"/>
+</rdfs:Class>
+
+
+<!-- Science Fields level 2 - Subclasses of Medicine: -->
+
+<rdfs:Class rdf:about="&scfns;VeterinaryMedicine">
+    <rdfs:label xml:lang="de">Veterin&#228;rmedizin</rdfs:label>
+    <rdfs:label xml:lang="en">Veterinary Medicine</rdfs:label>
+    <rdfs:comment>This class represents the scientific area of veterinary medicine.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="&scfns;"/>
+    <rdfs:subClassOf rdf:resource="&scfns;Medicine"/>
+</rdfs:Class>
+
+</rdf:RDF>

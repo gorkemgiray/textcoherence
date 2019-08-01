@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#" >
+   <!ENTITY numerics  "http://sweet.jpl.nasa.gov/ontology/numerics.owl#" >
+   <!ENTITY units "http://sweet.jpl.nasa.gov/ontology/units.owl#" >
+   <!ENTITY time  "http://sweet.jpl.nasa.gov/ontology/time.owl#" >
+] >
+<rdf:RDF
+   xmlns:xsd="&xsd;"
+   xmlns:numerics="&numerics;"
+   xmlns:units="&units;"
+   xmlns="&time;"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+<owl:Ontology rdf:about="">
+<!--
+<dc:title>
+Time</dc:title>
+<dc:date>
+1/27/2004 3:14:58 PM</dc:date>
+<dc:creator>
+SWEET project</dc:creator>
+<dc:description>
+</dc:description>
+<dc:subject>
+Time ontology</dc:subject>
+-->
+   <owl:versionInfo>1.0</owl:versionInfo>
+   <owl:imports rdf:resource="&numerics;" />
+   <owl:imports rdf:resource="&units;" />
+</owl:Ontology>
+<owl:Class rdf:ID="TemporalObject">
+<rdfs:subClassOf rdf:resource="#TemporalEntity"/>
+</owl:Class>
+<owl:Class rdf:ID="TemporalEntity"/>
+<owl:Class rdf:ID="Autumn">
+<owl:equivalentClass rdf:resource="#Fall"/>
+</owl:Class>
+<owl:Class rdf:ID="Fall">
+<rdfs:subClassOf rdf:resource="#Season"/>
+</owl:Class>
+<owl:Class rdf:ID="TemporalRelation">
+<rdfs:subClassOf rdf:resource="#TemporalEntity"/>
+</owl:Class>
+<owl:Class rdf:ID="Millennium">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Century">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Decade">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Year">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Season">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Month">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Week">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Day">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Hour">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Minute">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Second">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Delay">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="History">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Duration">
+   <rdfs:subClassOf rdf:resource="#TemporalObject"/>
+   <rdfs:subClassOf rdf:resource="&numerics;Interval"/>
+</owl:Class>
+<owl:Class rdf:ID="TimeInterval">
+   <owl:equivalentClass rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Event">
+<owl:equivalentClass rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Occurrence">
+<owl:equivalentClass rdf:resource="#Event"/>
+</owl:Class>
+<owl:Class rdf:ID="Spring">
+<rdfs:subClassOf rdf:resource="#Season"/>
+</owl:Class>
+<owl:Class rdf:ID="Summer">
+<rdfs:subClassOf rdf:resource="#Season"/>
+</owl:Class>
+<owl:Class rdf:ID="Winter">
+<rdfs:subClassOf rdf:resource="#Season"/>
+</owl:Class>
+<owl:Class rdf:ID="Beginning">
+<owl:equivalentClass rdf:resource="#Start"/>
+</owl:Class>
+<owl:Class rdf:ID="Start">
+<rdfs:subClassOf rdf:resource="#TemporalRelation"/>
+</owl:Class>
+<owl:Class rdf:ID="UT"/>
+<owl:Class rdf:ID="TemporalReference"/>
+<owl:Class rdf:ID="UniversalTime">
+<owl:equivalentClass rdf:resource="#UT"/>
+<rdfs:subClassOf rdf:resource="#TemporalReference"/>
+</owl:Class>
+<owl:Class rdf:ID="Morning">
+<rdfs:subClassOf rdf:resource="#Daytime"/>
+</owl:Class>
+<owl:Class rdf:ID="Daytime">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Instant">
+<rdfs:subClassOf rdf:resource="#TemporalObject"/>
+<rdfs:subClassOf rdf:resource="&numerics;Point"/>
+</owl:Class>
+<owl:Class rdf:ID="Evening">
+<rdfs:subClassOf rdf:resource="#Nighttime"/>
+</owl:Class>
+<owl:Class rdf:ID="Nighttime">
+<rdfs:subClassOf rdf:resource="#Duration"/>
+</owl:Class>
+<owl:Class rdf:ID="Period">
+<rdfs:subClassOf rdf:resource="#TemporalRelation"/>
+</owl:Class>
+<owl:Class rdf:ID="End">
+<rdfs:subClassOf rdf:resource="#TemporalRelation"/>
+</owl:Class>
+<owl:Class rdf:ID="Prehistoric">
+<rdfs:subClassOf rdf:resource="#Period"/>
+</owl:Class>
+<owl:Class rdf:ID="CurrentTime">
+<rdfs:subClassOf rdf:resource="#Instant"/>
+</owl:Class>
+<owl:Class rdf:ID="OLIGOCENE"/>
+<owl:Class rdf:ID="TRIASSIC"/>
+<owl:Class rdf:ID="ORDOVICIAN"/>
+<owl:Class rdf:ID="NEOGENE"/>
+<owl:Class rdf:ID="PLIOCENE"/>
+<owl:Class rdf:ID="PRECAMBRIAN"/>
+<owl:Class rdf:ID="PENNSYLVANIAN"/>
+<owl:Class rdf:ID="ARCHAEAN"/>
+<owl:Class rdf:ID="CARBONIFEROUS"/>
+<owl:Class rdf:ID="MISSISSIPPIAN"/>
+<owl:Class rdf:ID="TERTIARY"/>
+<owl:Class rdf:ID="QUATERNARY"/>
+<owl:Class rdf:ID="CENOZOIC"/>
+<owl:Class rdf:ID="PERMIAN"/>
+<owl:Class rdf:ID="HOLOCENE"/>
+<owl:Class rdf:ID="MESOZOIC"/>
+<owl:Class rdf:ID="CAMBRIAN"/>
+<owl:Class rdf:ID="JURASSIC"/>
+<owl:Class rdf:ID="PLEISTOCENE"/>
+<owl:Class rdf:ID="PALEOCENE"/>
+<owl:Class rdf:ID="PALEOGENE"/>
+<owl:Class rdf:ID="PALEOZOIC"/>
+<owl:Class rdf:ID="PROTEROZOIC"/>
+<owl:Class rdf:ID="EOCENE"/>
+<owl:Class rdf:ID="SILURIAN"/>
+<owl:Class rdf:ID="CRETACEOUS"/>
+<owl:Class rdf:ID="MIOCENE"/>
+<owl:Class rdf:ID="DEVONIAN"/>
+<owl:DatatypeProperty rdf:ID="numberOfYears">
+   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="fractionOfYear">
+   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:ID="after">
+   <owl:inverseOf rdf:resource="#before"/>
+   <rdfs:subPropertyOf rdf:resource="&numerics;greaterThan"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="before">
+   <owl:inverseOf rdf:resource="#after"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="hasTemporalObject">
+   <rdfs:range rdf:resource="#TemporalObject"/>
+</owl:ObjectProperty>
+</rdf:RDF>

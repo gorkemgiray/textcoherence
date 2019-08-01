@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	 <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	 <!ENTITY daml 'http://www.daml.org/2001/03/daml+oil#'>
+	 <!ENTITY xsd 'http://www.w3.org/2000/10/XMLSchema#'>  
+]>
+
+<rdf:RDF
+  xmlns:rdf ="&rdf;"
+  xmlns:rdfs="&rdfs;"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns="http://www.daml.org/2002/08/nasdaq/nasdaq-ont#"
+>
+
+<owl:Ontology rdf:about="">
+  <owl:versionInfo>$Id: nasdaq-ont.owl,v 1.2 2002/08/26 18:53:59 mdean Exp $</owl:versionInfo>
+  <rdfs:comment>National Association of Securities Dealers Automated Quotation (NASDAQ) stock symbol ontology</rdfs:comment>
+</owl:Ontology>
+
+<rdfs:Class rdf:ID="Symbol">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#symbol"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/10/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#symbol"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#name"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/10/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#name"/>
+      <owl:maxCardinality>1</owl:maxCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#market"/>
+      <owl:allValuesFrom rdf:resource="#Market"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#market"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#index"/>
+      <owl:allValuesFrom rdf:resource="#Index"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#index"/>
+      <owl:maxCardinality>1</owl:maxCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#description"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/10/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#description"/>
+      <owl:maxCardinality>1</owl:maxCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Market">
+  <owl:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:allValuesFrom rdf:resource="&xsd;string"/>
+    </owl:Restriction>
+  </owl:subClassOf>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Index">
+  <owl:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:allValuesFrom rdf:resource="&xsd;string"/>
+    </owl:Restriction>
+  </owl:subClassOf>
+  <owl:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#stock"/>
+      <owl:allValuesFrom rdf:resource="#Symbol"/>
+    </owl:Restriction>
+  </owl:subClassOf>
+</rdfs:Class>
+
+<owl:DatatypeProperty rdf:ID="description"/>
+<owl:DatatypeProperty rdf:ID="index"/>
+<owl:ObjectProperty rdf:ID="market"/>
+<owl:DatatypeProperty rdf:ID="name"/>
+<owl:ObjectProperty rdf:ID="stock"/>
+<owl:DatatypeProperty rdf:ID="symbol"/>
+
+<Market rdf:ID="NNM">
+  <rdfs:label>Nasdaq National Market</rdfs:label>
+</Market>
+
+<Market rdf:ID="SCM">
+  <rdfs:label>Nasdaq Small Cap Market</rdfs:label>
+</Market>
+
+<Index rdf:ID="Nasdaq_100">
+  <rdfs:label>Nasdaq-100</rdfs:label>
+</Index>
+
+<Index rdf:ID="Nasdaq_Financial_100">
+  <rdfs:label>Nasdaq Financial-100</rdfs:label>
+</Index>
+
+</rdf:RDF>

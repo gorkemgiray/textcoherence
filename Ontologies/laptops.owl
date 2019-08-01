@@ -1,0 +1,488 @@
+<rdf:RDF
+    xmlns:rss="http://purl.org/rss/1.0/"
+    xmlns="http://owl.protege.stanford.edu#"
+    xmlns:j.cook.up="http://owl.protege.stanford.edu#"
+    xmlns:jms="http://jena.hpl.hp.com/2003/08/jms#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <owl:Ontology rdf:about="http://owl.protege.stanford.edu">
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/protege"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Wireless-Network-Card">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Computer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasDisplay"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasLaptopBattery"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Server-Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Computer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Desktop-Computer"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Storage">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Processor"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Video-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Sound-Card"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Printer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Output-Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Display">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Output-Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#CD-Drive">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Video-Card">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Processor"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Sound-Card"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#DVDRW-Drive">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#DVD-Drive"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Sound-Card">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Processor"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Processor">
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Sound-Card"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Optical-Drive">
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Sound-Card"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Case">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Accessory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Input-Device">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Accessory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Component">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Artifact"/>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Mouse">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Input-Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#DVD-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Optical-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Accessory">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Accessory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Ethernet-Card">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Desktop-Computer">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Server-Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Device">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Artifact"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem">
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Sound-Card"/>
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Component"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Optical-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#CD-DVD-Combo-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#CD-Drive"/>
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#DVD-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Flat-Panel-Display">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Display"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Office-Equipment">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Output-Device">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Accessory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Keyboard">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Input-Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#CDRW-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#CD-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card">
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Sound-Card"/>
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Component"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Modem"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Optical-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Battery">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Accessory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Memory">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#DVDROM-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#DVD-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Office-Equipment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Computer-Accessory">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Scanner">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Input-Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Computer-LCD">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Display"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#CRT-Display">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Display"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Laptop-Accessory">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Accessory"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Server-Computer">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Desktop-Computer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Hard-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#CDROM-Drive">
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#CD-Drive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://owl.protege.stanford.edu#Handheld-Computer">
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Server-Computer"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+    <rdfs:subClassOf rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+    <owl:disjointWith rdf:resource="http://owl.protege.stanford.edu#Desktop-Computer"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasModem"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasConnectivityDevice"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Modem"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasProcessor">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasStorage">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasLaptopBattery">
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Laptop-Battery"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasNetworkCard"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasConnectivityDevice"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Network-Card"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasSoundCard"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Sound-Card"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasVideoCard"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Video-Card"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#networkCard-inComputer"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Network-Card"/>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasOpticalDrive">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Optical-Drive"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasMemory"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:subPropertyOf rdf:resource="http://owl.protege.stanford.edu#computer-hasStorage"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Computer-Memory"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasConnectivityDevice"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://owl.protege.stanford.edu#Network-Card"/>
+          <owl:Class rdf:about="http://owl.protege.stanford.edu#Modem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasDisplay"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Computer-Display"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasHardDrive"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:subPropertyOf rdf:resource="http://owl.protege.stanford.edu#computer-hasStorage"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Hard-Drive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://owl.protege.stanford.edu#computer-hasLaptopCase"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+    <rdfs:range rdf:resource="http://owl.protege.stanford.edu#Laptop-Case"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#memory-hasType"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer-Memory"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasAvailability">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#hardDrive-type"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Hard-Drive"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#processor-manufacturer"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasWeight"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#processor-type"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#display-hasDimension"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer-Display"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#modem-hasCommMaxTransferRate"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Modem"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#processor-features"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasTotalPrice"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#storage-hasCapacity"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer-Storage"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasModelName"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasSpeed"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#hardDrive-compliantStandards">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Hard-Drive"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#modem-hasCommType"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Modem"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#processor-clockSpeed"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Processor"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#networkCard-supportsStandard">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Network-Card"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#modem-hasCommCompliantStandards">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Modem"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasLaptopScreenSize">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Laptop-Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#computer-hasDimension"
+     rdf:type="http://www.w3.org/2002/07/owl#FunctionalProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://owl.protege.stanford.edu#networkCard-supportsProtocol">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Network-Card"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="http://owl.protege.stanford.edu#computer-hasOSInstalled"
+     rdf:type="http://www.w3.org/2002/07/owl#DatatypeProperty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://owl.protege.stanford.edu#Computer"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE rdf:RDF [
+	 <!ENTITY daml 'http://www.w3.org/2002/07/owl#'>
+	 <!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>  
+         <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+]>
+
+<rdf:RDF
+  xmlns:rdf ="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="&rdfs;"
+  xmlns:owl="&daml;"
+ xml:base="http://www.daml.org/2002/08/ncaa/ncaa-ont">
+
+<owl:Ontology rdf:about="">
+  <owl:versionInfo>$Id: ncaa-ont.daml,v 1.1 2002/08/30 16:02:18 mdean Exp $</owl:versionInfo>
+  <rdfs:comment>NCAA Ontology, focusing initially on schedules</rdfs:comment>
+</owl:Ontology>
+
+<rdfs:Class rdf:ID="Sport">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:allValuesFrom rdf:resource="&xsd;string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Division">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:allValuesFrom rdf:resource="&xsd;string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Institution">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#id"/>
+      <owl:allValuesFrom rdf:resource="&xsd;int"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#id"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:allValuesFrom rdf:resource="&xsd;string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="&rdfs;label"/>
+      <owl:minCardinality>1</owl:minCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#division"/>
+      <owl:allValuesFrom rdf:resource="#Division"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#division"/>
+      <owl:maxCardinality>1</owl:maxCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Game">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#sport"/>
+      <owl:allValuesFrom rdf:resource="#Sport"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#sport"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#home"/>
+      <owl:allValuesFrom rdf:resource="#Institution"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#home"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#away"/>
+      <owl:allValuesFrom rdf:resource="#Institution"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#away"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#date"/>
+      <owl:allValuesFrom rdf:resource="&xsd;date"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#date"/>
+      <owl:cardinality>1</owl:cardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdfs:Class>
+
+<owl:ObjectProperty rdf:ID="away">
+  <rdfs:subPropertyOf rdf:resource="#team"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:ID="date"/>
+<owl:ObjectProperty rdf:ID="division"/>
+<owl:ObjectProperty rdf:ID="home">
+  <rdfs:subPropertyOf rdf:resource="#team"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:ID="id"/>
+<owl:ObjectProperty rdf:ID="sport"/>
+<owl:ObjectProperty rdf:ID="team"/>
+
+</rdf:RDF>

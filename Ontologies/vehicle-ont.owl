@@ -1,0 +1,81 @@
+<?xml version='1.0'?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns="http://owl-eclipse.projects.semwebcentral.org/owl/vehicle-ont#"
+   xml:base="http://owl-eclipse.projects.semwebcentral.org/owl/vehicle-ont"
+>
+  <owl:Ontology rdf:about="" 
+    xmlns:dc="http://orlando.drc.com/SemanticWeb/OWL/Ontology/DC/ver/0.1.0/dces-ont#" 
+    xmlns:ves="http://orlando.drc.com/SemanticWeb/OWL/Ontology/VES/ver/0.1.0/drc-ves-ont#"
+  >
+    <ves:versioning>
+      <ves:VersionData>
+        <dc:title>Vehicle Ontology</dc:title>
+        <ves:version>1.0</ves:version>
+        <dc:creator>Jeremy Lerner</dc:creator>
+        <ves:releaseDate>05/21/2004</ves:releaseDate>
+        <ves:status>Complete</ves:status>
+      </ves:VersionData>
+    </ves:versioning>
+    <owl:imports rdf:resource="http://orlando.drc.com/SemanticWeb/OWL/Ontology/DC/ver/0.1.0/dces-ont#"/>
+    <owl:imports rdf:resource="http://orlando.drc.com/SemanticWeb/OWL/Ontology/VES/ver/0.1.0/drc-ves-ont#"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Vehicle">
+    <rdfs:label>Vehicle</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#fuelType"/>
+        <owl:allValuesFrom rdf:resource="#FuelType"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#fuelType"/>
+        <owl:cardinality>1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Automobile">
+    <rdfs:label>Automobile</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Vehicle"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#wheelCount"/>
+        <owl:cardinality>1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Truck">
+    <rdfs:label>Truck</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Automobile"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Car">
+    <rdfs:label>Car</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Automobile"/>
+  </owl:Class>
+
+  <owl:DatatypeProperty rdf:ID="wheelCount">
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="fuelType">
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="FuelType">
+    <rdfs:label>FuelType</rdfs:label>
+  </owl:Class>
+
+  <FuelType rdf:ID="Gas">
+    <rdfs:label>Gasoline</rdfs:label>
+  </FuelType>
+
+  <FuelType rdf:ID="Diesel">
+    <rdfs:label>Diesel</rdfs:label>
+  </FuelType>
+
+</rdf:RDF>
